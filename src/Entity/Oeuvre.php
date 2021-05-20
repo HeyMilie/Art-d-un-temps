@@ -1,0 +1,160 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\OeuvreRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass=OeuvreRepository::class)
+ */
+class Oeuvre
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $reference;
+
+    /**
+     * @ORM\Column(type="string", length=70)
+     */
+    private $categorie;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $nom_oeuvre;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $année;
+
+    /**
+     * @ORM\Column(type="string", length=30)
+     */
+    private $dimension;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $prix;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $photo;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $stock;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getReference(): ?int
+    {
+        return $this->reference;
+    }
+
+    public function setReference(int $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(string $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getNomOeuvre(): ?string
+    {
+        return $this->nom_oeuvre;
+    }
+
+    public function setNomOeuvre(string $nom_oeuvre): self
+    {
+        $this->nom_oeuvre = $nom_oeuvre;
+
+        return $this;
+    }
+
+    public function getAnnée(): ?\DateTimeInterface
+    {
+        return $this->année;
+    }
+
+    public function setAnnée(\DateTimeInterface $année): self
+    {
+        $this->année = $année;
+
+        return $this;
+    }
+
+    public function getDimension(): ?string
+    {
+        return $this->dimension;
+    }
+
+    public function setDimension(string $dimension): self
+    {
+        $this->dimension = $dimension;
+
+        return $this;
+    }
+
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(int $prix): self
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): self
+    {
+        $this->stock = $stock;
+
+        return $this;
+    }
+}
