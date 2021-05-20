@@ -27,6 +27,16 @@ class Article
      */
     private $description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Membre::class, inversedBy="articles")
+     */
+    private $membre;
+
+    /**
+     * @ORM\Column(type="string", length=30)
+     */
+    private $auteur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +62,30 @@ class Article
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getMembre(): ?Membre
+    {
+        return $this->membre;
+    }
+
+    public function setMembre(?Membre $membre): self
+    {
+        $this->membre = $membre;
+
+        return $this;
+    }
+
+    public function getAuteur(): ?string
+    {
+        return $this->auteur;
+    }
+
+    public function setAuteur(string $auteur): self
+    {
+        $this->auteur = $auteur;
 
         return $this;
     }

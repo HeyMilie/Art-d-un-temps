@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\MembreRepository;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -61,6 +63,30 @@ class Membre
      * @ORM\Column(type="string", length=20)
      */
     private $statut;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="membre")
+     */
+    private $articles;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Oeuvre::class, mappedBy="membre")
+     */
+    private $oeuvres;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Evenement::class, mappedBy="membre")
+     */
+    private $evenements;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+        $this->oeuvres = new ArrayCollection();
+        $this->evenements = new ArrayCollection();
+    }
+
+
 
     public function getId(): ?int
     {
@@ -174,4 +200,93 @@ class Membre
 
         return $this;
     }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setMembre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getMembre() === $this) {
+                $article->setMembre(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Oeuvre[]
+     */
+    public function getOeuvres(): Collection
+    {
+        return $this->oeuvres;
+    }
+
+    public function addOeuvre(Oeuvre $oeuvre): self
+    {
+        if (!$this->oeuvres->contains($oeuvre)) {
+            $this->oeuvres[] = $oeuvre;
+            $oeuvre->setMembre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOeuvre(Oeuvre $oeuvre): self
+    {
+        if ($this->oeuvres->removeElement($oeuvre)) {
+            // set the owning side to null (unless already changed)
+            if ($oeuvre->getMembre() === $this) {
+                $oeuvre->setMembre(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Evenement[]
+     */
+    public function getEvenements(): Collection
+    {
+        return $this->evenements;
+    }
+
+    public function addEvenement(Evenement $evenement): self
+    {
+        if (!$this->evenements->contains($evenement)) {
+            $this->evenements[] = $evenement;
+            $evenement->addMembre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvenement(Evenement $evenement): self
+    {
+        if ($this->evenements->removeElement($evenement)) {
+            $evenement->removeMembre($this);
+        }
+
+        return $this;
+    }
+
+    
 }

@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\EvenementRepository;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,17 @@ class Evenement
      * @ORM\Column(type="string", length=30)
      */
     private $titre;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Membre::class, inversedBy="evenements")
+     */
+    private $membre;
+
+
+    public function __construct()
+    {
+        $this->membre = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -106,4 +119,30 @@ class Evenement
 
         return $this;
     }
+
+    /**
+     * @return Collection|Membre[]
+     */
+    public function getMembre(): Collection
+    {
+        return $this->membre;
+    }
+
+    public function addMembre(Membre $membre): self
+    {
+        if (!$this->membre->contains($membre)) {
+            $this->membre[] = $membre;
+        }
+
+        return $this;
+    }
+
+    public function removeMembre(Membre $membre): self
+    {
+        $this->membre->removeElement($membre);
+
+        return $this;
+    }
+
+    
 }

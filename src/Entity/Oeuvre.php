@@ -57,6 +57,11 @@ class Oeuvre
      */
     private $stock;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Membre::class, inversedBy="oeuvres")
+     */
+    private $membre;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +159,18 @@ class Oeuvre
     public function setStock(int $stock): self
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getMembre(): ?Membre
+    {
+        return $this->membre;
+    }
+
+    public function setMembre(?Membre $membre): self
+    {
+        $this->membre = $membre;
 
         return $this;
     }
