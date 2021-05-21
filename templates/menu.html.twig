@@ -1,60 +1,64 @@
- <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            
-            <div class="container-fluid">
-                <!-- LOGO -->
-               <a class="navbar-brand" href="#">
-                <!--<img src="" alt="Mon logo">
-                </a>!--> 
+<header>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-                <!-- TOGGLE BUGER MENU -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
+		<div class="container-fluid">
+			<!-- LOGO -->
+			<div class="logo">
+				<a class="navbar-brand" href="#">
+					<img src="/images/logo.png" alt="Mon logo">
+				</a>
+			</div>
 
-                <!-- INCLUS DANS LE TOGGLE MENU BURGER -->                
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<!-- TOGGLE BUGER MENU -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-                    <!-- NAV -->
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Concept</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Oeuvres</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Evénements</a>
-                        </li>
-                    </ul>
+			<!-- INCLUS DANS LE TOGGLE MENU BURGER -->
+			<div /class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <!-- Inscription / Connexion -->  
-                    {% if is_granted("IS_AUTHENTICATED_FULLY") %} {# {% if app.user %} #}
-                        <li class="nav-item">
-                             <a class="nav-link" href="">
-                             <i class="fa fa-user"></i> {{ app.user.pseudo }}
-                            </a>
-                        </li>
+				<!-- NAV -->
+				<ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Accueil</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Concept</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Oeuvres</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Evénements</a>
+					</li>
+				</ul>
 
-		                    <li class="nav-item">
-                              <a class="nav-link" href="#">
-                                <i class="fa fa-sign-out-alt"></i>
-                              </a>
-                        </li>
-                     {% else %}
-                          <form class="d-flex">
-                        <a class="nav-link" href="#">S'incrire</a>
-                        <button class="btn btn-primary" type="submit">Se connecter</button>
-                    </form>
-                        {% endif %}  
+				<!-- Inscription / Connexion -->
+				{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+					{# {% if app.user %} #}
+					<li class="nav-item">
+						<a class="nav-link" href="">
+							<i class="fa fa-user"></i>
+							{{ app.user.pseudo }}
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="#">
+							<i class="fa fa-sign-out-alt"></i>
+						</a>
+					</li>
+				{% else %}
+					<form class="d-flex">
+						<a class="nav-link" href="#">S'incrire</a>
+						<button class="btn btn-primary" type="submit">Se connecter</button>
+					</form>
+				{% endif %}
 
 
-                </div>
+			</div>
 
-            </div>
+		</div>
 
-        </nav>
-    </header>
+	</nav>
+</header>
