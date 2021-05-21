@@ -16,9 +16,8 @@ class ProfilController extends AbstractController
     #[IsGranted("IS_AUTHENTICATED_FULLY")]
 
     public function index(): Response
-    {
+    { 
          return $this->render('profil/index.html.twig');
 
-        ]);
     }
 }

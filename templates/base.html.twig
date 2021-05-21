@@ -19,11 +19,14 @@
         {# {% include "menu.html.twig" %} #}
          {{ include("menu.html.twig") }}
 
-         <h1>{% block titreH1 %}Art d'un temps{% endblock %}</h1>
+         <h1>{% block titreH1 %}{% endblock %}</h1>
 
         {% block body %}
+        <div class "container">
 
-        <h1>Art d'un temps</h1>
+        </div>
+
+        
 
         {% endblock %}
 
