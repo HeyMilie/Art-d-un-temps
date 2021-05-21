@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Membre;
 use App\Form\MembreType;
-use App\Entity\MembreRepository;
+use App\Repository\MembreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
