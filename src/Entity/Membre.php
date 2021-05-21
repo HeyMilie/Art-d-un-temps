@@ -79,6 +79,11 @@ class Membre
      */
     private $evenements;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $photo;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -284,6 +289,18 @@ class Membre
         if ($this->evenements->removeElement($evenement)) {
             $evenement->removeMembre($this);
         }
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
