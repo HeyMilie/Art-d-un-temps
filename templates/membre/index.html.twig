@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Membre index{% endblock %}
+
+{% block body %}
+    <h1>Membre index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pseudo</th>
+                <th>Mdp</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Ville</th>
+                <th>Cp</th>
+                <th>Adresse</th>
+                <th>Statut</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membre in membres %}
+            <tr>
+                <td>{{ membre.id }}</td>
+                <td>{{ membre.pseudo }}</td>
+                <td>{{ membre.mdp }}</td>
+                <td>{{ membre.nom }}</td>
+                <td>{{ membre.prenom }}</td>
+                <td>{{ membre.email }}</td>
+                <td>{{ membre.ville }}</td>
+                <td>{{ membre.cp }}</td>
+                <td>{{ membre.adresse }}</td>
+                <td>{{ membre.statut }}</td>
+                <td>
+                    <a href="{{ path('membre_show', {'id': membre.id}) }}">show</a>
+                    <a href="{{ path('membre_edit', {'id': membre.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('membre_new') }}">Create new</a>
+{% endblock %}
