@@ -29,6 +29,11 @@ class MembreController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $mdp = $form->get("password")->getData();
+            $mdp = $encoder ->encodePassword($membre, $mdp);
+            $membre->setPassword( $mdp );
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($membre);
             $entityManager->flush();
@@ -57,6 +62,10 @@ class MembreController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $mdp = $encoder ->encodePassword($membre, $mdp);
+            $membre->setPassword( $mdp );
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('membre_index');
