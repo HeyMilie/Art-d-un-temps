@@ -2,11 +2,12 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 body {
-    background-color: lightgray;
+    background-color: white;
 }
 
 .btn {
     border-radius: 22.5px;
+    font-weight: bold;
 }
 
 li {
