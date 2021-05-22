@@ -4,12 +4,13 @@ namespace App\Entity;
 
 use App\Repository\MembreRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=MembreRepository::class)
- * @UniqueEntity(fields={"pseudo"}, message="There is already an account with this pseudo")
+ * @UniqueEntity(fields={"pseudo"}, message="Ce pseudo est déjà utilisé")
  */
 class Membre implements UserInterface
 {
@@ -62,7 +63,7 @@ class Membre implements UserInterface
     private $cp;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=50)
      */
     private $adresse;
 

@@ -19,5 +19,9 @@ class ProfilController extends AbstractController
     { 
          return $this->render('profil/index.html.twig');
 
+<<<<<<< HEAD
+=======
+        /* ]); */
+>>>>>>> 99978fc93e17dc8991fa75f059f6afa326f40d10
     }
 }
