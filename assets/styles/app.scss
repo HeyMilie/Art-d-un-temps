@@ -1,11 +1,14 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
 body {
     background-color: lightgray;
 }
 
 .btn {
     border-radius: 22.5px;
+}
+
+li {
+    list-style-type: none;
 }
