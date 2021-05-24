@@ -15,9 +15,17 @@ use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 class RegistrationController extends AbstractController
 {
 
+<<<<<<< HEAD
     //#[Route('/register', name: 'app_register')]
 
     #[Route('/inscription', name: 'app_register')]
+=======
+    #[Route('/register', name: 'app_register')]
+    
+
+    #[Route('/inscription', name: 'app_register')]
+
+>>>>>>> Inscription/connexion/deconnexion/+
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginAuthenticator $authenticator): Response
     {
         $user = new Membre();
@@ -32,7 +40,7 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
+            // $user->setRoles([ "ROLE_ADMIN"]);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
