@@ -18,10 +18,6 @@ class ProfilController extends AbstractController
     public function index(): Response
     { 
          return $this->render('profil/index.html.twig');
-<<<<<<< HEAD
-=======
 
-
->>>>>>> Inscription/connexion/deconnexion/+
     }
 }
