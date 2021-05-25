@@ -1,7 +1,8 @@
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-		<div class="container-fluid">
+		<div
+			class="container-fluid">
 			<!-- LOGO -->
 			<div class="logo">
 				<a class="navbar-brand" href="#">
@@ -15,12 +16,13 @@
 			</button>
 
 			<!-- INCLUS DANS LE TOGGLE MENU BURGER -->
-			<div /class="collapse navbar-collapse" id="navbarSupportedContent">
+			<div
+				/class="collapse navbar-collapse" id="navbarSupportedContent">
 
 				<!-- NAV -->
 				<ul class="navbar-nav mx-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">Accueil</a>
+						<a class="nav-link active" aria-current="page" href="">Accueil</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Concept</a>
@@ -44,14 +46,16 @@
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="#">
+						<a class="nav-link" href="{{ path("app_logout") }}">
 							<i class="fa fa-sign-out-alt"></i>
 						</a>
 					</li>
 				{% else %}
 					<form class="d-flex">
-						<a class="nav-link" href="#">S'incrire</a>
-						<button class="btn btn-primary" type="submit">Se connecter</button>
+						<a class="nav-link" href="{{ path("app_register") }}">Inscription</a>
+						<a class="btn btn-warning" href="{{ path("app_login") }}">Connexion</a>
+						{#<button class="btn btn-warning" href="{{ path("app_login") }}">Se connecter</button>#}
+						
 					</form>
 				{% endif %}
 
@@ -62,3 +66,9 @@
 
 	</nav>
 </header>
+
+ 
+ 
+			
+
+		
