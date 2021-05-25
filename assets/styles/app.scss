@@ -3,15 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 
-@font-face {
-    font-family: 'noteworthybold';
-    src: url('/assets/fonts/noteworthy-bold-webfont.woff2') format('woff2'),
-         url('/assets/fonts/noteworthy-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 body {
     background-color: white;
 }
@@ -24,52 +15,4 @@ body {
 
 li {
     list-style-type: none;
-}
-
-#focus{
-    background-image: url("/public/images/focus-bg.jpg");
-    background-size: cover;
-    color: #FFF;
-    padding-bottom: 50px;
-}
-.bienvenue {
-    width: 195px;
-    height: 51px;
-    margin: 0 386px 4px 284px;
-    text-shadow: 0 2px 4px #000000;
-     font-family: 'PermanentMarker';
-     font-size: 36px;
-    color: #ffffff;
-}
-.inscrivez-vous {
-    width: 330px;
-    height: 19px;
-    margin: 4px 323px 11px 212px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #ffffff;
-  }
-#cards {
-    background-color: #2f2f2f;
-}
-
-.my-3 {
-    color: #ffffff;
-}
-
-.artiste{
-        width: 150px;
-        border-radius: 25px;
-      
-
-}
-.description{
-    float: right;
-    vertical-align: middle;
 }
