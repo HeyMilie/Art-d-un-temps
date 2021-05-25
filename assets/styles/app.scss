@@ -1,6 +1,8 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 
 @font-face {
@@ -66,7 +68,7 @@ li {
     height: 51px;
     margin: 0 386px 4px 284px;
     text-shadow: 0 2px 4px #000000;
-     font-family: 'PermanentMarker';
+     font-family: 'Permanent Marker', cursive;
      font-size: 36px;
     color: #ffffff;
 }
@@ -75,7 +77,7 @@ li {
     height: 19px;
     margin: 4px 323px 11px 212px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
@@ -95,10 +97,22 @@ li {
 .artiste{
         width: 150px;
         border-radius: 25px;
-      
-
 }
+
 .description{
-    float: right;
-    vertical-align: middle;
+    font-family: 'Roboto', sans-serif;
+}
+
+.peintre-lyon{
+    width: 70px;
+  height: 14px;
+  margin: 3px 18px 0 0;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 100;
+  font-stretch: normal;
+  font-style: italic;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #020202;
 }
