@@ -12,40 +12,11 @@
 
 }
 
-
-
 body {
     background-color: white;
 }
 
-.logo {
-    width:70px;
-}
-h2{
-    font-family: 'noteworthybold';
-    font-size: 24px;
-    padding: 20px 20px;
-}
-
-.navbar-light .navbar-nav .nav-link
-{
-    color: #04ac89;
-}
-.navbar-light .navbar-nav .nav-link:hover
-{
-    color:#ffbf00;
-}
-#inscription {
-
-    color: #04ac89;
-}
-
-#inscription:hover {
-    color: #ffbf00;
-
-}
-
-.btn{
+.btn {
     border-radius: 22.5px;
     font-weight: bold;
     background-image: linear-gradient(to right, #ffc200, #fff900);
