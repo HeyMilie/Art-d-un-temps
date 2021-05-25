@@ -8,13 +8,13 @@
     {% endfor %}
     
     <div class="bg-dark">
-        <div class="col-lg-6 mx-auto">
-            <h2>Devenir membre d'Art d'un temps</h2>
+        <div class="col-lg-6 mx-auto pt-3">
+            <h1>inscription</h1>
 
             {{ form_start(registrationForm) }}
 
                 <div class="border rounded p-4 m-3 bg-white">
-                    <h3> Vos identifiants de connexion</h3>
+                    <h2>Vos identifiants</h2>
                     {{ form_row(registrationForm.pseudo) }}
                     {{ form_errors(registrationForm.pseudo)}}
                     {{ form_row(registrationForm.plainPassword, {
@@ -27,7 +27,7 @@
                         })   }}
                 </div>
                 <div class="border rounded p-4 m-3 bg-white">
-                    <h3> Vos informations personelles</h3>
+                    <h2>Vos informations</h2>
                     <p>Pour nous permettre de vous proposer des actualités et des artistes proches de chez vous, veuillez renseigner votre adresse.</p>
                     {{ form_row(registrationForm.nom) }}
                     {{ form_row(registrationForm.prenom) }}
