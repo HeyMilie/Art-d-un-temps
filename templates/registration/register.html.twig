@@ -1,21 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription - Art d'un temps{% endblock %}
 
 {% block body %}
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
+    
+    <div class="bg-dark">
+        <div class="col-lg-6 mx-auto">
+            <h2>Devenir membre d'Art d'un temps</h2>
 
-    <h1>Register</h1>
+            {{ form_start(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-       {#  {{ form_row(registrationForm.pseudo) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+                <div class="border rounded p-4 m-3 bg-white">
+                    <h3> Vos identifiants de connexion</h3>
+                    {{ form_row(registrationForm.pseudo) }}
+                    {{ form_errors(registrationForm.pseudo)}}
+                    {{ form_row(registrationForm.plainPassword, {
+                        label: "Mot de passe"
+                        }) 
+                    }}
+                    {{ form_errors(registrationForm.plainPassword)}}
+                    {{ form_row(registrationForm.photo, {
+                        label: "Photo"
+                        })   }}
+                </div>
+                <div class="border rounded p-4 m-3 bg-white">
+                    <h3> Vos informations personelles</h3>
+                    <p>Pour nous permettre de vous proposer des actualités et des artistes proches de chez vous, veuillez renseigner votre adresse.</p>
+                    {{ form_row(registrationForm.nom) }}
+                    {{ form_row(registrationForm.prenom) }}
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_row(registrationForm.adresse) }}
+                    {{ form_row(registrationForm.cp, {
+                        label: "Code postal"
+                        })  }}
+                    {{ form_row(registrationForm.ville) }}
+                    {{ form_row(registrationForm.agreeTerms, {
+                        label: "J'accepte les Conditions Générales d'Utilisation"
+                        })   }}
+                </div>
+                <div class="p-4 right">
+                    {{ form_row(registrationForm.enregistrer) }}
+                </div>
 
-        <button type="submit" class="btn">Register</button> #}
-    {{ form_end(registrationForm) }} 
+            {{ form_end(registrationForm) }}
+
+        </div>
+
+    </div>
+            
+
 {% endblock %}
