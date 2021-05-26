@@ -39,10 +39,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        #- { path: ^/admin, roles: ROLE_ADMIN }
-        #- { path: ^/profile, roles: ROLE_USER }
-        #- { path: ^/admin/QQCHOSECOMMEoeuvres, roles: ROLE_ARTISTE }
-        #- { path: ^/profile, roles: IS_AUTHENTIFICATED_FULLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/profil, roles: ROLE_USER }
+        # - { path: ^/admin/QQCHOSECOMMEoeuvres, roles: ROLE_ARTISTE }
+        - { path: ^/profil, roles: IS_AUTHENTIFICATED_FULLY }
 
-    #role_hierarchy:
-#ROLE_ADMIN: ROLE_ARTISTE, ROLE_MEMBRE
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_ARTISTE, ROLE_MEMBRE
