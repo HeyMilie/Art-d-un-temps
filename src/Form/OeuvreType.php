@@ -15,7 +15,7 @@ class OeuvreType extends AbstractType
             ->add('reference')
             ->add('categorie')
             ->add('nom_oeuvre')
-            ->add('année')
+            ->add('annee')
             ->add('dimension')
             ->add('prix')
             ->add('photo')

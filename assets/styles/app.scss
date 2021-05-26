@@ -14,19 +14,43 @@
 
 }
 
+//********************
+// STYLES COMMUNS
+//********************
 body {
     background-color: white;
 }
 
-.logo {
-    width:70px;
+h1 {
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+    font-size:36px;
+    text-align: center;
+    text-shadow: black 2px 2px 3px;
 }
+
 h2{
     font-family: 'noteworthybold';
     font-size: 24px;
     padding: 20px 20px;
 }
 
+.btn{
+    border-radius: 22.5px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #ffc200, #fff900);
+}
+
+li {
+    list-style-type: none;
+}
+
+//********************
+// STYLES HEADER
+//********************
+.logo {
+    width:70px;
+}
 .navbar-light .navbar-nav .nav-link
 {
     color: #04ac89;
@@ -45,16 +69,9 @@ h2{
 
 }
 
-.btn{
-    border-radius: 22.5px;
-    font-weight: bold;
-    background-image: linear-gradient(to right, #ffc200, #fff900);
-}
-
-li {
-    list-style-type: none;
-}
-
+//********************
+// STYLES HOME
+//********************
 #focus{
     background-image: url("/public/images/focus-bg.jpg");
     background-size: cover;
@@ -115,3 +132,9 @@ li {
   color: #020202;
 }
 
+//********************************
+// STYLES FORM INSCRIPTION
+//********************************
+.custom-file-input:lang(fr) ~ .custom-file-label::after{
+    content: "Parcourir";
+}

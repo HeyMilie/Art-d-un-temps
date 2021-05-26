@@ -32,16 +32,27 @@
 
 				<!-- Inscription / Connexion -->
 				{% if is_granted("IS_AUTHENTICATED_FULLY") %}
-					{# {% if app.user %} #}
-					<ul class="navbar-nav
-					 mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a class="nav-link" href="">
-								<i class="fa fa-user"></i>
-								{{ app.user.pseudo }}
-							</a>
-						</li>
-	
+					<ul class="navbar-nav mb-2 mb-lg-0">
+						{% if is_granted("ROLE_ADMIN") %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path("profil_admin")}}">
+									<i class="fa fa-user"></i>{{ app.user.pseudo }}
+								</a>
+							</li>
+						{% elseif is_granted("ROLE_ARTISTE") %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path("profil_artiste")}}">
+									<i class="fa fa-user"></i>{{ app.user.pseudo }}
+								</a>
+							</li>
+						{% elseif is_granted("ROLE_MEMBRE") %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path("profil_membre")}}">
+									<i class="fa fa-user"></i>{{ app.user.pseudo }}
+								</a>
+							</li>
+						{% endif %}
+
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path("app_logout") }}">
 								<i class="fa fa-sign-out-alt"></i>
@@ -51,12 +62,9 @@
 				{% else %}
 					<form class="d-flex">
 						<a id="inscription" class="nav-link" href="{{ path("app_register") }}">Inscription</a>
-						<a class="btn btn-warning" href="{{ path("app_login") }}">Connexion</a>
-						{#<button class="btn btn-warning" href="{{ path("app_login") }}">Se connecter</button>#}
-						
+						<a class="btn btn-warning" href="{{ path("app_login") }}">Connexion</a>	
 					</form>
 				{% endif %}
-
 
 			</div>
 
