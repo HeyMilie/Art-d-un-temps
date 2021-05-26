@@ -21,6 +21,12 @@ class OeuvreController extends AbstractController
         ]);
     }
 
+    #[Route('/oeuvres', name: 'oeuvre_oeuvres', methods: ['GET'])] 
+    public function oeuvres(OeuvreRepository $oeuvreRepository): Response
+    {
+        return $this->render('oeuvre/oeuvres.html.twig', ['oeuvres' => $oeuvreRepository->findAll(),]);
+    }
+
     #[Route('/new', name: 'oeuvre_new', methods: ['GET', 'POST'])]
     public function new(Request $request): Response
     {
@@ -71,7 +77,7 @@ class OeuvreController extends AbstractController
     #[Route('/{id}', name: 'oeuvre_delete', methods: ['POST'])]
     public function delete(Request $request, Oeuvre $oeuvre): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$oeuvre->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $oeuvre->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($oeuvre);
             $entityManager->flush();
