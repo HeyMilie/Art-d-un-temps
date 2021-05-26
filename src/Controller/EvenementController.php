@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/evenement')]
+
+#[IsGranted("IS_AUTHENTICATED_FULLY")]
+
 class EvenementController extends AbstractController
 {
     #[Route('/', name: 'evenement_index', methods: ['GET'])]
