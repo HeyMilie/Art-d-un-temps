@@ -19,7 +19,7 @@ class ProfilController extends AbstractController
 
     }
 
-    #[Route('/profil/artiste', name: 'profil_artiste')]
+    #[Route('/artiste/profil', name: 'profil_artiste')]
     #[IsGranted("ROLE_ARTISTE")]
     public function profilArtiste(): Response
     { 
@@ -27,7 +27,7 @@ class ProfilController extends AbstractController
         
     }
 
-    #[Route('/profil/admin', name: 'profil_admin')]
+    #[Route('/admin/profil', name: 'profil_admin')]
     #[IsGranted("ROLE_ADMIN")]
     public function profilAdmin(): Response
     { 
