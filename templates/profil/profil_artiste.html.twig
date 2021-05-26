@@ -1,4 +1,87 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Profil {{app.user.username}}
+{% block title %}Profil {{app.user.username}} {% endblock %}
+
+{% block body %}
+<section class="container-fluid bg-dark p-3">
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb bg-dark">
+			  <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+			  <li class="breadcrumb-item active" aria-current="page">Profil de {{app.user.username}}</li>
+			</ol>
+		</nav>
+
+		<h1>Bienvenue sur votre profil {{ app.user.pseudo }}</h1>
+
+		<h2 class="border-bottom h2-profil">Mes informations personnelles</h2>
+
+		<div class="row justify-content-between align-items-start pb-3">
+			
+			<div class="col-lg-2">
+			<img class="rounded img-membre" src="/images/avatar_default.png" alt="photo de profil">
+			</div>
+
+			<ul class="col-lg-8 ul-profil">
+				<li>Nom & Prénom : {{ app.user.nom }} {{ app.user.prenom }}</li>
+				<li>Pseudo : {{ app.user.pseudo }}</li>
+				<li>E-mail : {{ app.user.email }}</li>			
+				<li>Adresse : {{ app.user.adresse }}</li>
+				<li>Code Postal - Ville : {{ app.user.cp }} {{ app.user.ville }}</li>
+			</ul>
+			
+			<div class="col-lg-2">
+				<button class="btn" href="{{ path('membre_edit', {'id': app.user.id}) }}">Modifier</button>
+			</div>
+	
+		</div>
+
+		<div class="row justify-content-between align-items-center">
+			<h2 class="h2-profil">Abonnement à la newsletter</h2>
+		
+			<div class="custom-control custom-switch">
+				<input type="checkbox" class="custom-control-input" id="customSwitch1">
+				<label class="custom-control-label" for="customSwitch1"></label>
+			</div>
+		</div>
+
+		<h2 class="border-bottom h2-profil">Mes oeuvres</h2>
+
+		<div class="row justify-content-between align-items-start pb-3">
+			
+			<div class="col-lg-2">
+			<img class="rounded img-membre" src="/images/oeuvre_mea_01.jpg" alt="photo de l'oeuvre">
+			</div>
+
+			<div class="col-lg-8 ul-profil">
+
+                <table>
+                    {#{% for oeuvres in oeuvre %}
+                        <tr>
+                            <td>{{ oeuvre.nom_oeuvre }}</td>
+                            <td>{{ oeuvre.description }}</td>
+                            <td>{{ oeuvre.annee|date('Y') }}</td>
+                            <td>
+                                <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">no records found</td>
+                        </tr>
+                    {% endfor %}#}
+                </table>
+                    
+			</div>
+			
+			<div class="col-lg-2">
+				<button class="btn" href="{{ path('membre_edit', {'id': app.user.id}) }}">Modifier</button>
+			</div>
+		
+		</div>
+			
+		
+	</div>
+
+</section>	
 {% endblock %}

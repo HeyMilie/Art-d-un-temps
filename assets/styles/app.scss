@@ -1,3 +1,11 @@
+//********************
+// REDÉFINITIONS DE VARIABLES
+//********************
+$breadcrumb-divider: quote(">");
+
+//********************
+// IMPORTS
+//********************
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
@@ -11,7 +19,6 @@
          url('/assets/fonts/noteworthy-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 //********************
@@ -45,6 +52,17 @@ li {
     list-style-type: none;
 }
 
+/* Styles Breadcrumb */
+
+.breadcrumb-item a{
+    color: #ffbf00;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+    color: white;
+}
+.breadcrumb-item.active{
+    color: white;
+}
 //********************
 // STYLES HEADER
 //********************
@@ -137,4 +155,23 @@ li {
 //********************************
 .custom-file-input:lang(fr) ~ .custom-file-label::after{
     content: "Parcourir";
+}
+
+//********************************
+// STYLES PROFIl
+//********************************
+.h2-profil{
+    color: white;
+}
+
+.img-membre{
+    width: 150px;
+}
+
+.ul-profil{
+    color: white;
+}
+
+.li-profil {
+    list-style-type: disc;
 }
