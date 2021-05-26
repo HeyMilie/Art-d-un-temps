@@ -22,8 +22,8 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('pseudo', TextType::class, [
-                "label" => "Pseudo",
-                "required" => true
+                'label' => 'Pseudo',
+                'required' => true,
             ])
 
             ->add('plainPassword', PasswordType::class, [
@@ -42,22 +42,23 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
+                
             ])
             ->add("prenom", TextType::class, [
                 "label" => "Prénom",
-                "required" => true
+                "required" => false
             ])
 
             ->add("nom", TextType::class, [
-                "required" => true
+                "required" => false
             ])
 
             ->add("email", TextType::class, [
-                "required" => true
+                "required" => false
             ])
 
             ->add("ville", TextType::class, [
-                "required" => true,
+                "required" => false,
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Vous devez saisir une ville',
@@ -66,7 +67,7 @@ class RegistrationFormType extends AbstractType
             ])
 
             ->add('cp', NumberType::class, [
-                "required" => true,
+                "required" => false,
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Vous devez saisir un code postal',
@@ -75,7 +76,7 @@ class RegistrationFormType extends AbstractType
             ])
 
             ->add("adresse", TextType::class, [
-                "required" => true,
+                "required" => false,
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Vous devez saisir une adresse',
@@ -84,12 +85,13 @@ class RegistrationFormType extends AbstractType
             ])
 
             ->add('photo', FileType::class, [
-                "attr" => ["label_attr" => "Parcourir"],
-                'constraints' => [
+                "attr" => ["label_attr" => "Parcourir", "lang" => "fr"],
+                "constraints" => [
                     new IsTrue([
                         'message' => 'Vous devez choisir une photo',
                     ]),
                 ],
+                
             ])
 
             ->add('agreeTerms', CheckboxType::class, [
@@ -101,6 +103,7 @@ class RegistrationFormType extends AbstractType
                 ],
                 'attr' => ["class" => "form-check-input"]
             ])
+
             ->add('enregistrer', SubmitType::class, ["attr" => ["class" => "btn btn-warning"]]);
     }
 
