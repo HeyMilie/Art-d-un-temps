@@ -13,11 +13,20 @@ class ProfilController extends AbstractController
 {
     #[Route('/profil', name: 'profil_index')]
 
-    #[IsGranted("IS_AUTHENTICATED_FULLY")]
+    #[IsGranted("ROLE_")]
 
     public function index(): Response
     { 
          return $this->render('profil/index.html.twig');
 
+    }
+
+    #[Route('/admin/profil', name: 'profil-admin')]
+    #[IsGranted("ROLE_ADMIN")]
+
+    public function profilAdmin(): Response
+    { 
+        return $this->render('profil/profil-admin.html.twig');
+        
     }
 }
