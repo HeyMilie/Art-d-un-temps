@@ -3,15 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-
-
 @font-face {
     font-family: 'noteworthybold';
-    src: url('/assets/fonts/noteworthy-bold-webfont.woff2') format('woff2'),
-         url('/assets/fonts/noteworthy-bold-webfont.woff') format('woff');
+    src: url('/assets/fonts/noteworthy-bold-webfont.woff2') format('woff2'), url('/assets/fonts/noteworthy-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 //********************
@@ -24,18 +20,18 @@ body {
 h1 {
     font-family: 'Permanent Marker', cursive;
     color: white;
-    font-size:36px;
+    font-size: 36px;
     text-align: center;
     text-shadow: black 2px 2px 3px;
 }
 
-h2{
+h2 {
     font-family: 'noteworthybold';
     font-size: 24px;
     padding: 20px 20px;
 }
 
-.btn{
+.btn {
     border-radius: 22.5px;
     font-weight: bold;
     background-image: linear-gradient(to right, #ffc200, #fff900);
@@ -49,44 +45,45 @@ li {
 // STYLES HEADER
 //********************
 .logo {
-    width:70px;
+    width: 70px;
 }
-.navbar-light .navbar-nav .nav-link
-{
+
+.navbar-light .navbar-nav .nav-link {
     color: #04ac89;
 }
-.navbar-light .navbar-nav .nav-link:hover
-{
-    color:#ffbf00;
-}
-#inscription {
 
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #ffbf00;
+}
+
+#inscription {
     color: #04ac89;
 }
 
 #inscription:hover {
     color: #ffbf00;
-
 }
 
 //********************
 // STYLES HOME
 //********************
-#focus{
+#focus {
     background-image: url("/public/images/focus-bg.jpg");
     background-size: cover;
     color: #FFF;
     padding-bottom: 50px;
 }
+
 .bienvenue {
     width: 195px;
     height: 51px;
     margin: 0 386px 4px 284px;
     text-shadow: 0 2px 4px #000000;
-     font-family: 'Permanent Marker', cursive;
-     font-size: 36px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 36px;
     color: #ffffff;
 }
+
 .inscrivez-vous {
     width: 330px;
     height: 19px;
@@ -100,41 +97,68 @@ li {
     line-height: normal;
     letter-spacing: normal;
     color: #ffffff;
-  }
+}
+
 #cards {
     background-color: #2f2f2f;
 }
 
 .my-3 {
-    color: #ffffff;
+    color: black;
 }
 
-.artiste{
-        width: 150px;
-        border-radius: 25px;
+.artiste {
+    width: 150px;
+    border-radius: 25px;
 }
 
-.description{
+.description {
     font-family: 'Roboto', sans-serif;
 }
 
-.peintre-lyon{
+.peintre-lyon {
     width: 70px;
-  height: 14px;
-  margin: 3px 18px 0 0;
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: 100;
-  font-stretch: normal;
-  font-style: italic;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #020202;
+    height: 14px;
+    margin: 3px 18px 0 0;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #020202;
 }
 
 //********************************
 // STYLES FORM INSCRIPTION
 //********************************
-.custom-file-input:lang(fr) ~ .custom-file-label::after{
+.custom-file-input:lang(fr)~.custom-file-label::after {
     content: "Parcourir";
+}
+
+//********************************
+// STYLES FOOTER
+//********************************
+footer {
+    background-color: #2F2F2F;
+    color: #F5F5F5;
+}
+
+.t {
+    background-color: #2F2F2F;
+    color: #F5F5F5;
+}
+
+.r-sociaux i {
+    font-size: 20px;
+    margin: 10px 0 0 5px;
+    padding: 5px;
+    border-radius: 50%;
+    color: #000000;
+    background-image: linear-gradient(to right, #ffc200, #fff900);
+}
+
+.caché {
+    display: none;
 }
