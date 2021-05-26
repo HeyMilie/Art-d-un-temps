@@ -16,15 +16,14 @@
                 <div class="border rounded p-4 m-3 bg-white">
                     <h2>Vos identifiants</h2>
                     {{ form_row(registrationForm.pseudo) }}
-                    {{ form_errors(registrationForm.pseudo)}}
+                    {#{{ form_errors(registrationForm.pseudo)}}#}
                     {{ form_row(registrationForm.plainPassword, {
                         label: "Mot de passe"
                         }) 
                     }}
-                    {{ form_errors(registrationForm.plainPassword)}}
-                    {{ form_row(registrationForm.photo, {
+                    {#{{ form_row(registrationForm.photo, {
                         label: "Photo"
-                        })   }}
+                        })   }}#}
                 </div>
                 <div class="border rounded p-4 m-3 bg-white">
                     <h2>Vos informations</h2>
@@ -32,11 +31,11 @@
                     {{ form_row(registrationForm.nom) }}
                     {{ form_row(registrationForm.prenom) }}
                     {{ form_row(registrationForm.email) }}
-                    {{ form_row(registrationForm.adresse) }}
+                    {#{{ form_row(registrationForm.adresse) }}
                     {{ form_row(registrationForm.cp, {
                         label: "Code postal"
                         })  }}
-                    {{ form_row(registrationForm.ville) }}
+                    {{ form_row(registrationForm.ville) }}#}
                     {{ form_row(registrationForm.agreeTerms, {
                         label: "J'accepte les Conditions Générales d'Utilisation"
                         })   }}

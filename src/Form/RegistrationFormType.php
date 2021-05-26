@@ -57,42 +57,43 @@ class RegistrationFormType extends AbstractType
                 "required" => false
             ])
 
-            ->add("ville", TextType::class, [
-                "required" => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Vous devez saisir une ville',
-                    ]),
-                ],
-            ])
+            // ->add("ville", TextType::class, [
+            //     "required" => false,
+            //     'constraints' => [
+            //         new IsTrue([
+            //             'message' => 'Vous devez saisir une ville',
+            //         ]),
+            //     ],
+            // ])
 
-            ->add('cp', NumberType::class, [
-                "required" => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Vous devez saisir un code postal',
-                    ]),
-                ],
-            ])
+            // ->add('cp', NumberType::class, [
+            //     "required" => false,
+            //     'constraints' => [
+            //         new IsTrue([
+            //             'message' => 'Vous devez saisir un code postal',
+            //         ]),
+            //     ],
+            // ])
 
-            ->add("adresse", TextType::class, [
-                "required" => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Vous devez saisir une adresse',
-                    ]),
-                ],
-            ])
+            // ->add("adresse", TextType::class, [
+            //     "required" => false,
+            //     'constraints' => [
+            //         new IsTrue([
+            //             'message' => 'Vous devez saisir une adresse',
+            //         ]),
+            //     ],
+            // ])
 
-            ->add('photo', FileType::class, [
-                "attr" => ["label_attr" => "Parcourir", "lang" => "fr"],
-                "constraints" => [
-                    new IsTrue([
-                        'message' => 'Vous devez choisir une photo',
-                    ]),
-                ],
+            // ->add('photo', FileType::class, [
+            //     "mapped" => false,
+            //     "attr" => ["label_attr" => "Parcourir", "lang" => "fr"],
+            //     "constraints" => [
+            //         new IsTrue([
+            //             'message' => 'Vous devez choisir une photo',
+            //         ]),
+            //     ],
                 
-            ])
+            // ])
 
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
