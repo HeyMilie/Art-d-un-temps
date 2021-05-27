@@ -1,4 +1,98 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Profil {{app.user.username}}
+{% block title %}Profil {{app.user.username}} {% endblock %}
+
+{% block body %}
+<section class="container-fluid bg-dark p-3">
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb bg-dark">
+			  <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+			  <li class="breadcrumb-item active" aria-current="page">Profil de {{app.user.username}}</li>
+			</ol>
+		</nav>
+
+		<h1>Bienvenue sur votre profil {{ app.user.pseudo }}</h1>
+        
+        <h2 class="border-bottom h2-profil">Gestion du site</h2>
+
+        <div class="card-columns mt-3">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Les membres</h5>
+                <ul>
+                    <li class="li-profil"><a href="{{ path("membre_index") }}">Voir les membres</a></li>
+                    <li class="li-profil"><a href="{{ path("membre_new") }}">Ajouter un membre</a></li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Les oeuvres</h5>
+                    <ul>
+                        <li class="li-profil"><a href="{{ path("oeuvre_index") }}">Voir les oeuvres</a></li>
+                        <li class="li-profil"><a href="{{ path("oeuvre_new") }}">Ajouter une oeuvre</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Les articles</h5>
+                    <ul>
+                        <li class="li-profil"><a href="{{ path("article_index") }}">Voir les articles</a></li>
+                        <li class="li-profil"><a href="{{ path("article_new") }}">Ajouter un article</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Les événements</h5>
+                    <ul>
+                        <li class="li-profil"><a href="{{ path("evenement_index") }}">Voir les événements</a></li>
+                        <li class="li-profil"><a href="{{ path("evenement_new") }}">Ajouter un événement</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Les commandes</h5>
+                    <ul>
+                        <li class="li-profil"><a href="{{ path("oeuvre_index") }}">Voir les commandes</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="border-bottom h2-profil">Mes informations personnelles</h2>
+
+		<div class="row justify-content-between align-items-start pb-3">
+			
+			<div class="col-lg-2">
+			<img class="rounded img-membre" src="/images/avatar_default.png" alt="photo de profil">
+			</div>
+
+			<ul class="col-lg-8 ul-profil">
+				<li>Nom & Prénom : {{ app.user.nom }} {{ app.user.prenom }}</li>
+				<li>Pseudo : {{ app.user.pseudo }}</li>
+				<li>E-mail : {{ app.user.email }}</li>			
+				<li>Adresse : {{ app.user.adresse }}</li>
+				<li>Code Postal - Ville : {{ app.user.cp }} {{ app.user.ville }}</li>
+			</ul>
+			
+			<div class="col-lg-2">
+				<button class="btn" href="{{ path('membre_edit', {'id': app.user.id}) }}">Modifier</button>
+			</div>
+	
+		</div>
+
+    </div>
+
+</section>
+	
+	
 {% endblock %}

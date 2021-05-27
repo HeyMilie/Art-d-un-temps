@@ -1,3 +1,11 @@
+//********************
+// REDÉFINITIONS DE VARIABLES
+//********************
+$breadcrumb-divider: quote(">");
+
+//********************
+// IMPORTS
+//********************
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
@@ -41,6 +49,17 @@ li {
     list-style-type: none;
 }
 
+/* Styles Breadcrumb */
+
+.breadcrumb-item a{
+    color: #ffbf00;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+    color: white;
+}
+.breadcrumb-item.active{
+    color: white;
+}
 //********************
 // STYLES HEADER
 //********************
@@ -158,3 +177,23 @@ footer {
     color: #000000;
     background-image: linear-gradient(to right, #ffc200, #fff900);
 }
+
+// *******************************
+STYLES PROFIL
+//********************************
+.h2-profil{
+    color: white;
+}
+
+.img-membre{
+    width: 150px;
+}
+
+.ul-profil{
+    color: white;
+}
+
+.li-profil {
+    list-style-type: disc;
+}
+
