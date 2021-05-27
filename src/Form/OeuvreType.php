@@ -19,7 +19,7 @@ class OeuvreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('reference', NumberType::class)
+            ->add('reference', TextType::class)
             ->add('categorie', ChoiceType::class, [
                "choices" => [
                    "Peinture" => "Peinture",
@@ -29,14 +29,15 @@ class OeuvreType extends AbstractType
                    "Illustration" => "Illustration",
                    "Verre" => "Verre"   
                ],
-               "multiple" => true,
+               "multiple" => false,
                 "expanded" => true  
             ])
             ->add('nom_oeuvre', TextType::class)
             ->add('annee', TextType::class, [
+                "mapped" => false,
                 "label" => "Réalisée en"
             ])
-            ->add('dimension', NumberType::class, [
+            ->add('dimension', TextType::class, [
                 "mapped" => false,
                 "label" => "Dimmension en cm (largeur x hauteur)"
             ])
@@ -52,7 +53,7 @@ class OeuvreType extends AbstractType
                     ])
                 ]
             ])
-            ->add('photo')
+            //->add('photo')
             ->add('stock')
             ->add('membre', TextType::class, [
                 "label" => "Nom de l'artiste",

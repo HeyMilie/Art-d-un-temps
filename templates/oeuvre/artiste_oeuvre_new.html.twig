@@ -1,12 +1,12 @@
 {% extends 'bo_base.html.twig' %}
 
-{% block title %}Art d'un temps - Nouvelle Oeuvre{% endblock %}
+{% block title %}Art d'un temps - Nouvelle oeuvre{% endblock %}
 
 {% block content %}
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb bg-dark">
         <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
-        <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li> 
+        <li class="breadcrumb-item"><a href="{{ path("profil_artiste")}}">Profil de {{app.user.username}}</a></li>
         <li class="breadcrumb-item active" aria-current="page">Ajouter une nouvelle oeuvre</li>
     </ol>
 </nav>
@@ -16,7 +16,6 @@
         {{ include('oeuvre/_form.html.twig') }}
         </div>
     </div>
-
-    <a href="{{ path('bo_oeuvres') }}" class="btn"><i class="fas fa-arrow-left"></i> Retour</a>
+    <a href="{{ path('profil_artiste') }}" class="btn"><i class="fas fa-arrow-left"></i> Retour</a>
 
 {% endblock %}

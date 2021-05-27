@@ -1,11 +1,21 @@
-{% extends 'base.html.twig' %}
+{% extends 'bo_base.html.twig' %}
 
-{% block title %}New Article{% endblock %}
+{% block title %}Art d'un temps - Nouvel Article{% endblock %}
 
-{% block body %}
-    <h1>Create new Article</h1>
+{% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-dark">
+        <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+        <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li> 
+        <li class="breadcrumb-item active" aria-current="page">Ajouter une nouvel article</li>
+    </ol>
+</nav>
+    <h1>Ajouter un nouvel article</h1>
+    <div class="card mt-3 mb-3">
+        <div class="card-body"> 
+        {{ include('article/_form.html.twig') }}
+        </div>
+    </div>
 
-    {{ include('article/_form.html.twig') }}
-
-    <a href="{{ path('article_index') }}">back to list</a>
+    <a href="{{ path('article_index') }}" class="btn"><i class="fas fa-arrow-left"></i> Retour</a>
 {% endblock %}

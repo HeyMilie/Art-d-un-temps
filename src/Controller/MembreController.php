@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Membre;
 use App\Form\MembreType;
 use App\Repository\MembreRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface as Encoder;
 
 #[Route('admin/membre')]
@@ -31,7 +32,7 @@ class MembreController extends AbstractController
     }
 
     #[Route('/new', name: 'membre_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, Encoder $encoder): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, Encoder $encoder): Response
     {
         $membre = new Membre();
         $form = $this->createForm(MembreType::class, $membre);
@@ -42,6 +43,16 @@ class MembreController extends AbstractController
             $password = $form->get("password")->getData();
             $password = $encoder ->encodePassword($membre, $password);
             $membre->setPassword( $password );
+
+            $destination = $this->getParameter("dossier_images");
+            if($photoTelechargee = $form->get("photo")->getData()){
+                $nomPhoto = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
+                $nouveauNom = str_replace(" ", "_", $nomPhoto);
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtention();
+                $photoTelechargee->move($destination, $nouveauNom);
+                $membre->setPhoto($nouveauNom);
+
+            }
             
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($membre);

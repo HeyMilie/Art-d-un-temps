@@ -1,17 +1,17 @@
 {% extends 'bo_base.html.twig' %}
 
-{% block title %}Art d'un temps - Liste des oeuvres {% endblock %}
+{% block title %}Art d'un temps - Mes oeuvres {% endblock %}
 
 {% block content %}
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-dark">
             <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
-            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li> 
-            <li class="breadcrumb-item active" aria-current="page">Liste des oeuvres</li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_artiste")}}">Profil de {{app.user.username}}</a></li> 
+            <li class="breadcrumb-item active" aria-current="page">Mes oeuvres</li>
         </ol>
     </nav>
 
-    <h1>Liste des oeuvres</h1>
+    <h1>Mes oeuvres</h1>
 
     <table class="table mt-3">
         <thead class="bg-light">
@@ -36,8 +36,8 @@
                 <td>{{ oeuvre.photo }}</td>
                 <td>{{ oeuvre.stock }}</td>
                 <td>
-                    <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>
-                    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
+                    <a href="{{ path('artiste_oeuvre_show', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>
+                    <a href="{{ path('artiste_oeuvre_edit', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
