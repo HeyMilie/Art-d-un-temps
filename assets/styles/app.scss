@@ -21,6 +21,7 @@ $breadcrumb-divider: quote(">");
 //********************
 // STYLES COMMUNS
 //********************
+
 body {
     background-color: white;
 }
@@ -49,6 +50,13 @@ li {
     list-style-type: none;
 }
 
+a{
+    text-decoration: none;
+}
+ 
+a:visited{
+    color: grey;
+ 
 /* Styles Breadcrumb */
 
 .breadcrumb-item a{
@@ -67,7 +75,7 @@ li {
     width: 70px;
 }
 
-.navbar-light .navbar-nav .nav-link {
+.navbar-light .navbar-nav .nav-link .burgerlink{
     color: #04ac89;
 }
 
@@ -93,20 +101,9 @@ li {
     padding-bottom: 50px;
 }
 
-.bienvenue {
-    width: 195px;
-    height: 51px;
-    margin: 0 386px 4px 284px;
-    text-shadow: 0 2px 4px #000000;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 36px;
-    color: #ffffff;
-}
-
-.inscrivez-vous {
+.sinscrire{
     width: 330px;
     height: 19px;
-    margin: 4px 323px 11px 212px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -179,7 +176,7 @@ footer {
 }
 
 // *******************************
-STYLES PROFIL
+//STYLES PROFIL
 //********************************
 .h2-profil{
     color: white;
