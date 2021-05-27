@@ -20,6 +20,7 @@ $breadcrumb-divider: quote(">");
 //********************
 // STYLES COMMUNS
 //********************
+
 body {
     background-color: white;
 }
@@ -48,7 +49,6 @@ li {
     list-style-type: none;
 }
 
-
 /* Styles Breadcrumb */
 
 .breadcrumb-item a {
@@ -70,7 +70,7 @@ li {
     width: 70px;
 }
 
-.navbar-light .navbar-nav .nav-link {
+.navbar-light .navbar-nav .nav-link{
     color: #04ac89;
 }
 
@@ -97,20 +97,9 @@ li {
 }
 
 
-/* .bienvenue {
-    width: 195px;
-    height: 51px;
-    margin: 0 386px 4px 284px;
-    text-shadow: 0 2px 4px #000000;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 36px;
-    color: #ffffff;
-} */
-
-.inscrivez-vous {
+.sinscrire {
     width: 330px;
     height: 19px;
-    margin: 4px 323px 11px 212px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -203,12 +192,6 @@ footer a:hover {
     color: #FFCB00;
 }
 
-
-/* footer p {
-    text-decoration: none;
-}
- */
-
 footer hr {
     width: 90%;
     height: 1px;
@@ -241,7 +224,6 @@ footer hr {
     color: #000000;
     background-image: linear-gradient(to right, #ffc200, #fff900);
 }
-
 //********************************
 //STYLES PROFIL
 //********************************
