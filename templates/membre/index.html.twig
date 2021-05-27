@@ -25,7 +25,7 @@
         </thead>
         <tbody>
         {% for membre in membres %}
-            <tr class="list-membres">
+            <tr class="text-table">
                 <td>{{ membre.pseudo }}</td>
                 <td>{{ membre.nom }}</td>
                 <td>{{ membre.prenom }}</td>
@@ -53,7 +53,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="11">no records found</td>
+                <td colspan="11">Aucun membre trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
