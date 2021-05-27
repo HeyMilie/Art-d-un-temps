@@ -179,7 +179,7 @@ footer {
 }
 
 //********************************
-//STYLES PROFIL
+//STYLES PROFILS et BO
 //********************************
 
 .h2-profil{
@@ -196,5 +196,17 @@ footer {
 
 .li-profil {
     list-style-type: disc;
+}
+.list-membres {
+    color: white;
+}
+
+.link-action {
+    padding: 10px;
+    color: #ffbf00;
+}
+
+.link-action :hover{
+    color: #ffff00;
 }
 

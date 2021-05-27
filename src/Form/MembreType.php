@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+
 class MembreType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)

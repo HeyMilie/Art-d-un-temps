@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/membre')]
+#[Route('admin/membre')]
 class MembreController extends AbstractController
 {
-    #[Route('/', name: 'membre_index', methods: ['GET'])]
+    #[Route('s', name: 'membre_index', methods: ['GET'])]
     public function index(MembreRepository $membreRepository): Response
     {
         return $this->render('membre/index.html.twig', [
