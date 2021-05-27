@@ -20,7 +20,6 @@ $breadcrumb-divider: quote(">");
 //********************
 // STYLES COMMUNS
 //********************
-
 body {
     background-color: white;
 }
@@ -49,6 +48,7 @@ li {
     list-style-type: none;
 }
 
+
 /* Styles Breadcrumb */
 
 .breadcrumb-item a {
@@ -70,7 +70,7 @@ li {
     width: 70px;
 }
 
-.navbar-light .navbar-nav .nav-link{
+.navbar-light .navbar-nav .nav-link {
     color: #04ac89;
 }
 
@@ -95,7 +95,6 @@ li {
     color: #FFF;
     padding-bottom: 50px;
 }
-
 
 .sinscrire {
     width: 330px;
@@ -224,6 +223,7 @@ footer hr {
     color: #000000;
     background-image: linear-gradient(to right, #ffc200, #fff900);
 }
+
 //********************************
 //STYLES PROFIL
 //********************************
