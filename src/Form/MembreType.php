@@ -5,10 +5,11 @@ namespace App\Form;
 use App\Entity\Membre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Regex;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
 class MembreType extends AbstractType
@@ -27,7 +28,9 @@ class MembreType extends AbstractType
                 "multiple" => true,
                 "expanded" => true
             ])
-            ->add('mdp', TextType::class, [
+            ->add('password', TextType::class, [
+                "label" => "Mot de passe",
+                "mapped" => false,
                 "constraints" => [
                     new Regex([
                         "pattern" => "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{6,10})$/",
@@ -43,8 +46,12 @@ class MembreType extends AbstractType
             ->add('ville')
             ->add('cp')
             ->add('adresse')
-            ->add('statut')
-            ->add('evenements')
+            
+            ->add('enregistrer', SubmitType::class,[
+                "attr" => 
+                ["class" => "btn"
+                ]
+            ])
         ;
     }
 

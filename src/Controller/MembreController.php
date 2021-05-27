@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface as Encoder;
 
 #[Route('admin/membre')]
 class MembreController extends AbstractController
@@ -22,7 +23,7 @@ class MembreController extends AbstractController
     }
 
     #[Route('/new', name: 'membre_new', methods: ['GET', 'POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request, Encoder $encoder): Response
     {
         $membre = new Membre();
         $form = $this->createForm(MembreType::class, $membre);
@@ -30,9 +31,9 @@ class MembreController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $mdp = $form->get("password")->getData();
-            $mdp = $encoder ->encodePassword($membre, $mdp);
-            $membre->setPassword( $mdp );
+            $password = $form->get("password")->getData();
+            $password = $encoder ->encodePassword($membre, $password);
+            $membre->setPassword( $password );
             
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($membre);
@@ -56,15 +57,16 @@ class MembreController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'membre_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Membre $membre): Response
+    public function edit(Request $request, Membre $membre, Encoder $encoder): Response
     {
-        $form = $this->createForm(MembreType::class, $membre);
+        $form = $this->createForm(MembreType::class, $membre,);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $mdp = $encoder ->encodePassword($membre, $mdp);
-            $membre->setPassword( $mdp );
+            if( $password = $form->get("password")->getData() ){
+                $password = $encoder->encodePassword($membre, $password);
+                $membre->setPassword($password);
+            }
 
             $this->getDoctrine()->getManager()->flush();
 
