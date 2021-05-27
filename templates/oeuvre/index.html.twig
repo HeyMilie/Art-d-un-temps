@@ -41,12 +41,12 @@
                 </td>
             </tr>
         {% else %}
-            <tr>
+            <tr class="text-table">
                 <td colspan="10" class="text-table">Aucune oeuvre trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('admin_oeuvre_new') }}" class="btn">Create new</a>
+    <a href="{{ path('admin_oeuvre_new') }}" class="btn">Ajouter une oeuvre</a>
 {% endblock %}
