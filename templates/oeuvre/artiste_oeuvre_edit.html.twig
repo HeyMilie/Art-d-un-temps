@@ -6,8 +6,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-dark">
             <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
-            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li>
-            <li class="breadcrumb-item"><a href="{{ path('bo_oeuvres')}}">Liste des oeuvres</a></li> 
+            <li class="breadcrumb-item"><a href="{{ path("profil_artiste")}}">Profil de {{app.user.username}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">Modifier {{ oeuvre.nomOeuvre }}</li>
         </ol>
     </nav>
@@ -21,7 +20,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-between">
-        <a href="{{ path('bo_oeuvres') }}" class="btn"><i class="fas fa-arrow-left"></i> Retour</a>
+        <a href="{{ path('profil_artiste') }}" class="btn"><i class="fas fa-arrow-left"></i> Retour</a>
 
         {{ include('oeuvre/_delete_form.html.twig') }}
     </div>

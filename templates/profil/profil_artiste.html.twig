@@ -55,13 +55,12 @@
 		<div class="col-lg-8 ul-profil">
 
 			<table>
-				{#{% for oeuvres in oeuvre %}
+				{# {% for oeuvres in oeuvre %}
 					<tr>
-						<td>{{ oeuvre.nom_oeuvre }}</td>
-						<td>{{ oeuvre.description }}</td>
-						<td>{{ oeuvre.annee|date('Y') }}</td>
+						<td>{{ oeuvre.membre.id.nom_oeuvre }}</td>
+						<td>{{ oeuvre.membre.id.annee|date('Y') }}</td>
 						<td>
-							<a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
+							<a href="{{ path('artiste_oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
 						</td>
 					</tr>
 				{% else %}
@@ -72,11 +71,11 @@
 			</table>
 				
 		</div>
-		
+		{#
 		<div class="col-lg-2">
-			<a class="btn" href="{{ path('profil_artiste', {'id': app.user.id}) }}">Modifier</a>
+			<a class="btn" href="{{ path('artiste_oeuvre_edit', {'id': app.user.id}) }}">Modifier</a>
 		</div>
-	
+		#}
 	</div>
 	
 {% endblock %}

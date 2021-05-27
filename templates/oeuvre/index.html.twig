@@ -6,6 +6,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-dark">
             <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li> 
             <li class="breadcrumb-item active" aria-current="page">Liste des oeuvres</li>
         </ol>
     </nav>
@@ -47,5 +48,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('oeuvre_new') }}" class="btn">Create new</a>
+    <a href="{{ path('admin_oeuvre_new') }}" class="btn">Create new</a>
 {% endblock %}
