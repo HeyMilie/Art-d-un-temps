@@ -30,7 +30,7 @@
 		</ul>
 		
 		<div class="col-lg-2">
-			<button class="btn" href="{{ path('membre_edit', {'id': app.user.id}) }}">Modifier</button>
+			<a class="btn" href="{{ path('edit_profil_artiste', {'id': app.user.id}) }}">Modifier</a>
 		</div>
 
 	</div>
@@ -74,7 +74,7 @@
 		</div>
 		
 		<div class="col-lg-2">
-			<abutton class="btn" href="{{ path('membre_edit', {'id': app.user.id}) }}">Modifier</abutton>
+			<a class="btn" href="{{ path('profil_artiste', {'id': app.user.id}) }}">Modifier</a>
 		</div>
 	
 	</div>

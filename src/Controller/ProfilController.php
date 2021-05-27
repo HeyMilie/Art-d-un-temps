@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Membre;
-use App\Form\EditProfilMembreType;
+use App\Form\EditProfilArtisteType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +15,8 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface as Enco
 
 class ProfilController extends AbstractController
 {
+    // PROFIL MEMBRE
+
     #[Route('/profil', name: 'profil_membre')]
     #[IsGranted("ROLE_MEMBRE")]
     public function profilMembre(): Response
@@ -24,7 +26,7 @@ class ProfilController extends AbstractController
     }
     
     #[Route('/profil/{id}', name: 'edit_profil_membre', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Membre $membre, Encoder $encoder): Response
+    public function editMembre(Request $request, Membre $membre, Encoder $encoder): Response
     {
         $form = $this->createForm(EditProfilMembreType::class, $membre,);
         $form->handleRequest($request);
@@ -46,6 +48,8 @@ class ProfilController extends AbstractController
         ]);
     }
 
+    // PROFIL ARTISTE
+
     #[Route('/artiste/profil', name: 'profil_artiste')]
     #[IsGranted("ROLE_ARTISTE")]
     public function profilArtiste(): Response
@@ -53,6 +57,32 @@ class ProfilController extends AbstractController
         return $this->render('profil/profil_artiste.html.twig');
         
     }
+
+    #[Route('/artiste/profil/{id}', name: 'edit_profil_artiste', methods: ['GET', 'POST'])]
+    #[IsGranted("ROLE_ARTISTE")]
+    public function editArtiste(Request $request, Membre $membre, Encoder $encoder): Response
+    {
+        $form = $this->createForm(EditProfilArtisteType::class, $membre,);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if( $password = $form->get("password")->getData() ){
+                $password = $encoder->encodePassword($membre, $password);
+                $membre->setPassword($password);
+            }
+
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('profil_artiste');
+        }
+
+        return $this->render('profil/edit_profil_artiste.html.twig', [
+            'membre' => $membre,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    // PROFIL ADMIN
 
     #[Route('/admin/profil', name: 'profil_admin')]
     #[IsGranted("ROLE_ADMIN")]
