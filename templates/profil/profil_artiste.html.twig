@@ -44,38 +44,31 @@
 		</div>
 	</div>
 
-	<h2 class="border-bottom h2-profil">Mes oeuvres</h2>
+	<div class="card-columns mt-3">
 
-	<div class="row justify-content-between align-items-start pb-3">
+		<div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mes oeuvres</h5>
+                <ul>
+                    <li class="li-profil"><a href="{{ path("artiste_oeuvres") }}">Voir mes oeuvres</a></li>
+                    <li class="li-profil"><a href="{{ path("artiste_oeuvre_new") }}">Ajouter une oeuvre</a></li>
+                </ul>
+            </div>
+        </div>	
+
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Mes articles</h5>
+				<ul>
+					<li class="li-profil"><a href="{{ path("article_index") }}">Voir mes articles</a></li>
+					<li class="li-profil"><a href="{{ path("article_new") }}">Ajouter un article</a></li>
+				</ul>
+			</div>
+		</div>
 		
-		<div class="col-lg-2">
-		<img class="rounded img-membre" src="/images/oeuvre_mea_01.jpg" alt="photo de l'oeuvre">
-		</div>
-
-		<div class="col-lg-8 ul-profil">
-
-			<table>
-				{# {% for oeuvres in oeuvre %}
-					<tr>
-						<td>{{ oeuvre.membre.id.nom_oeuvre }}</td>
-						<td>{{ oeuvre.membre.id.annee|date('Y') }}</td>
-						<td>
-							<a href="{{ path('artiste_oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
-						</td>
-					</tr>
-				{% else %}
-					<tr>
-						<td colspan="4">no records found</td>
-					</tr>
-				{% endfor %}#}
-			</table>
-				
-		</div>
-		{#
-		<div class="col-lg-2">
-			<a class="btn" href="{{ path('artiste_oeuvre_edit', {'id': app.user.id}) }}">Modifier</a>
-		</div>
-		#}
 	</div>
+
+
+
 	
 {% endblock %}

@@ -92,6 +92,14 @@ class OeuvreController extends AbstractController
 
     // ACCES ARTISTE
 
+    #[Route('artiste/oeuvres/', name: 'artiste_oeuvres', methods: ['GET'])]
+    public function artisteOeuvres(OeuvreRepository $oeuvreRepository): Response
+    {
+        return $this->render('oeuvre/artiste_oeuvres.html.twig', [
+            'oeuvres' => $oeuvreRepository->findAll(),
+        ]);
+    }
+
     #[Route('artiste/oeuvre/new', name: 'artiste_oeuvre_new', methods: ['GET', 'POST'])]
     public function newOeuvreArtiste(Request $request): Response
     {
