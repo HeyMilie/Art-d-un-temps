@@ -21,6 +21,14 @@ class MembreController extends AbstractController
         ]);
     }
 
+    #[Route('/membres', name: 'membre_membres', methods: ['GET'])]
+    public function membres(MembreRepository $membreRepository): Response
+    {
+        return $this->render('membre/membres.html.twig', [
+            'membres' => $membreRepository->findAll(),
+        ]);
+    }
+
     #[Route('/new', name: 'membre_new', methods: ['GET', 'POST'])]
     public function new(Request $request): Response
     {

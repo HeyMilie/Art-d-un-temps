@@ -149,7 +149,27 @@ li {
 }
 
 //********************************
-// STYLES FORM INSCRIPTION
+// STYLES CONCEPT
+//********************************
+.concept p {
+    font-family: 'Roboto', sans-serif;
+}
+.concept ul{
+    list-style-type:;
+}
+
+
+.concept img {
+    width: 250px;
+    text-align: center;
+    
+}
+
+.concept h3{
+    font-family: 'noteworthybold';
+}
+//********************************
+// STYLES FORM CONTACT
 //********************************
 .bc-formulaire_contact {
     background-color: #dfdede;
@@ -242,3 +262,4 @@ footer hr {
 .li-profil {
     list-style-type: disc;
 }
+
