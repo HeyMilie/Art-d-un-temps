@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}BackOffice - Art d'un temps
+			{% endblock %}
+		</title>
+
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+
+		{% endblock %}
+	</head>
+	<body>
+		<div class="container-fluid p-0 m-0">
+			{{ include("menu.html.twig") }}
+
+            <main class="bg-dark p-3">
+                <div class="container">
+                    {% block content %}{% endblock %}
+                </div>
+            </main>
+
+            <footer>
+                <div class="bo-footer text-center bg-light p-3">
+                    <p>&copy;
+                    <script>
+                        document.write(new Date().getUTCFullYear());
+                    </script>
+                    .Tous droits réservés, Design by ESDJ</p>
+                </div>
+            </footer>
+
+        </div>
+    </body>

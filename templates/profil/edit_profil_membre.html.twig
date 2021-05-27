@@ -1,0 +1,28 @@
+{% extends 'bo_base.html.twig' %}
+
+{% block title %}Art d'un temps - Modifier mes inrformations{% endblock %}
+
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_membre")}}">Profil de {{app.user.username}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Modifier mes informations</li>
+        </ol>
+    </nav>
+    <h1>Modifier mes informations</h1>
+    
+    <div class="card mt-3 mb-3 bg-light">
+        <div class="card-body"> 
+            <!-- Faire la boucle gestion photo -->
+            <img class="rounded img-membre m-3" src="/images/avatar_default.png" alt="photo de profil">
+            
+        {{ include('profil/_form_membre.html.twig', {'button_label': 'Update'}) }}
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <a href="{{ path('profil_membre') }}"class="btn"><i class="fas fa-arrow-left"></i> Retour</a>
+    </div>
+
+{% endblock %}

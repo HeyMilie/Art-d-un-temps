@@ -4,7 +4,6 @@ namespace App\Security;
 
 use App\Entity\Membre;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -76,7 +75,7 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator implements Passw
         $user = $this->entityManager->getRepository(Membre::class)->findOneBy(['pseudo' => $credentials['pseudo']]);
 
         if (!$user) {
-            throw new UsernameNotFoundException('Pseudo could not be found.');
+            throw new UsernameNotFoundException("Le pseudo n'existe pas");
         }
 
         return $user;

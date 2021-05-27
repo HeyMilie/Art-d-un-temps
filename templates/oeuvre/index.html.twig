@@ -1,321 +1,23 @@
-{% extends 'base.html.twig' %}
+{% extends 'bo_base.html.twig' %}
 
-{% block title %}Oeuvre index{% endblock %}
+{% block title %}Art d'un temps - Liste des oeuvres {% endblock %}
 
-{% block body %}
-    <h1>L'art d'un temps et ses merveilles</h1>
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Liste des oeuvres</li>
+        </ol>
+    </nav>
 
-    <p>Le temps d'un moment, l'art d'un temps vous propose de venir à la découverte de ses incroyables oeuvres, qui ont germées de l'esprit de nos artistes partenaires. Que ce soit par la peinture, la sculpture ou autres expressions créatrice qui vous sont proposés, nous espéront vous faire passer un moment de bonheur. L'art au cour du temps s'est exprimé de bien des façons, vous trouverez ici un panel d'oeuvres qui représente une partie émergente de notre temps</p>
+    <h1>Liste des oeuvres</h1>
 
-    <section>
-        
-            <div class="container">
-
-                    <h2 class="text-center">La peinture</h2>
-
-                <div class="row ">
-
-                    <!-- OEUVRE 1 -->
-                    <div class="col-xl-2 col-lg-3 col-md-4">
-                        <article id="mea-o1" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-
-                    <!-- OEUVRE 2 -->
-                    <div class=" col-xl-4 col-lg-5 col-md-6">
-                        <article id="mea-o2" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-
-                    <!-- OEUVRE 3 -->
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <article id="mea-o1" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-
-                    <!-- OEUVRE 4 -->
-                    <div class="col-xl-2 col-lg-3 col-md-4">
-                        <article id="mea-o4" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-                        
-                    {# <div class="g-4 py-2"> #}
-
-                        <!-- OEUVRE 5 -->
-                        <div class="col-xl-4 col-lg-6 col-md-6">
-                            <article id="mea-o1" class="p-3">
-                                
-                                <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-
-                        <!-- OEUVRE 6 -->
-                        <div class="col-xl-2 col-lg-2 col-md-4">
-                            <article id="mea-o2" class="p-3">
-                                
-                                <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-
-                        <!-- OEUVRE 7 -->
-                        <div class="col-xl-2 col-lg-4 col-md-4">
-                            <article id="mea-o1" class="p-3">
-                                <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-
-                        <!-- OEUVRE 8 -->
-                        <div class="col-xl-4 col-lg-7 col-md-6">
-                            <article id="mea-o4" class="p-3">
-                                <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-                    {# </div> #}
-                </div>
-            </div>
-    </section>
-
-    <section>
-        
-            <div class="container">
-
-                    <h2 class="text-center">La sculpture</h2>
-
-                <div class="row ">
-
-                    <!-- OEUVRE 1 -->
-                    <div class="col-xl-2 col-lg-3 col-md-4">
-                        <article id="mea-o1" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-
-                    <!-- OEUVRE 2 -->
-                    <div class=" col-xl-4 col-lg-5 col-md-6">
-                        <article id="mea-o2" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-
-                    <!-- OEUVRE 3 -->
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <article id="mea-o1" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-
-                    <!-- OEUVRE 4 -->
-                    <div class="col-xl-2 col-lg-3 col-md-4">
-                        <article id="mea-o4" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-                        
-                    {# <div class="g-4 py-2"> #}
-
-                        <!-- OEUVRE 5 -->
-                        <div class="col-xl-4 col-lg-6 col-md-6">
-                            <article id="mea-o1" class="p-3">
-                                
-                                <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-
-                        <!-- OEUVRE 6 -->
-                        <div class="col-xl-2 col-lg-2 col-md-4">
-                            <article id="mea-o2" class="p-3">
-                                
-                                <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-
-                        <!-- OEUVRE 7 -->
-                        <div class="col-xl-2 col-lg-4 col-md-4">
-                            <article id="mea-o1" class="p-3">
-                                <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-
-                        <!-- OEUVRE 8 -->
-                        <div class="col-xl-4 col-lg-7 col-md-6">
-                            <article id="mea-o4" class="p-3">
-                                <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-                    {# </div> #}
-                </div>
-            </div>
-    </section>
-
-    <section>
-        
-            <div class="container">
-
-                    <h2 class="text-center">La céramique</h2>
-
-                <div class="row ">
-
-                    <!-- OEUVRE 1 -->
-                    <div class="col-xl-2 col-lg-3 col-md-4">
-                        <article id="mea-o1" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-
-                    <!-- OEUVRE 2 -->
-                    <div class=" col-xl-4 col-lg-5 col-md-6">
-                        <article id="mea-o2" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-
-                    <!-- OEUVRE 3 -->
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <article id="mea-o1" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-
-                    <!-- OEUVRE 4 -->
-                    <div class="col-xl-2 col-lg-3 col-md-4">
-                        <article id="mea-o4" class="p-3">
-                            
-                            <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                            </img>
-                            <h3><a href="#">Name Art</a></h3>
-                            <span class="details-oeuvre">Name Artiste - date</span>
-                        </article>
-                    </div>
-                        
-                    {# <div class="g-4 py-2"> #}
-
-                        <!-- OEUVRE 5 -->
-                        <div class="col-xl-4 col-lg-6 col-md-6">
-                            <article id="mea-o1" class="p-3">
-                                
-                                <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-
-                        <!-- OEUVRE 6 -->
-                        <div class="col-xl-2 col-lg-2 col-md-4">
-                            <article id="mea-o2" class="p-3">
-                                
-                                <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-
-                        <!-- OEUVRE 7 -->
-                        <div class="col-xl-2 col-lg-4 col-md-4">
-                            <article id="mea-o1" class="p-3">
-                                <img class="rounded" src="/images/oeuvre_mea_01.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-
-                        <!-- OEUVRE 8 -->
-                        <div class="col-xl-4 col-lg-7 col-md-6">
-                            <article id="mea-o4" class="p-3">
-                                <img class="rounded" src="/images/oeuvre_mea_02.jpg">
-                                </img>
-                                <h3><a href="#">Name Art</a></h3>
-                                <span class="details-oeuvre">Name Artiste - date</span>
-                            </article>
-                        </div>
-                    {# </div> #}
-                </div>
-            </div>
-    </section>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
+    <table class="table mt-3">
+        <thead class="bg-light">
                 <th>Reference</th>
                 <th>Categorie</th>
                 <th>Nom_oeuvre</th>
                 <th>Année</th>
-                <th>Dimension</th>
                 <th>Prix</th>
                 <th>Photo</th>
                 <th>Stock</th>
@@ -324,28 +26,26 @@
         </thead>
         <tbody>
         {% for oeuvre in oeuvres %}
-            <tr>
-                <td>{{ oeuvre.id }}</td>
+            <tr class="text-table">
                 <td>{{ oeuvre.reference }}</td>
                 <td>{{ oeuvre.categorie }}</td>
                 <td>{{ oeuvre.nomOeuvre }}</td>
                 <td>{{ oeuvre.annee ? oeuvre.annee|date('Y-m-d') : '' }}</td>
-                <td>{{ oeuvre.dimension }}</td>
                 <td>{{ oeuvre.prix }}</td>
                 <td>{{ oeuvre.photo }}</td>
                 <td>{{ oeuvre.stock }}</td>
                 <td>
-                    <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}">show</a>
-                    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
+                    <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>
+                    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="10">no records found</td>
+                <td colspan="10" class="text-table">Aucune oeuvre trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('oeuvre_new') }}">Create new</a>
+    <a href="{{ path('oeuvre_new') }}" class="btn">Create new</a>
 {% endblock %}

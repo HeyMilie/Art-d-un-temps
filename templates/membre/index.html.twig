@@ -1,51 +1,63 @@
-{% extends 'base.html.twig' %}
+{% extends 'bo_base.html.twig' %}
 
-{% block title %}Membre index{% endblock %}
+{% block title %}Art d'un temps - Liste des membres{% endblock %}
 
-{% block body %}
-    <h1>Membre index</h1>
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Liste des membres</li>
+        </ol>
+    </nav>
+    
+    <h1>Liste des membres</h1>
 
-    <table class="table">
-        <thead>
+    <table class="table mt-3">
+        <thead class="bg-light">
             <tr>
-                <th>Id</th>
                 <th>Pseudo</th>
-                <th>Mdp</th>
                 <th>Nom</th>
-                <th>Prenom</th>
-                <th>Email</th>
-                <th>Ville</th>
-                <th>Cp</th>
-                <th>Adresse</th>
+                <th>Prénom</th>
                 <th>Statut</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for membre in membres %}
-            <tr>
-                <td>{{ membre.id }}</td>
+            <tr class="text-table">
                 <td>{{ membre.pseudo }}</td>
-                <td>{{ membre.mdp }}</td>
                 <td>{{ membre.nom }}</td>
                 <td>{{ membre.prenom }}</td>
-                <td>{{ membre.email }}</td>
-                <td>{{ membre.ville }}</td>
-                <td>{{ membre.cp }}</td>
-                <td>{{ membre.adresse }}</td>
-                <td>{{ membre.statut }}</td>
                 <td>
-                    <a href="{{ path('membre_show', {'id': membre.id}) }}">show</a>
-                    <a href="{{ path('membre_edit', {'id': membre.id}) }}">edit</a>
+                    {% set texte = "" %}
+                    {% for role in membre.roles %}
+
+                        {% if role == "ROLE_ADMIN" %}
+                            {% set texte = texte ~ (texte ? ", " : "") ~ "Administrateur" %}
+                        {% elseif role == "ROLE_ARTISTE" %}
+                        {% set texte = texte ~ (texte ? ", " : "") ~ "Artiste" %}
+                        {% elseif role == "ROLE_MEMBRE" %}
+                        {% set texte = texte ~ (texte ? ", " : "") ~ "Membre" %}   
+                        {% endif %}   
+
+                    {% endfor %}
+
+                    {{ texte }}
+
+                </td>
+                <td>
+                    <a href="{{ path('membre_show', {'id': membre.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>
+                    <a href="{{ path('membre_edit', {'id': membre.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="11">no records found</td>
+                <td colspan="11">Aucun membre trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('membre_new') }}">Create new</a>
+    <a href="{{ path('membre_new') }}" class="btn">Nouveau membre</a> 
 {% endblock %}

@@ -5,29 +5,19 @@ namespace App\Form;
 use App\Entity\Membre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-
-class MembreType extends AbstractType
+class EditProfilMembreType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $membre = $options["data"];
         $builder
             ->add('pseudo')
-            ->add('roles', ChoiceType::class, [
-                "choices" => [
-                    "Admin" => "ROLE_ADMIN",
-                    "Artiste" => "ROLE_ARTISTE",
-                    "Membre" => "ROLE_MEMBRE",
-                ],
-                "multiple" => true,
-                "expanded" => true
-            ])
             ->add('password', TextType::class, [
                 "label" => "Mot de passe",
                 "mapped" => false,
@@ -47,6 +37,8 @@ class MembreType extends AbstractType
             ->add('cp')
             ->add('adresse')
             
+            //->add('photo')
+
             ->add('enregistrer', SubmitType::class,[
                 "attr" => 
                 ["class" => "btn"

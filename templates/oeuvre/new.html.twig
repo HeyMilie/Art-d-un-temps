@@ -1,11 +1,21 @@
-{% extends 'base.html.twig' %}
+{% extends 'bo_base.html.twig' %}
 
-{% block title %}New Oeuvre{% endblock %}
+{% block title %}Art d'un temps - Nouveau Membre{% endblock %}
 
-{% block body %}
-    <h1>Create new Oeuvre</h1>
-
-    {{ include('oeuvre/_form.html.twig') }}
-
-    <a href="{{ path('oeuvre_index') }}">back to list</a>
+{% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-dark">
+        <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+        <li class="breadcrumb-item"><a href="{{ path('bo_oeuvres')}}">Liste des oeuvres</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Créer un nouveau membre</li>
+    </ol>
+</nav>
+    <h1>Ajouter une nouvelle oeuvre</h1>
+    <div class="card mt-3 mb-3">
+        <div class="card-body"> 
+        {{ include('oeuvre/_form.html.twig') }}
+        </div>
+    </div>
+    <a href="{{ path('bo_oeuvres') }}">back to list</a>
+    
 {% endblock %}

@@ -142,10 +142,14 @@ li {
 }
 
 //********************************
-// STYLES FORM INSCRIPTION
+// STYLES FORM INSCRIPTION/CONNEXION
 //********************************
 .custom-file-input:lang(fr)~.custom-file-label::after {
     content: "Parcourir";
+}
+
+.label-log{
+    color: white;
 }
 
 //********************************
@@ -246,7 +250,7 @@ footer hr {
 }
 
 //********************************
-//STYLES PROFIL
+//STYLES PROFILS et BO
 //********************************
 .h2-profil {
     color: white;
@@ -263,4 +267,19 @@ footer hr {
 .li-profil {
     list-style-type: disc;
 }
+.text-table {
+    color: white;
+}
 
+.link-action {
+    padding: 10px;
+    color: #ffbf00;
+}
+
+.link-action :hover{
+    color: #ffff00;
+}
+
+.bo-footer{
+    color: #1a1a1a;
+}
