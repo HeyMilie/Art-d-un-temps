@@ -18,6 +18,13 @@ class ProfilController extends AbstractController
          return $this->render('profil/profil_membre.html.twig');
 
     }
+    #[Route('/profil/{id}', name: 'edit_profil_membre')]
+   
+    public function editMembre(): Response
+    { 
+         return $this->render('profil/edit_profil_membre.html.twig');
+
+    }
 
     #[Route('/artiste/profil', name: 'profil_artiste')]
     #[IsGranted("ROLE_ARTISTE")]
@@ -31,7 +38,6 @@ class ProfilController extends AbstractController
     #[IsGranted("ROLE_ADMIN")]
     public function profilAdmin(): Response
     { 
-        return $this->render('profil/profil_admin.html.twig');
-        
+        return $this->render('profil/profil_admin.html.twig');  
     }
 }
