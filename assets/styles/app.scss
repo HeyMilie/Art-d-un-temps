@@ -1,17 +1,20 @@
+//********************
+// REDÉFINITIONS DE VARIABLES
+//********************
+$breadcrumb-divider: quote(">");
+//********************
+// IMPORTS
+//********************
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-
-
 @font-face {
     font-family: 'noteworthybold';
-    src: url('/assets/fonts/noteworthy-bold-webfont.woff2') format('woff2'),
-         url('/assets/fonts/noteworthy-bold-webfont.woff') format('woff');
+    src: url('/assets/fonts/noteworthy-bold-webfont.woff2') format('woff2'), url('/assets/fonts/noteworthy-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 //********************
@@ -24,18 +27,18 @@ body {
 h1 {
     font-family: 'Permanent Marker', cursive;
     color: white;
-    font-size:36px;
+    font-size: 36px;
     text-align: center;
     text-shadow: black 2px 2px 3px;
 }
 
-h2{
+h2 {
     font-family: 'noteworthybold';
     font-size: 24px;
     padding: 20px 20px;
 }
 
-.btn{
+.btn {
     border-radius: 22.5px;
     font-weight: bold;
     background-image: linear-gradient(to right, #ffc200, #fff900);
@@ -45,52 +48,57 @@ li {
     list-style-type: none;
 }
 
+
+/* Styles Breadcrumb */
+
+.breadcrumb-item a {
+    color: #ffbf00;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    color: white;
+}
+
+.breadcrumb-item.active {
+    color: white;
+}
+
 //********************
 // STYLES HEADER
 //********************
 .logo {
-    width:70px;
+    width: 70px;
 }
-.navbar-light .navbar-nav .nav-link
-{
+
+.navbar-light .navbar-nav .nav-link {
     color: #04ac89;
 }
-.navbar-light .navbar-nav .nav-link:hover
-{
-    color:#ffbf00;
-}
-#inscription {
 
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #ffbf00;
+}
+
+#inscription {
     color: #04ac89;
 }
 
 #inscription:hover {
     color: #ffbf00;
-
 }
 
 //********************
 // STYLES HOME
 //********************
-#focus{
+#focus {
     background-image: url("/public/images/focus-bg.jpg");
     background-size: cover;
     color: #FFF;
     padding-bottom: 50px;
 }
-.bienvenue {
-    width: 195px;
-    height: 51px;
-    margin: 0 386px 4px 284px;
-    text-shadow: 0 2px 4px #000000;
-     font-family: 'Permanent Marker', cursive;
-     font-size: 36px;
-    color: #ffffff;
-}
-.inscrivez-vous {
+
+.sinscrire {
     width: 330px;
     height: 19px;
-    margin: 4px 323px 11px 212px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -100,42 +108,43 @@ li {
     line-height: normal;
     letter-spacing: normal;
     color: #ffffff;
-  }
+}
+
 #cards {
     background-color: #2f2f2f;
 }
 
 .my-3 {
-    color: #ffffff;
+    color: black;
 }
 
-.artiste{
-        width: 150px;
-        border-radius: 25px;
+.artiste {
+    width: 150px;
+    border-radius: 25px;
 }
 
-.description{
+.description {
     font-family: 'Roboto', sans-serif;
 }
 
-.peintre-lyon{
+.peintre-lyon {
     width: 70px;
-  height: 14px;
-  margin: 3px 18px 0 0;
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: 100;
-  font-stretch: normal;
-  font-style: italic;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #020202;
+    height: 14px;
+    margin: 3px 18px 0 0;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #020202;
 }
 
 //********************************
 // STYLES FORM INSCRIPTION
 //********************************
-.custom-file-input:lang(fr) ~ .custom-file-label::after{
+.custom-file-input:lang(fr)~.custom-file-label::after {
     content: "Parcourir";
 }
 
@@ -159,3 +168,98 @@ li {
 .concept h3{
     font-family: 'noteworthybold';
 }
+//********************************
+// STYLES FORM CONTACT
+//********************************
+.bc-formulaire_contact {
+    background-color: #dfdede;
+}
+
+.h1-formulaire_contact {
+    font-family: 'Permanent Marker', cursive;
+    color: #2F2F2F;
+    font-size: 36px;
+    text-align: center;
+    text-shadow: none;
+}
+
+.btn-formulaire_contact {
+    border-radius: 22.5px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-image: linear-gradient(to right, #ffc200, #fff900);
+    color: #2F2F2F;
+}
+
+//********************************
+// STYLES FOOTER
+//********************************
+footer {
+    background-color: #2F2F2F;
+    color: #F5F5F5;
+}
+
+footer li {
+    color: #F5F5F5;
+}
+
+footer a {
+    color: #FFCB00;
+}
+
+footer a:hover {
+    color: #FFCB00;
+}
+
+footer hr {
+    width: 90%;
+    height: 1px;
+    background-color: #FFCB00;
+    border: none;
+}
+
+.modif-accordeon {
+    background-color: #2F2F2F;
+    color: #F5F5F5;
+}
+
+.modif-accordeon p {
+    color: #F5F5F5;
+}
+
+.modif-accordeon p:hover {
+    color: #FFCB00;
+}
+
+.modif-accordeon i:hover {
+    color: #FFCB00;
+}
+
+.r-sociaux i {
+    font-size: 20px;
+    margin: 10px 0 0 5px;
+    padding: 5px;
+    border-radius: 50%;
+    color: #000000;
+    background-image: linear-gradient(to right, #ffc200, #fff900);
+}
+
+//********************************
+//STYLES PROFIL
+//********************************
+.h2-profil {
+    color: white;
+}
+
+.img-membre {
+    width: 150px;
+}
+
+.ul-profil {
+    color: white;
+}
+
+.li-profil {
+    list-style-type: disc;
+}
+

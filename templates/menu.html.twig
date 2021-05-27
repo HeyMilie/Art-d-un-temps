@@ -1,54 +1,47 @@
 <header>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container-fluid d-flex p-1">
+		<!-- LOGO -->
+		<a class="navbar-brand" href="{{ path("accueil") }}"> <img class="logo" src="/images/logo.png" alt="Mon logo"> </a>
 
-		<div class="container-fluid">
-			<!-- LOGO -->
-			<a class="navbar-brand" href="#">
-				<img class="logo"src="/images/logo.png" alt="Mon logo">
-			</a>
-			<!-- TOGGLE BUGER MENU -->
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+		<nav class="navbar navbar-expand-lg navbar-light container-fluid">
+			<a class="navbar-brand" href="#"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
-			<!-- INCLUS DANS LE TOGGLE MENU BURGER -->
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-				<!-- NAV -->
-				<ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link" href="">Accueil</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Concept</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Oeuvres</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Evénements</a>
-					</li>
-				</ul>
-
-				<!-- Inscription / Connexion -->
-				{% if is_granted("IS_AUTHENTICATED_FULLY") %}
-					<ul class="navbar-nav mb-2 mb-lg-0">
-						{% if is_granted("ROLE_ADMIN") %}
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="mx-auto">
+					<ul class="navbar-nav mb-lg-0 text-center word">					
+						<li><a class="nav-link" href=" {{ path('accueil') }} ">Accueil</a></li>
+						<li><a class="nav-link" href=" {# {{ path('concept_index') }} #} ">Concept</a></li>
+						<li><a class="nav-link" href=" {{ path('oeuvre_index') }} ">Oeuvres</a></li>
+						<li><a class="nav-link" href=" {# {{ path('evenement_index') }} #} ">Evénements</a></li>
+					</ul>	
+				</div>
+				
+					<!-- Inscription / Connexion -->
+				<div class="">
+					{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+						<ul class="navbar-nav mb-2 mb-lg-0"> {% if is_granted("ROLE_ADMIN") %}
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path("profil_admin")}}">
-									<i class="fa fa-user"></i>{{ app.user.pseudo }}
+									<i class="fa fa-user"></i>
+									{{ app.user.pseudo }}
 								</a>
 							</li>
 						{% elseif is_granted("ROLE_ARTISTE") %}
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path("profil_artiste")}}">
-									<i class="fa fa-user"></i>{{ app.user.pseudo }}
+									<i class="fa fa-user"></i>
+									{{ app.user.pseudo }}
 								</a>
 							</li>
 						{% elseif is_granted("ROLE_MEMBRE") %}
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path("profil_membre")}}">
-									<i class="fa fa-user"></i>{{ app.user.pseudo }}
+									<i class="fa fa-user"></i>
+									{{ app.user.pseudo }}
 								</a>
 							</li>
 						{% endif %}
@@ -59,22 +52,14 @@
 							</a>
 						</li>
 					</ul>
-				{% else %}
-					<form class="d-flex">
-						<a id="inscription" class="nav-link" href="{{ path("app_register") }}">Inscription</a>
-						<a class="btn btn-warning" href="{{ path("app_login") }}">Connexion</a>	
-					</form>
-				{% endif %}
-
-			</div>
-
-		</div>
-
-	</nav>
+					{% else %}
+						<form class="d-flex">
+							<a id="inscription" class="nav-link mx-auto" href="{{ path("app_register") }}">Inscription</a>
+							<a class="btn btn-warning  mx-auto" href="{{ path("app_login") }}">Connexion</a>
+						</form>
+					{% endif %}
+				</div>
+			</div>	
+		</nav>
+	</div>
 </header>
-
- 
- 
-			
-
-		

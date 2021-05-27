@@ -1,41 +1,75 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Profil {{app.user.username}}
-{% endblock %}
-
-{# {% block h1 %}Mon profil
-{% endblock %} #}
+{% block title %}Profil {{app.user.username}} {% endblock %}
 
 {% block body %}
+<section class="container-fluid bg-dark p-3">
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb bg-dark">
+			  <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+			  <li class="breadcrumb-item active" aria-current="page">Profil de {{app.user.username}}</li>
+			</ol>
+		</nav>
 
-	<h2>Bonjour,
-		{{ app.user.pseudo }}</h2>
+		<h1>Bienvenue sur votre profil {{ app.user.pseudo }}</h1>
 
-	<ul class="list-group">
-		<li class="list-group-item">Nom:
-			{{ app.user.nom }}</li>
-		<li class="list-group-item">Prénom:
-			{{ app.user.prenom }}</li>
-	</ul>
+		<h2 class="border-bottom h2-profil">Mes informations personnelles</h2>
 
-	{# <h3>Mes emprunts</h3>
-	<table class="table table-bordered">
-		<thead class="thead-dark">
-			<th>Livre</th>
-			<th>Emprunté le</th>
-			<th>Rendu le</th>
-		</thead> #}
+		<div class="row justify-content-between align-items-start pb-3">
+			
+			<div class="col-lg-2">
+			<img class="rounded img-membre" src="/images/avatar_default.png" alt="photo de profil">
+			</div>
 
+			<ul class="col-lg-8 ul-profil">
+				<li>Nom & Prénom : {{ app.user.nom }} {{ app.user.prenom }}</li>
+				<li>Pseudo : {{ app.user.pseudo }}</li>
+				<li>E-mail : {{ app.user.email }}</li>			
+				<li>Adresse : {{ app.user.adresse }}</li>
+				<li>Code Postal - Ville : {{ app.user.cp }} {{ app.user.ville }}</li>
+			</ul>
+			
+			<div class="col-lg-2">
+				<button class="btn" href="{{ path('membre_edit', {'id': app.user.id}) }}">Modifier</button>
+			</div>
+	
+		</div>
 
-		{# <tbody>
-			{% for emprunt in app.user.emprunts %}
-            <tr>
-				<td>{{ emprunt.livre.titre }}</td>
-				<td>{{ emprunt.dateEmprunt|date("d/m/y") }}</td>
-				<td>{{ emprunt.dateRetour ? emprunt.dateRetour|date("d/m/y") : "-" }}</td>
-                </tr>
-			{% endfor %}
+		<div class="row justify-content-between align-items-center">
+			<h2 class="h2-profil">Abonnement à la newsletter</h2>
+		
+			<div class="custom-control custom-switch">
+				<input type="checkbox" class="custom-control-input" id="customSwitch1">
+				<label class="custom-control-label" for="customSwitch1"></label>
+			</div>
+		</div>
 
-		</tbody>
-	</table> #}
+		<h2 class="border-bottom h2-profil">Mes commandes</h2>
+
+		<div class="row justify-content-between align-items-start pb-3">
+			
+			<div class="col-lg-2">
+			<img class="rounded img-membre" src="/images/oeuvre_mea_01.jpg" alt="photo de l'oeuvre">
+			</div>
+
+			<ul class="col-lg-8 ul-profil">
+				<li>Numéro de commande :</li>
+				<li>Titre de l'oeuvre :</li>
+				<li>Prix :</li>			
+				<li>Statut de la commande :</li>
+			</ul>
+			
+			<div class="col-lg-2">
+				<a href="">Voir le détail</a>
+			</div>
+		
+		</div>
+			
+		
+	</div>
+
+</section>
+	
+	
 {% endblock %}
