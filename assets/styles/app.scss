@@ -96,7 +96,8 @@ li {
     padding-bottom: 50px;
 }
 
-.sinscrire{
+
+.sinscrire {
     width: 330px;
     height: 19px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -181,6 +182,14 @@ footer {
 
 footer li {
     color: #F5F5F5;
+}
+
+footer a {
+    color: #FFCB00;
+}
+
+footer a:hover {
+    color: #FFCB00;
 }
 
 footer hr {
