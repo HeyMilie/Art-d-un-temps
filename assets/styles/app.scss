@@ -96,7 +96,8 @@ li {
     padding-bottom: 50px;
 }
 
-.bienvenue {
+
+/* .bienvenue {
     width: 195px;
     height: 51px;
     margin: 0 386px 4px 284px;
@@ -104,7 +105,7 @@ li {
     font-family: 'Permanent Marker', cursive;
     font-size: 36px;
     color: #ffffff;
-}
+} */
 
 .inscrivez-vous {
     width: 330px;
@@ -192,6 +193,14 @@ footer {
 
 footer li {
     color: #F5F5F5;
+}
+
+footer a {
+    color: #FFCB00;
+}
+
+footer a:hover {
+    color: #FFCB00;
 }
 
 
