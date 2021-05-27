@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FormulaireContact{% endblock %}
+
+{% block body %}
+
+<body class="bc-formulaire_contact">
+    <div class="container mt-5 mb-5">
+    
+        <h1 class="h1-formulaire_contact mb-5">Formulaire de contact</h1>
+        <form>
+          <div class="form-row">
+            <div class="col">
+            <label for="nom">Nom</label>
+              <input type="text" class="form-control" name="nom" placeholder="Votre nom">
+            </div>
+            <div class="col">
+            <label for="prenom">Prénom</label>
+              <input type="text" class="form-control" name="prenom" placeholder="Votre prénom">
+            </div>
+          </div>
+           <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+          </div>
+           <div class="form-group">
+            <label for="demande">Message</label>
+            <textarea class="form-control" name="demande" id="demande" rows="3" placeholder="Veuillez écrire votre demande ici"></textarea>
+          </div>
+          <div class="d-flex justify-content-end"><button type="submit" class="btn-formulaire_contact ">Envoyez</button></div>
+        </form>
+    </div>
+</body>
+{% endblock %}

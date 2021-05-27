@@ -2,7 +2,6 @@
 // REDÉFINITIONS DE VARIABLES
 //********************
 $breadcrumb-divider: quote(">");
-
 //********************
 // IMPORTS
 //********************
@@ -50,24 +49,20 @@ li {
     list-style-type: none;
 }
 
-a{
-    text-decoration: none;
-}
- 
-a:visited{
-    color: grey;
- 
 /* Styles Breadcrumb */
 
-.breadcrumb-item a{
+.breadcrumb-item a {
     color: #ffbf00;
 }
-.breadcrumb-item + .breadcrumb-item::before{
+
+.breadcrumb-item+.breadcrumb-item::before {
     color: white;
 }
-.breadcrumb-item.active{
+
+.breadcrumb-item.active {
     color: white;
 }
+
 //********************
 // STYLES HEADER
 //********************
@@ -75,7 +70,7 @@ a:visited{
     width: 70px;
 }
 
-.navbar-light .navbar-nav .nav-link .burgerlink{
+.navbar-light .navbar-nav .nav-link{
     color: #04ac89;
 }
 
@@ -154,6 +149,29 @@ a:visited{
 }
 
 //********************************
+// STYLES FORM INSCRIPTION
+//********************************
+.bc-formulaire_contact {
+    background-color: #dfdede;
+}
+
+.h1-formulaire_contact {
+    font-family: 'Permanent Marker', cursive;
+    color: #2F2F2F;
+    font-size: 36px;
+    text-align: center;
+    text-shadow: none;
+}
+
+.btn-formulaire_contact {
+    border-radius: 22.5px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-image: linear-gradient(to right, #ffc200, #fff900);
+    color: #2F2F2F;
+}
+
+//********************************
 // STYLES FOOTER
 //********************************
 footer {
@@ -161,9 +179,32 @@ footer {
     color: #F5F5F5;
 }
 
-.t {
+footer li {
+    color: #F5F5F5;
+}
+
+footer hr {
+    width: 90%;
+    height: 1px;
+    background-color: #FFCB00;
+    border: none;
+}
+
+.modif-accordeon {
     background-color: #2F2F2F;
     color: #F5F5F5;
+}
+
+.modif-accordeon p {
+    color: #F5F5F5;
+}
+
+.modif-accordeon p:hover {
+    color: #FFCB00;
+}
+
+.modif-accordeon i:hover {
+    color: #FFCB00;
 }
 
 .r-sociaux i {
@@ -174,23 +215,21 @@ footer {
     color: #000000;
     background-image: linear-gradient(to right, #ffc200, #fff900);
 }
-
-// *******************************
+//********************************
 //STYLES PROFIL
 //********************************
-.h2-profil{
+.h2-profil {
     color: white;
 }
 
-.img-membre{
+.img-membre {
     width: 150px;
 }
 
-.ul-profil{
+.ul-profil {
     color: white;
 }
 
 .li-profil {
     list-style-type: disc;
 }
-
