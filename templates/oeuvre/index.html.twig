@@ -15,7 +15,6 @@
 
     <table class="table mt-3">
         <thead class="bg-light">
-                <th>Reference</th>
                 <th>Categorie</th>
                 <th>Nom_oeuvre</th>
                 <th>Année</th>
@@ -28,7 +27,6 @@
         <tbody>
         {% for oeuvre in oeuvres %}
             <tr class="text-table">
-                <td class="align-middle">{{ oeuvre.reference }}</td>
                 <td class="align-middle">{{ oeuvre.categorie }}</td>
                 <td class="align-middle">{{ oeuvre.nomOeuvre }}</td>
                 <td class="align-middle">{{ oeuvre.annee ? oeuvre.annee|date('Y-m-d') : '' }}</td>
