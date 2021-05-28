@@ -15,9 +15,9 @@
     <table class="table mt-3">
         <thead class="bg-light">
             <tr>
-                <th>Id</th>
+                <th>N° Article</th>
+                <th>Photo</th>
                 <th>Titre</th>
-                <th>Description</th>
                 <th>Auteur</th>
                 <th>actions</th>
             </tr>
@@ -25,13 +25,13 @@
         <tbody>
         {% for article in articles %}
             <tr class="text-table">
-                <td>{{ article.id }}</td>
-                <td>{{ article.titre }}</td>
-                <td>{{ article.description }}</td>
-                <td>{{ article.auteur }}</td>
-                <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                <td class="align-middle">{{ article.id }}</td>
+                <td class="align-middle"><img class="rounded img-membre m-3" src="{{ asset(dossier_images_articles) ~ article.photo }}" alt="article"></td>
+                <td class="align-middle">{{ article.titre }}</td>
+                <td class="align-middle">{{ article.auteur }}</td>
+                <td class="align-middle">
+                    <a href="{{ path('article_show', {'id': article.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>
+                    <a href="{{ path('article_edit', {'id': article.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
