@@ -48,7 +48,7 @@ class MembreController extends AbstractController
             if($photoTelechargee = $form->get("photo")->getData()){
                 $photo = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
                 $nouveauNom = str_replace(" ", "_", $photo);
-                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtention();
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtension();
                 $photoTelechargee->move($destination, $nouveauNom);
                 $membre->setPhoto($nouveauNom);
 

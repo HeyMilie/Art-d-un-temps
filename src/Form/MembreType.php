@@ -51,12 +51,7 @@ class MembreType extends AbstractType
 
             ->add('photo', FileType::class, [
                 "mapped" => false,
-                "attr" => ["label_attr" => "Parcourir", "lang" => "fr"],
-                "constraints" => [
-                    new IsTrue([
-                        'message' => 'Vous devez choisir une photo',
-                    ]),
-                ],
+                "attr" => ["label_attr" => "Parcourir", "lang" => "fr"]
                 
             ])
             
