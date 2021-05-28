@@ -2,4 +2,8 @@ twig:
     default_path: '%kernel.project_dir%/templates'
     globals:
         dossier_images: '/images/'
+        dossier_images_membres: '/images/membres/'
+        dossier_images_oeuvres: '/images/oeuvres/'
+        dossier_images_articles: '/images/articles/'
+        dossier_images_evenements: '/images/evenements/'
     form_themes: ["bootstrap_4_layout.html.twig"]

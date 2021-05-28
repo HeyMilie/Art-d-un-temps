@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -19,7 +20,6 @@ class OeuvreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('reference', TextType::class)
             ->add('categorie', ChoiceType::class, [
                "choices" => [
                    "Peinture" => "Peinture",
@@ -53,7 +53,12 @@ class OeuvreType extends AbstractType
                     ])
                 ]
             ])
-            //->add('photo')
+            ->add('photo', FileType::class, [
+                "mapped" => false,
+                "attr" => ["label_attr" => "Parcourir", "lang" => "fr"]
+                
+            ])
+            
             ->add('stock')
             ->add('membre', TextType::class, [
                 "label" => "Nom de l'artiste",

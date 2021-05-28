@@ -86,6 +86,10 @@ li {
     color: #ffbf00;
 }
 
+.fz-nav {
+    font-size: 1.15rem;
+}
+
 //********************
 // STYLES HOME
 //********************
@@ -146,7 +150,7 @@ li {
     content: "Parcourir";
 }
 
-.label-log{
+.label-log {
     color: white;
 }
 
@@ -160,17 +164,15 @@ li {
 // .concept ul{
 //     list-style-type: ;
 // }
-
-
 .concept img {
     width: 250px;
     text-align: center;
-    
 }
 
-.concept h3{
+.concept h3 {
     font-family: 'noteworthybold';
 }
+
 //********************************
 // STYLES FORM CONTACT
 //********************************
@@ -257,6 +259,10 @@ footer hr {
 .img-membre {
     width: 150px;
 }
+.img-membre-list{
+    width: 60px;
+    height: 60px;
+}
 
 .ul-profil {
     color: white;
@@ -265,6 +271,7 @@ footer hr {
 .li-profil {
     list-style-type: disc;
 }
+
 .text-table {
     color: white;
 }
@@ -274,10 +281,23 @@ footer hr {
     color: #ffbf00;
 }
 
-.link-action :hover{
+.link-action :hover {
     color: #ffff00;
 }
 
-.bo-footer{
+.bo-footer {
     color: #1a1a1a;
+}
+
+.bc-top-page {
+    background-image: linear-gradient(to right, #75aada, #94b0c9);
+}
+
+//********************************
+//STYLES MEDIA QUERIE
+//********************************
+@media screen and (max-width: 767px) {
+    #card {
+        width: 30rem;
+    }
 }

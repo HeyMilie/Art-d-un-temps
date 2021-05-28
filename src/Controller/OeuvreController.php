@@ -5,11 +5,13 @@ namespace App\Controller;
 use App\Entity\Oeuvre;
 use App\Form\OeuvreType;
 use App\Repository\OeuvreRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class OeuvreController extends AbstractController
@@ -43,13 +45,24 @@ class OeuvreController extends AbstractController
 
 
     #[Route('admin/oeuvre/new', name: 'admin_oeuvre_new', methods: ['GET', 'POST'])]
-    public function newOeuvreAdmin(Request $request): Response
+    public function newOeuvreAdmin(Request $request, EntityManagerInterface $entityManager): Response
     {
         $oeuvre = new Oeuvre();
         $form = $this->createForm(OeuvreType::class, $oeuvre);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $destination = $this->getParameter("dossier_images");
+            if($photoTelechargee = $form->get("photo")->getData()){
+                $photo = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
+                $nouveauNom = str_replace(" ", "_", $photo);
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtension();
+                $photoTelechargee->move($destination, $nouveauNom);
+                $oeuvre->setPhoto($nouveauNom);
+
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($oeuvre);
             $entityManager->flush();
@@ -57,6 +70,7 @@ class OeuvreController extends AbstractController
             return $this->redirectToRoute('bo_oeuvres');
         }
 
+        
         return $this->render('oeuvre/new.html.twig', [
             'oeuvre' => $oeuvre,
             'form' => $form->createView(),
@@ -70,6 +84,17 @@ class OeuvreController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $destination = $this->getParameter("dossier_images_oeuvres");
+            if($photoTelechargee = $form->get("photo")->getData()){
+                $photo = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
+                $nouveauNom = str_replace(" ", "_", $photo);
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtension();
+                $photoTelechargee->move($destination, $nouveauNom);
+                $oeuvre->setPhoto($nouveauNom);
+
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('bo_oeuvres');
@@ -101,13 +126,24 @@ class OeuvreController extends AbstractController
     }
 
     #[Route('artiste/oeuvre/new', name: 'artiste_oeuvre_new', methods: ['GET', 'POST'])]
-    public function newOeuvreArtiste(Request $request): Response
+    public function newOeuvreArtiste(Request $request, EntityManagerInterface $entityManager): Response
     {
         $oeuvre = new Oeuvre();
         $form = $this->createForm(OeuvreType::class, $oeuvre);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $destination = $this->getParameter("dossier_images_oeuvres");
+            if($photoTelechargee = $form->get("photo")->getData()){
+                $photo = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
+                $nouveauNom = str_replace(" ", "_", $photo);
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtension();
+                $photoTelechargee->move($destination, $nouveauNom);
+                $oeuvre->setPhoto($nouveauNom);
+
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($oeuvre);
             $entityManager->flush();
@@ -136,6 +172,17 @@ class OeuvreController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $destination = $this->getParameter("dossier_images_oeuvres");
+            if($photoTelechargee = $form->get("photo")->getData()){
+                $photo = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
+                $nouveauNom = str_replace(" ", "_", $photo);
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtension();
+                $photoTelechargee->move($destination, $nouveauNom);
+                $oeuvre->setPhoto($nouveauNom);
+
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('profil_artiste');
