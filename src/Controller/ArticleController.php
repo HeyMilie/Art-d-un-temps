@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/article')]
 class ArticleController extends AbstractController
@@ -22,16 +23,28 @@ class ArticleController extends AbstractController
     }
 
     #[Route('/new', name: 'article_new', methods: ['GET', 'POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $destination = $this->getParameter("dossier_images_articles");
+            if($photoTelechargee = $form->get("photo")->getData()){
+                $photo = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
+                $nouveauNom = str_replace(" ", "_", $photo);
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtension();
+                $photoTelechargee->move($destination, $nouveauNom);
+                $article->setPhoto($nouveauNom);
+
+            }
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
             $entityManager->flush();
+
 
             return $this->redirectToRoute('article_index');
         }
@@ -57,6 +70,16 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $destination = $this->getParameter("dossier_images_articles");
+            if($photoTelechargee = $form->get("photo")->getData()){
+                $photo = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
+                $nouveauNom = str_replace(" ", "_", $photo);
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtension();
+                $photoTelechargee->move($destination, $nouveauNom);
+                $article->setPhoto($nouveauNom);
+
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('article_index');
