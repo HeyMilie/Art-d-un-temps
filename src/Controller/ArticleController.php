@@ -158,7 +158,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'article_show', methods: ['GET'])]
+    #[Route('/artiste/article/{id}', name: 'article_show', methods: ['GET'] )]
     public function show(Article $article): Response
     {
         return $this->render('article/show.html.twig', [
@@ -168,7 +168,7 @@ class ArticleController extends AbstractController
 
 
 
-    #[Route('/{id}', name: 'article_delete', methods: ['POST'])]
+    #[Route('/artiste/article/{id}', name: 'article_delete', methods: ['POST'])]
     public function delete(Request $request, Article $article): Response
     {
         if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
