@@ -30,7 +30,7 @@
                 <td class="align-middle">{{ membre.pseudo }}</td>
                 <td class="align-middle">
                     {% if membre.photo is defined %}
-                    <img class="rounded-circle img-membre-list" src="{{ asset(dossier_images_membres) ~ membres.photo }}" alt="-">
+                    <img class="rounded-circle img-membre-list" src="{{ asset(dossier_images_membres) ~ membre.photo }}" alt="-">
                     {% endif %}
                 </td>
                 <td class="align-middle">{{ membre.nom }}</td>
