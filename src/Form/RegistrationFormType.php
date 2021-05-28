@@ -75,7 +75,7 @@ class RegistrationFormType extends AbstractType
                 
             ])
 
-            ->add('agreeTerms', CheckboxType::class, [
+            ->add("agreeTerms", CheckboxType::class, [
                 "mapped" => false,
                 "constraints" => [
                     new IsTrue([
@@ -85,7 +85,12 @@ class RegistrationFormType extends AbstractType
                 "attr" => ["class" => "form-check-input"]
             ])
 
-            ->add('enregistrer', SubmitType::class, ["attr" => ["class" => "btn btn-warning"]]);
+            ->add("enregistrer", SubmitType::class,[
+                "attr" => 
+                ["class" => "btn"
+                ]
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

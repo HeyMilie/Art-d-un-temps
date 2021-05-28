@@ -49,7 +49,7 @@ class MembreType extends AbstractType
             ->add('cp')
             ->add('adresse')
 
-            ->add('photo', FileType::class, [
+            ->add("photo", FileType::class, [
                 "mapped" => false,
                 "attr" => ["label_attr" => "Parcourir", "lang" => "fr"]
                 
