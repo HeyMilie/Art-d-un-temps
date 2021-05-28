@@ -18,8 +18,8 @@
 	<div class="row justify-content-between align-items-start pb-3">
 		
 		<div class="col-lg-2">
-			{% if membre.photo is defined %}
-				<img class="rounded img-membre m-3" src="{{ asset(dossier_images_membres) ~ membre.photo }}" alt="photo de profil">
+			{% if app.user.photo is defined %}
+				<img class="rounded img-membre m-3" src="{{ asset(dossier_images_membres) ~ app.user.photo }}" alt="photo de profil">
 			{% endif %}
 		</div>
 
@@ -37,14 +37,15 @@
 
 	</div>
 
-	<div class="row justify-content-between align-items-center">
+
+	<div class="container row justify-content-between align-items-center border-bottom">
 		<h2 class="h2-profil">Abonnement à la newsletter</h2>
-	
 		<div class="custom-control custom-switch">
 			<input type="checkbox" class="custom-control-input" id="customSwitch1">
 			<label class="custom-control-label" for="customSwitch1"></label>
 		</div>
 	</div>
+
 
 	<div class="card-columns mt-3">
 
