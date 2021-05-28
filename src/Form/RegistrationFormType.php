@@ -34,22 +34,22 @@ class RegistrationFormType extends AbstractType
             ])
             
             ->add('pseudo', TextType::class, [
-                'label' => 'Pseudo',
-                'required' => true,
+                "label" => "Pseudo",
+                "require" => true
             ])
 
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
-                'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
-                'constraints' => [
+                "mapped" => false,
+                "attr" => ["autocomplete" => "new-password"],
+                "constraints" => [
                     new NotBlank([
-                        'message' => 'Veuillez renseigner un mot de passe',
+                        "message" => "Veuillez renseigner un mot de passe",
                     ]),
                     new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre  mot de passe doit contenir au moins 6 caractères',
+                        "min" => 6,
+                        "minMessage" => "Votre  mot de passe doit contenir au moins 6 caractères",
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
@@ -69,52 +69,20 @@ class RegistrationFormType extends AbstractType
                 "required" => false
             ])
 
-            // ->add("ville", TextType::class, [
-            //     "required" => false,
-            //     'constraints' => [
-            //         new IsTrue([
-            //             'message' => 'Vous devez saisir une ville',
-            //         ]),
-            //     ],
-            // ])
-
-            // ->add('cp', NumberType::class, [
-            //     "required" => false,
-            //     'constraints' => [
-            //         new IsTrue([
-            //             'message' => 'Vous devez saisir un code postal',
-            //         ]),
-            //     ],
-            // ])
-
-            // ->add("adresse", TextType::class, [
-            //     "required" => false,
-            //     'constraints' => [
-            //         new IsTrue([
-            //             'message' => 'Vous devez saisir une adresse',
-            //         ]),
-            //     ],
-            // ])
-
             ->add('photo', FileType::class, [
                 "mapped" => false,
-                "attr" => ["label_attr" => "Parcourir", "lang" => "fr"],
-                "constraints" => [
-                    new IsTrue([
-                        'message' => 'Vous devez choisir une photo',
-                    ]),
-                ],
+                "attr" => ["label_attr" => "Parcourir", "lang" => "fr"]
                 
             ])
 
             ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
+                "mapped" => false,
+                "constraints" => [
                     new IsTrue([
-                        'message' => 'Vous devez accepter les C.G.U.',
+                        "message" => "Vous devez accepter les C.G.U.",
                     ]),
                 ],
-                'attr' => ["class" => "form-check-input"]
+                "attr" => ["class" => "form-check-input"]
             ])
 
             ->add('enregistrer', SubmitType::class, ["attr" => ["class" => "btn btn-warning"]]);
@@ -123,7 +91,7 @@ class RegistrationFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Membre::class,
+            "data_class" => Membre::class,
         ]);
     }
 }

@@ -28,14 +28,18 @@
         <tbody>
         {% for oeuvre in oeuvres %}
             <tr class="text-table">
-                <td>{{ oeuvre.reference }}</td>
-                <td>{{ oeuvre.categorie }}</td>
-                <td>{{ oeuvre.nomOeuvre }}</td>
-                <td>{{ oeuvre.annee ? oeuvre.annee|date('Y-m-d') : '' }}</td>
-                <td>{{ oeuvre.prix }}</td>
-                <td>{{ oeuvre.photo }}</td>
-                <td>{{ oeuvre.stock }}</td>
-                <td>
+                <td class="align-middle">{{ oeuvre.reference }}</td>
+                <td class="align-middle">{{ oeuvre.categorie }}</td>
+                <td class="align-middle">{{ oeuvre.nomOeuvre }}</td>
+                <td class="align-middle">{{ oeuvre.annee ? oeuvre.annee|date('Y-m-d') : '' }}</td>
+                <td class="align-middle">{{ oeuvre.prix }}</td>
+                <td class="align-middle">
+                    {% if oeuvre.photo is defined %}
+                    <img class="rounded img-membre-list" src="{{ asset(dossier_images_oeuvres) ~ oeuvre.photo }}" alt="-">
+                    {% endif %}
+                </td>
+                <td class="align-middle">{{ oeuvre.stock }}</td>
+                <td class="align-middle">
                     <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>
                     <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
                 </td>

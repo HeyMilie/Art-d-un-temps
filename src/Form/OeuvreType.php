@@ -53,7 +53,12 @@ class OeuvreType extends AbstractType
                     ])
                 ]
             ])
-            //->add('photo')
+            ->add('photo', FileType::class, [
+                "mapped" => false,
+                "attr" => ["label_attr" => "Parcourir", "lang" => "fr"]
+                
+            ])
+            
             ->add('stock')
             ->add('membre', TextType::class, [
                 "label" => "Nom de l'artiste",

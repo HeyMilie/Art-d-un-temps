@@ -44,7 +44,7 @@ class MembreController extends AbstractController
             $password = $encoder ->encodePassword($membre, $password);
             $membre->setPassword( $password );
 
-            $destination = $this->getParameter("dossier_images");
+            $destination = $this->getParameter("dossier_images_membres");
             if($photoTelechargee = $form->get("photo")->getData()){
                 $photo = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
                 $nouveauNom = str_replace(" ", "_", $photo);
@@ -85,6 +85,16 @@ class MembreController extends AbstractController
             if( $password = $form->get("password")->getData() ){
                 $password = $encoder->encodePassword($membre, $password);
                 $membre->setPassword($password);
+            }
+
+            $destination = $this->getParameter("dossier_images_membres");
+            if($photoTelechargee = $form->get("photo")->getData()){
+                $photo = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
+                $nouveauNom = str_replace(" ", "_", $photo);
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtension();
+                $photoTelechargee->move($destination, $nouveauNom);
+                $membre->setPhoto($nouveauNom);
+
             }
 
             $this->getDoctrine()->getManager()->flush();
