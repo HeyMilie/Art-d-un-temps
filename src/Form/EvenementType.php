@@ -17,7 +17,7 @@ class EvenementType extends AbstractType
             ->add('adresse')
             ->add('date')
             ->add('titre')
-            ->add('membre')
+            // ->add('membre')
         ;
     }
 
