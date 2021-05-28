@@ -71,10 +71,12 @@
     <div class="row justify-content-between align-items-start pb-3">
         
         <div class="col-lg-2">
-        <img class="rounded img-membre" src="/images/avatar_default.png" alt="photo de profil">
+            {% if app.user.photo is defined %}
+            <img class="rounded img-membre m-3" src="{{ asset(dossier_images_membres) ~ app.user.photo }}" alt="photo de profil">
+            {% endif %}
         </div>
 
-        <ul class="col-lg-8 ul-profil">
+        <ul class="col-lg-8 ul-profil mt-3">
             <li>Nom & Prénom : {{ app.user.nom }} {{ app.user.prenom }}</li>
             <li>Pseudo : {{ app.user.pseudo }}</li>
             <li>E-mail : {{ app.user.email }}</li>			
@@ -82,7 +84,7 @@
             <li>Code Postal - Ville : {{ app.user.cp }} {{ app.user.ville }}</li>
         </ul>
         
-        <div class="col-lg-2">
+        <div class="col-lg-2 mt-3">
             <a class="btn" href="{{ path('membre_edit', {'id': app.user.id}) }}">Modifier</a>
         </div>
 

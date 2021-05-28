@@ -22,6 +22,10 @@
                         <td>{{ article.id }}</td>
                     </tr>
                     <tr>
+                        <th>Photo</th>
+                        <td><img class="rounded img-membre m-3" src="{{ asset(dossier_images_articles) ~ article.photo }}" alt="article"></td>
+                    </tr>
+                    <tr>
                         <th>Titre</th>
                         <td>{{ article.titre }}</td>
                     </tr>

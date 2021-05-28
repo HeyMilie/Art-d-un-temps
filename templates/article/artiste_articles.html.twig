@@ -1,13 +1,13 @@
 {% extends 'bo_base.html.twig' %}
 
-{% block title %}Art d'un temps - Liste des articles {% endblock %}
+{% block title %}Art d'un temps - Mes oeuvres {% endblock %}
 
 {% block content %}
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-dark">
             <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
-            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li> 
-            <li class="breadcrumb-item active" aria-current="page">Liste des articles</li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_artiste")}}">Profil de {{app.user.username}}</a></li> 
+            <li class="breadcrumb-item active" aria-current="page">Mes articles</li>
         </ol>
     </nav>
     <h1>Liste des articles</h1>
@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for article in articles %}
+            {% for article in articles %}
             <tr class="text-table">
                 <td class="align-middle">{{ article.id }}</td>
                 <td class="align-middle"><img class="rounded img-membre m-3" src="{{ asset(dossier_images_articles) ~ article.photo }}" alt="article"></td>
@@ -31,7 +31,7 @@
                 <td class="align-middle">{{ article.auteur }}</td>
                 <td class="align-middle">
                     <a href="{{ path('article_show', {'id': article.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>
-                    <a href="{{ path('article_edit', {'id': article.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
+                    <a href="{{ path('artiste_article_edit', {'id': article.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -42,5 +42,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('article_new') }}" class="btn">Ajouter un article</a>
+    <a href="{{ path('artiste_article_new') }}" class="btn">Ajouter un article</a>
 {% endblock %}

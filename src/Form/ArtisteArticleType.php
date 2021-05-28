@@ -11,7 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class ArticleType extends AbstractType
+class ArtisteArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -26,11 +26,6 @@ class ArticleType extends AbstractType
                 
             ])
 
-            ->add('Auteur', EntityType::class, [
-                "class" => Membre::class,
-                "choice_label" => "pseudo",
-                "placeholder" => "Choisissez parmi les membres..."
-            ])
             
             ->add('enregistrer', SubmitType::class,[
                 "attr" => 
