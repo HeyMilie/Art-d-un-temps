@@ -35,7 +35,7 @@ class Oeuvre
     /**
      * @ORM\Column(type="date")
      */
-    private $année;
+    private $annee;
 
     /**
      * @ORM\Column(type="string", length=30)
@@ -103,14 +103,14 @@ class Oeuvre
         return $this;
     }
 
-    public function getAnnée(): ?\DateTimeInterface
+    public function getAnnee(): ?\DateTimeInterface
     {
-        return $this->année;
+        return $this->annee;
     }
 
-    public function setAnnée(\DateTimeInterface $année): self
+    public function setAnnee(\DateTimeInterface $annee): self
     {
-        $this->année = $année;
+        $this->annee = $annee;
 
         return $this;
     }

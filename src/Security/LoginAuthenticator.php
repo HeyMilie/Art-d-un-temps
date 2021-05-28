@@ -4,7 +4,6 @@ namespace App\Security;
 
 use App\Entity\Membre;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -31,13 +30,15 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator implements Passw
     private $urlGenerator;
     private $csrfTokenManager;
     private $passwordEncoder;
+    private $security;
 
-    public function __construct(EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder, Security $security)
     {
         $this->entityManager = $entityManager;
         $this->urlGenerator = $urlGenerator;
         $this->csrfTokenManager = $csrfTokenManager;
         $this->passwordEncoder = $passwordEncoder;
+        $this->security = $security;
     }
 
     public function supports(Request $request)
@@ -74,7 +75,7 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator implements Passw
         $user = $this->entityManager->getRepository(Membre::class)->findOneBy(['pseudo' => $credentials['pseudo']]);
 
         if (!$user) {
-            throw new UsernameNotFoundException('Pseudo could not be found.');
+            throw new UsernameNotFoundException("Le pseudo n'existe pas");
         }
 
         return $user;
@@ -99,10 +100,13 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator implements Passw
             return new RedirectResponse($targetPath);
         }
 
-        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        return new RedirectResponse($this->urlGenerator->generate('profil_index'));
-        //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
-        
+        if($this->security->isGranted("ROLE_ADMIN")){
+            return new RedirectResponse($this->urlGenerator->generate('profil_admin')); 
+        } elseif ($this->security->isGranted("ROLE_ARTISTE")){
+            return new RedirectResponse($this->urlGenerator->generate('profil_artiste'));
+        } else {
+            return new RedirectResponse($this->urlGenerator->generate('profil_membre'));
+        }
 
     }
 

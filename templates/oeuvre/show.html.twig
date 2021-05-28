@@ -1,54 +1,65 @@
-{% extends 'base.html.twig' %}
+{% extends 'bo_base.html.twig' %}
 
-{% block title %}Oeuvre{% endblock %}
+{% block title %}Art d'un temps - {{ oeuvre.nomOeuvre }}{% endblock %}
 
-{% block body %}
-    <h1>Oeuvre</h1>
+{% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-dark">
+        <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+        {% if is_granted("ROLE_ARTISTE") %}
+                <li class="breadcrumb-item"><a href="{{ path("profil_artiste")}}">Profil de {{app.user.username}}</a></li>
+            {% else %}
+                <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('bo_oeuvres')}}">Liste des oeuvres</a></li>
+            {% endif %}
+        <li class="breadcrumb-item active" aria-current="page">{{ oeuvre.nomOeuvre }}</li>
+    </ol>
+</nav>
+    <h1>{{ oeuvre.nomOeuvre }}</h1>
+    <div class="card mt-3 mb-3">
+        <div class="card-body">
+            <!-- Faire la boucle si pas de photo on affiche la photo par defaut -->
+            <img class="rounded img-membre m-3" src="/images/avatar_default.png" alt="photo de profil">
+            {{ oeuvre.photo }}
+            <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}" class="btn mb-3"><i class="fas fa-edit"></i> Modifier cette oeuvre</a> 
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Reference</th>
+                        <td>{{ oeuvre.reference }}</td>
+                    </tr>
+                    <tr>
+                        <th>Categorie</th>
+                        <td>{{ oeuvre.categorie }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom_oeuvre</th>
+                        <td>{{ oeuvre.nomOeuvre }}</td>
+                    </tr>
+                    <tr>
+                        <th>Année</th>
+                        <td>{{ oeuvre.annee ? oeuvre.annee|date('Y') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Dimension</th>
+                        <td>{{ oeuvre.dimension }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prix</th>
+                        <td>{{ oeuvre.prix }}</td>
+                    </tr>
+                    <tr>
+                        <th>Stock</th>
+                        <td>{{ oeuvre.stock }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ oeuvre.id }}</td>
-            </tr>
-            <tr>
-                <th>Reference</th>
-                <td>{{ oeuvre.reference }}</td>
-            </tr>
-            <tr>
-                <th>Categorie</th>
-                <td>{{ oeuvre.categorie }}</td>
-            </tr>
-            <tr>
-                <th>Nom_oeuvre</th>
-                <td>{{ oeuvre.nomOeuvre }}</td>
-            </tr>
-            <tr>
-                <th>Année</th>
-                <td>{{ oeuvre.année ? oeuvre.année|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Dimension</th>
-                <td>{{ oeuvre.dimension }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ oeuvre.prix }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td>{{ oeuvre.photo }}</td>
-            </tr>
-            <tr>
-                <th>Stock</th>
-                <td>{{ oeuvre.stock }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="d-flex justify-content-between">
+        <a href="{{ path('bo_oeuvres') }}" class="btn"><i class="fas fa-arrow-left"></i> Retour</a>
+        {{ include('oeuvre/_delete_form.html.twig') }}
+    </div>
 
-    <a href="{{ path('oeuvre_index') }}">back to list</a>
-
-    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
-
-    {{ include('oeuvre/_delete_form.html.twig') }}
 {% endblock %}

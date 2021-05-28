@@ -1,19 +1,24 @@
-{% extends 'base.html.twig' %}
+{% extends 'bo_base.html.twig' %}
 
-{% block title %}Oeuvre index{% endblock %}
+{% block title %}Art d'un temps - Liste des oeuvres {% endblock %}
 
-{% block body %}
-    <h1>Oeuvre index</h1>
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li> 
+            <li class="breadcrumb-item active" aria-current="page">Liste des oeuvres</li>
+        </ol>
+    </nav>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
+    <h1>Liste des oeuvres</h1>
+
+    <table class="table mt-3">
+        <thead class="bg-light">
                 <th>Reference</th>
                 <th>Categorie</th>
                 <th>Nom_oeuvre</th>
                 <th>Année</th>
-                <th>Dimension</th>
                 <th>Prix</th>
                 <th>Photo</th>
                 <th>Stock</th>
@@ -22,28 +27,26 @@
         </thead>
         <tbody>
         {% for oeuvre in oeuvres %}
-            <tr>
-                <td>{{ oeuvre.id }}</td>
+            <tr class="text-table">
                 <td>{{ oeuvre.reference }}</td>
                 <td>{{ oeuvre.categorie }}</td>
                 <td>{{ oeuvre.nomOeuvre }}</td>
-                <td>{{ oeuvre.année ? oeuvre.année|date('Y-m-d') : '' }}</td>
-                <td>{{ oeuvre.dimension }}</td>
+                <td>{{ oeuvre.annee ? oeuvre.annee|date('Y-m-d') : '' }}</td>
                 <td>{{ oeuvre.prix }}</td>
                 <td>{{ oeuvre.photo }}</td>
                 <td>{{ oeuvre.stock }}</td>
                 <td>
-                    <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}">show</a>
-                    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
+                    <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>
+                    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
-            <tr>
-                <td colspan="10">no records found</td>
+            <tr class="text-table">
+                <td colspan="10" class="text-table">Aucune oeuvre trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('oeuvre_new') }}">Create new</a>
+    <a href="{{ path('admin_oeuvre_new') }}" class="btn">Ajouter une oeuvre</a>
 {% endblock %}

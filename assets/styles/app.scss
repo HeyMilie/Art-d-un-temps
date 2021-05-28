@@ -1,15 +1,283 @@
+//********************
+// REDÉFINITIONS DE VARIABLES
+//********************
+$breadcrumb-divider: quote(">");
+//********************
+// IMPORTS
+//********************
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@font-face {
+    font-family: 'noteworthybold';
+    src: url('/assets/fonts/noteworthy-bold-webfont.woff2') format('woff2'), url('/assets/fonts/noteworthy-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//********************
+// STYLES COMMUNS
+//********************
 body {
     background-color: white;
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+    font-size: 36px;
+    text-align: center;
+    text-shadow: black 2px 2px 3px;
+}
+
+h2 {
+    font-family: 'noteworthybold';
+    font-size: 24px;
+    padding: 20px 20px;
 }
 
 .btn {
     border-radius: 22.5px;
     font-weight: bold;
+    background-image: linear-gradient(to right, #ffc200, #fff900);
 }
 
 li {
     list-style-type: none;
+}
+
+
+/* Styles Breadcrumb */
+
+.breadcrumb-item a {
+    color: #ffbf00;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    color: white;
+}
+
+.breadcrumb-item.active {
+    color: white;
+}
+
+//********************
+// STYLES HEADER
+//********************
+.logo {
+    width: 70px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #04ac89;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #ffbf00;
+}
+
+#inscription {
+    color: #04ac89;
+}
+
+#inscription:hover {
+    color: #ffbf00;
+}
+
+//********************
+// STYLES HOME
+//********************
+#focus {
+    background-image: url("/public/images/focus-bg.jpg");
+    background-size: cover;
+    color: #FFF;
+    padding-bottom: 50px;
+}
+
+.text-slide-home {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+#cards {
+    background-color: #2f2f2f;
+}
+
+.my-3 {
+    color: black;
+}
+
+.artiste {
+    width: 150px;
+    border-radius: 25px;
+}
+
+.description {
+    font-family: 'Roboto', sans-serif;
+}
+
+.peintre-lyon {
+    width: 70px;
+    height: 14px;
+    margin: 3px 18px 0 0;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #020202;
+}
+
+//********************************
+// STYLES FORM INSCRIPTION/CONNEXION
+//********************************
+.custom-file-input:lang(fr)~.custom-file-label::after {
+    content: "Parcourir";
+}
+
+.label-log{
+    color: white;
+}
+
+//********************************
+// STYLES CONCEPT
+//********************************
+.concept p {
+    font-family: 'Roboto', sans-serif;
+}
+
+// .concept ul{
+//     list-style-type: ;
+// }
+
+
+.concept img {
+    width: 250px;
+    text-align: center;
+    
+}
+
+.concept h3{
+    font-family: 'noteworthybold';
+}
+//********************************
+// STYLES FORM CONTACT
+//********************************
+.bc-formulaire_contact {
+    background-color: #dfdede;
+}
+
+.h1-formulaire_contact {
+    font-family: 'Permanent Marker', cursive;
+    color: #2F2F2F;
+    font-size: 36px;
+    text-align: center;
+    text-shadow: none;
+}
+
+.btn-formulaire_contact {
+    border-radius: 22.5px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-image: linear-gradient(to right, #ffc200, #fff900);
+    color: #2F2F2F;
+}
+
+//********************************
+// STYLES FOOTER
+//********************************
+footer {
+    background-color: #2F2F2F;
+    color: #F5F5F5;
+}
+
+footer li {
+    color: #F5F5F5;
+}
+
+footer a {
+    color: #FFCB00;
+}
+
+footer a:hover {
+    color: #FFCB00;
+}
+
+footer hr {
+    width: 90%;
+    height: 1px;
+    background-color: #FFCB00;
+    border: none;
+}
+
+.modif-accordeon {
+    background-color: #2F2F2F;
+    color: #F5F5F5;
+}
+
+.modif-accordeon p {
+    color: #F5F5F5;
+}
+
+.modif-accordeon p:hover {
+    color: #FFCB00;
+}
+
+.modif-accordeon i:hover {
+    color: #FFCB00;
+}
+
+.r-sociaux i {
+    font-size: 20px;
+    margin: 10px 0 0 5px;
+    padding: 5px;
+    border-radius: 50%;
+    color: #000000;
+    background-image: linear-gradient(to right, #ffc200, #fff900);
+}
+
+//********************************
+//STYLES PROFILS et BO
+//********************************
+.h2-profil {
+    color: white;
+}
+
+.img-membre {
+    width: 150px;
+}
+
+.ul-profil {
+    color: white;
+}
+
+.li-profil {
+    list-style-type: disc;
+}
+.text-table {
+    color: white;
+}
+
+.link-action {
+    padding: 10px;
+    color: #ffbf00;
+}
+
+.link-action :hover{
+    color: #ffff00;
+}
+
+.bo-footer{
+    color: #1a1a1a;
 }

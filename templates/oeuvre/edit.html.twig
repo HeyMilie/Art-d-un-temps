@@ -1,13 +1,29 @@
-{% extends 'base.html.twig' %}
+{% extends 'bo_base.html.twig' %}
 
-{% block title %}Edit Oeuvre{% endblock %}
+{% block title %}Art d'un temps - Modifier {{ oeuvre.nomOeuvre }}{% endblock %}
 
-{% block body %}
-    <h1>Edit Oeuvre</h1>
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('bo_oeuvres')}}">Liste des oeuvres</a></li> 
+            <li class="breadcrumb-item active" aria-current="page">Modifier {{ oeuvre.nomOeuvre }}</li>
+        </ol>
+    </nav>
+    <h1>Modifier {{ oeuvre.nomOeuvre }}</h1>
+    <div class="card mt-3 mb-3 bg-light">
+        <div class="card-body"> 
+            <!-- Faire la boucle gestion photo -->
+            <img class="rounded img-membre m-3" src="/images/avatar_default.png" alt="photo de profil">
+            {{ oeuvre.photo }}
+            {{ include('oeuvre/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+        </div>
+    </div>
+    <div class="d-flex justify-content-between">
+        <a href="{{ path('bo_oeuvres') }}" class="btn"><i class="fas fa-arrow-left"></i> Retour</a>
 
-    {{ include('oeuvre/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ include('oeuvre/_delete_form.html.twig') }}
+    </div>
 
-    <a href="{{ path('oeuvre_index') }}">back to list</a>
-
-    {{ include('oeuvre/_delete_form.html.twig') }}
 {% endblock %}

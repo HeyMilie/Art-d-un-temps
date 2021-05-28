@@ -5,15 +5,17 @@ namespace App\Controller;
 use App\Entity\Membre;
 use App\Form\MembreType;
 use App\Repository\MembreRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface as Encoder;
 
-#[Route('/membre')]
+#[Route('admin/membre')]
 class MembreController extends AbstractController
 {
-    #[Route('/', name: 'membre_index', methods: ['GET'])]
+    #[Route('s', name: 'membre_index', methods: ['GET'])]
     public function index(MembreRepository $membreRepository): Response
     {
         return $this->render('membre/index.html.twig', [
@@ -21,8 +23,16 @@ class MembreController extends AbstractController
         ]);
     }
 
+    #[Route('/membres', name: 'membre_membres', methods: ['GET'])]
+    public function membres(MembreRepository $membreRepository): Response
+    {
+        return $this->render('membre/membres.html.twig', [
+            'membres' => $membreRepository->findAll(),
+        ]);
+    }
+
     #[Route('/new', name: 'membre_new', methods: ['GET', 'POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, Encoder $encoder): Response
     {
         $membre = new Membre();
         $form = $this->createForm(MembreType::class, $membre);
@@ -30,9 +40,19 @@ class MembreController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $mdp = $form->get("password")->getData();
-            $mdp = $encoder ->encodePassword($membre, $mdp);
-            $membre->setPassword( $mdp );
+            $password = $form->get("password")->getData();
+            $password = $encoder ->encodePassword($membre, $password);
+            $membre->setPassword( $password );
+
+            $destination = $this->getParameter("dossier_images");
+            if($photoTelechargee = $form->get("photo")->getData()){
+                $nomPhoto = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
+                $nouveauNom = str_replace(" ", "_", $nomPhoto);
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtention();
+                $photoTelechargee->move($destination, $nouveauNom);
+                $membre->setPhoto($nouveauNom);
+
+            }
             
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($membre);
@@ -56,15 +76,16 @@ class MembreController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'membre_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Membre $membre): Response
+    public function edit(Request $request, Membre $membre, Encoder $encoder): Response
     {
-        $form = $this->createForm(MembreType::class, $membre);
+        $form = $this->createForm(MembreType::class, $membre,);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $mdp = $encoder ->encodePassword($membre, $mdp);
-            $membre->setPassword( $mdp );
+            if( $password = $form->get("password")->getData() ){
+                $password = $encoder->encodePassword($membre, $password);
+                $membre->setPassword($password);
+            }
 
             $this->getDoctrine()->getManager()->flush();
 

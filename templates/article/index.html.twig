@@ -1,12 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'bo_base.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}Art d'un temps - Liste des articles {% endblock %}
 
-{% block body %}
-    <h1>Article index</h1>
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li> 
+            <li class="breadcrumb-item active" aria-current="page">Liste des articles</li>
+        </ol>
+    </nav>
+    <h1>Liste des articles</h1>
 
-    <table class="table">
-        <thead>
+    <table class="table mt-3">
+        <thead class="bg-light">
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
@@ -17,7 +24,7 @@
         </thead>
         <tbody>
         {% for article in articles %}
-            <tr>
+            <tr class="text-table">
                 <td>{{ article.id }}</td>
                 <td>{{ article.titre }}</td>
                 <td>{{ article.description }}</td>
@@ -28,12 +35,12 @@
                 </td>
             </tr>
         {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
+            <tr class="text-table">
+                <td colspan="5">Aucun article trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('article_new') }}">Create new</a>
+    <a href="{{ path('article_new') }}" class="btn">Ajouter un article</a>
 {% endblock %}

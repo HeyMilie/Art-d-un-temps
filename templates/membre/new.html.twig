@@ -1,11 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'bo_base.html.twig' %}
 
-{% block title %}New Membre{% endblock %}
+{% block title %}Art d'un temps - Nouveau Membre{% endblock %}
 
-{% block body %}
-    <h1>Create new Membre</h1>
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('membre_index')}}">Liste des membres</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Créer un nouveau membre</li>
+        </ol>
+    </nav>
+    <h1>Créer un nouveau membre</h1>
+    <div class="card mt-3 mb-3">
+        <div class="card-body"> 
+        {{ include('membre/_form.html.twig') }}
+        </div>
+    </div>
+    <a href="{{ path('membre_index') }}"class="btn"><i class="fas fa-arrow-left"></i> Retour</a>
 
-    {{ include('membre/_form.html.twig') }}
-
-    <a href="{{ path('membre_index') }}">back to list</a>
 {% endblock %}

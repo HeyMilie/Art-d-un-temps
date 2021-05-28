@@ -1,0 +1,172 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-8"><img src="/images/artiste_01.jpg " alt=" " width="500px"></div>
+
+			<div class="col-xl-4">
+				<h1>Oeuvre assez long qui passe sur deux lignes</h1>
+
+				<div class="d-flex justify-content-between ">
+					<div>
+						<p>Type d'oeuvre, date,...</p>
+
+						<a href="# ">Voir la description detaillé</a>
+					</div>
+					<div>
+						<p>4879 €</p>
+
+						<button type="submit ">Achat</button>
+					</div>
+				</div>
+
+
+				<h2>A propos de l'artiste</h2>
+				<div class="d-flex ">
+					<div><img src="/images/artiste_01.jpg " alt=" "></div>
+					<div class="align-self-center ">
+						<h4>Name Artiste</h4>
+						<p>details</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row justify-content-xl-between">
+			<div class="col-xl-8">
+
+				<h2>Description</h2>
+
+				<hr>
+				<div class="d-flex justify-content-between ">
+
+					<p>Technique</p>
+
+					<p>peinture, acrylique</p>
+				</div>
+				<hr>
+				<div class="d-flex justify-content-between ">
+
+					<p>Dimensions</p>
+
+					<p>154.5*68.5cm</p>
+				</div>
+				<hr>
+				<div class="d-flex justify-content-between ">
+
+					<p>Support</p>
+
+					<p>toile</p>
+				</div>
+				<hr>
+				<div class="d-flex justify-content-between ">
+
+					<p>Encadrement</p>
+
+					<p>non</p>
+				</div>
+				<hr>
+				<div class="d-flex justify-content-between ">
+
+					<p>Tirage</p>
+
+					<p>10 exemplaires</p>
+
+				</div>
+				<hr>
+
+				<h3>A propos de l'oeuvre</h3>
+
+				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt distinctio ad aliquam voluptates odio velit. Voluptas quasi voluptate autem doloremque magnam et eos? Ipsum alias nam impedit dicta ad tenetur!</p>
+
+			</div>
+			<hr>
+
+			<div class="col-xl-4 ">
+
+				<h2>Evènement</h2>
+
+				<p>Cette oeuvre est exposé au public lors de l'évènement suivant :</p>
+
+				<div class="d-flex ">
+
+					<p>02<br>Nov.2021</p>
+
+					<div>
+						<p>Titre de l'événement
+							<br>détails, lieu, date de fin</p>
+						<a href="#">En savoir plus</a>
+					</div>
+				</div>
+
+				<h2>Tags</h2>
+
+				<div class="d-flex">
+					<p class="">Categorie</p>
+					<p class="">Technique</p>
+					<p class="">Artiste</p>
+				</div>
+			</div>
+		</div>
+
+		<h2>Oeuvre du même artiste</h2>
+
+        <div class="card" style="width: 18rem;">
+                                        <img src="images/slide_mea_03.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                        <div class="card-body">
+                                        <a href="#" class="card-link">Card link <i class="fas fa-chevron-right"></i></a>
+                                        </div>
+                                    </div>
+
+
+		<h2 class="text-center ">Le concept en 4 points</h2>
+		<div class="row">
+			<div class="col-6 justify-content-around col-xl-3">
+				<div>
+					<img class="artiste" src="/images/artiste_01.jpg"></img>
+			</div>
+			<div class="">
+				<p class=" text-center">Reference site about</p>
+				<p class="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, officiis consequuntur. Dicta molestias qui reiciendis animi commodi ipsa ad, ex quidem numquam ullam laudantium quas expedita pariatur debitis, incidunt obcaecati.</p>
+			</div>
+
+		</div>
+
+		<div class="col-6 justify-content-around col-xl-3">
+			<div>
+				<img class="artiste" src="/images/artiste_02.jpg"></img>
+		</div>
+		<div class="">
+			<p class=" text-center ">Reference site about</p>
+			<p class="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, officiis consequuntur. Dicta molestias qui reiciendis animi commodi ipsa ad, ex quidem numquam ullam laudantium quas expedita pariatur debitis, incidunt obcaecati.</p>
+		</div>
+
+	</div>
+
+	<div class="col-6 justify-content-around col-xl-3">
+		<div>
+			<img class="artiste" src="/images/artiste_01.jpg"></img>
+	</div>
+	<div class="">
+		<p class="text-center ">Reference site about</p>
+		<p class="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, officiis consequuntur. Dicta molestias qui reiciendis animi commodi ipsa ad, ex quidem numquam ullam laudantium quas expedita pariatur debitis, incidunt obcaecati.</p>
+	</div>
+
+</div>
+
+<div class="col-6 justify-content-around col-xl-3">
+	<div>
+		<img class="artiste" src="/images/artiste_02.jpg"></img>
+</div>
+<div class="">
+	<p class="text-center ">Reference site about</p>
+	<p class="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, officiis consequuntur. Dicta molestias qui reiciendis animi commodi ipsa ad, ex quidem numquam ullam laudantium quas expedita pariatur debitis, incidunt obcaecati.</p>
+</div></div>{% endblock %}

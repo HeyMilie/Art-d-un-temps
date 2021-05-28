@@ -1,13 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends 'bo_base.html.twig' %}
 
-{% block title %}Edit Membre{% endblock %}
+{% block title %}Art d'un temps - Modifier membre {{ membre.pseudo }}{% endblock %}
 
-{% block body %}
-    <h1>Edit Membre</h1>
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('membre_index')}}">Liste des membres</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Modifier Membre {{ membre.pseudo }}</li>
+        </ol>
+    </nav>
+    <h1>modifier Membre {{ membre.pseudo }}</h1>
+    
+    <div class="card mt-3 mb-3 bg-light">
+        <div class="card-body"> 
+            <!-- Faire la boucle gestion photo -->
+            <img class="rounded img-membre m-3" src="/images/avatar_default.png" alt="photo de profil">
+            {{ membre.photo }}
+        {{ include('membre/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+        </div>
+    </div>
 
-    {{ include('membre/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="d-flex justify-content-between">
+        <a href="{{ path('membre_index') }}" class="btn"><i class="fas fa-arrow-left"></i> Retour</a>
+        {{ include('membre/_delete_form.html.twig') }}
+    </div>
 
-    <a href="{{ path('membre_index') }}">back to list</a>
-
-    {{ include('membre/_delete_form.html.twig') }}
 {% endblock %}
