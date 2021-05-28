@@ -18,11 +18,6 @@ class Oeuvre
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $reference;
-
-    /**
      * @ORM\Column(type="string", length=70)
      */
     private $categorie;
@@ -62,21 +57,14 @@ class Oeuvre
      */
     private $membre;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getReference(): ?int
-    {
-        return $this->reference;
-    }
-
-    public function setReference(int $reference): self
-    {
-        $this->reference = $reference;
-
-        return $this;
     }
 
     public function getCategorie(): ?string
@@ -171,6 +159,18 @@ class Oeuvre
     public function setMembre(?Membre $membre): self
     {
         $this->membre = $membre;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
