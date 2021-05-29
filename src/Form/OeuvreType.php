@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Oeuvre;
+use DateTimeInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Length;
@@ -33,26 +34,19 @@ class OeuvreType extends AbstractType
                 "expanded" => true  
             ])
             ->add('nom_oeuvre', TextType::class)
-            ->add('annee', TextType::class, [
-                "mapped" => false,
-                "label" => "Réalisée en"
+
+            ->add('annee', DateType::class, [
+                "widget" => "single_text",
+                "label" => "Réalisée en",
+                "required" => false
             ])
-            ->add('dimension', TextType::class, [
-                "mapped" => false,
-                "label" => "Dimmension en cm (largeur x hauteur)"
-            ])
-            ->add('prix', NumberType::class, [
-                "mapped" => false,
-                "constraints" => [
-                    new Length([
-                        "max" => 7,
-                        "maxMessage" => "Le prix ne peut pas dépasser 7 chiffres"
-                    ]),
-                    new NotBlank([
-                        "message" => "Le prix ne peut pas être vide"
-                    ])
-                ]
-            ])
+
+            ->add('description')
+
+            ->add('dimension')
+
+            ->add('prix')
+
             ->add('photo', FileType::class, [
                 "mapped" => false,
                 "attr" => ["label_attr" => "Parcourir", "lang" => "fr"]
@@ -60,6 +54,7 @@ class OeuvreType extends AbstractType
             ])
             
             ->add('stock')
+            
             ->add('membre', TextType::class, [
                 "label" => "Nom de l'artiste",
                 "mapped" => false,
