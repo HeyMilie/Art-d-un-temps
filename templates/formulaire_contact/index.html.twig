@@ -1,34 +1,79 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}FormulaireContact{% endblock %}
+{% block title %}Formulaire Contact
+{% endblock %}
 
 {% block body %}
 
-<body class="bc-formulaire_contact">
-    <div class="container mt-5 mb-5">
-    
-        <h1 class="h1-formulaire_contact mb-5">Formulaire de contact</h1>
-        <form>
-          <div class="form-row">
-            <div class="col">
-            <label for="nom">Nom</label>
-              <input type="text" class="form-control" name="nom" placeholder="Votre nom">
-            </div>
-            <div class="col">
-            <label for="prenom">Prénom</label>
-              <input type="text" class="form-control" name="prenom" placeholder="Votre prénom">
-            </div>
-          </div>
-           <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
-          </div>
-           <div class="form-group">
-            <label for="demande">Message</label>
-            <textarea class="form-control" name="demande" id="demande" rows="3" placeholder="Veuillez écrire votre demande ici"></textarea>
-          </div>
-          <div class="d-flex justify-content-end"><button type="submit" class="btn-formulaire_contact ">Envoyez</button></div>
-        </form>
-    </div>
-</body>
+  <body class="bc-formulaire_contact">
+		<div class="container mt-5 mb-5">
+
+			<h1 class="h1-formulaire_contact mb-5">Formulaire de contact</h1>
+
+			<div class="bg-white p-5 contact-form">
+					{{ form_start(formulaire_contact) }}
+
+        <div class="form-row">
+          <div class="form-group col">
+  					{{ form_row(formulaire_contact.nom, {'attr': {'class': 'form-control', 'placeholder': "Votre nom"}}) }}
+  				</div>
+  
+          <div class="form-group col">
+  					{{ form_row(formulaire_contact.prenom, {'attr': {'class': 'form-control', 'placeholder': "Votre prénom"}}) }}
+  				</div>
+        </div>
+
+				<div class="form-group">
+					{{ form_row(formulaire_contact.email, {'attr': {'class': 'form-control', 'placeholder': "Votre email 💌"}}) }}
+				</div>
+
+				<div class="form-group">
+					{{ form_row(formulaire_contact.message, {'attr': {'class': 'form-control', 'placeholder': "Veuillez écrire votre demande ici"}}) }}
+				</div>
+
+				<div class="form-group">
+	          <div class="d-flex justify-content-end"><button type="submit" class="btn-formulaire_contact" onclick="return confirm('💌 Demande de contact envoyée ✅')">Envoyer</button></div>
+				</div>
+
+				{{ form_end(formulaire_contact) }}
+			</div>
+
+		</div>
+  </body>
 {% endblock %}
+
+
+	{# {% extends 'base.html.twig' %}
+	
+	{% block title %}FormulaireContact{% endblock %}
+	
+	{% block body %}
+	
+	<body class="bc-formulaire_contact">
+	    <div class="container mt-5 mb-5">
+	    
+	        <h1 class="h1-formulaire_contact mb-5">Formulaire de contact</h1>
+	        <form>
+	          <div class="form-row">
+	            <div class="col">
+	            <label for="nom">Nom</label>
+	              <input type="text" class="form-control" name="nom" placeholder="Votre nom">
+	            </div>
+	            <div class="col">
+	            <label for="prenom">Prénom</label>
+	              <input type="text" class="form-control" name="prenom" placeholder="Votre prénom">
+	            </div>
+	          </div>
+	           <div class="form-group">
+	            <label for="email">Email address</label>
+	            <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+	          </div>
+	           <div class="form-group">
+	            <label for="demande">Message</label>
+	            <textarea class="form-control" name="demande" id="demande" rows="3" placeholder="Veuillez écrire votre demande ici"></textarea>
+	          </div>
+	          <div class="d-flex justify-content-end"><button type="submit" class="btn-formulaire_contact ">Envoyez</button></div>
+	        </form>
+	    </div>
+	</body>
+	{% endblock %} #}
