@@ -24,8 +24,10 @@ class FormulaireContactController extends AbstractController
                 ->from($contactFormData['email'])
                 ->to('artduntemps@gmail.com')
                 ->subject('Nouvelle demande de contact depuis le site web 💌')
-                ->text('Cette personne a envoyé une demande de contact à partir du site web:'.$contactFormData['email'].\PHP_EOL.
-                    $contactFormData['message'],
+                ->text('Cette personne a envoyé une demande de contact à partir du site web:
+                '.$contactFormData['email
+                '].\PHP_EOL.
+                    $contactFormData["'message'"],
                     'text/plain');
             $mailer->send($message);
             $this->addFlash('success', 'Votre message a été envoyé');
