@@ -19,15 +19,11 @@
     <div class="card mt-3 mb-3">
         <div class="card-body">
             {% if oeuvre.photo is defined %}
-                <img class="rounded img-membre m-3" src="{{ asset(dossier_images_oeuvres) ~ oeuvre.photo }}" alt="photo de profil">
+                <img class="rounded img-membre m-3" src="{{ asset(dossier_images_oeuvres) ~ oeuvre.photo }}" alt="oeuvre">
             {% endif %}
             <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}" class="btn mb-3"><i class="fas fa-edit"></i> Modifier cette oeuvre</a> 
             <table class="table">
                 <tbody>
-                    <tr>
-                        <th>Reference</th>
-                        <td>{{ oeuvre.reference }}</td>
-                    </tr>
                     <tr>
                         <th>Categorie</th>
                         <td>{{ oeuvre.categorie }}</td>

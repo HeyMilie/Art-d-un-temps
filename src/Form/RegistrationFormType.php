@@ -35,7 +35,7 @@ class RegistrationFormType extends AbstractType
             
             ->add('pseudo', TextType::class, [
                 "label" => "Pseudo",
-                "require" => true
+                "required" => true
             ])
 
             ->add('plainPassword', PasswordType::class, [

@@ -53,7 +53,7 @@ class OeuvreController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $destination = $this->getParameter("dossier_images");
+            $destination = $this->getParameter("dossier_images_oeuvres");
             if($photoTelechargee = $form->get("photo")->getData()){
                 $photo = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
                 $nouveauNom = str_replace(" ", "_", $photo);

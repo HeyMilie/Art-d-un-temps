@@ -48,6 +48,10 @@ li {
     list-style-type: none;
 }
 
+a {
+    color: #00aa86;
+}
+
 
 /* Styles Breadcrumb */
 
@@ -84,6 +88,10 @@ li {
 
 #inscription:hover {
     color: #ffbf00;
+}
+
+.fz-nav {
+    font-size: 1.15rem;
 }
 
 //********************
@@ -146,7 +154,7 @@ li {
     content: "Parcourir";
 }
 
-.label-log{
+.label-log {
     color: white;
 }
 
@@ -157,15 +165,33 @@ li {
     font-family: 'Roboto', sans-serif;
 }
 
+
+.width-auto {
+    width: auto;
+}
+
+.text-lg {
+    font-size: 2rem;
+}
+
+.carousel-indicators li {
+    border: none;
+    background: #ccc;
+}
+
+.carousel-indicators li.active {
+    background: #87CEFA;
+}
+
 .concept img {
     width: 250px;
     text-align: center;
-    
 }
 
-.concept h3{
+.concept h3 {
     font-family: 'noteworthybold';
 }
+
 //********************************
 // STYLES FORM CONTACT
 //********************************
@@ -252,7 +278,8 @@ footer hr {
 .img-membre {
     width: 150px;
 }
-.img-membre-list{
+
+.img-membre-list {
     width: 60px;
     height: 60px;
 }
@@ -264,6 +291,7 @@ footer hr {
 .li-profil {
     list-style-type: disc;
 }
+
 .text-table {
     color: white;
 }
@@ -273,10 +301,34 @@ footer hr {
     color: #ffbf00;
 }
 
-.link-action :hover{
+.link-action :hover {
     color: #ffff00;
 }
 
-.bo-footer{
+.bo-footer {
     color: #1a1a1a;
+}
+
+//********************************
+//STYLES HAUT DE PAGE CONCEPT/OEUVRE
+//********************************
+.bc-top-page {
+    /* background-image: linear-gradient(to right, #75aada, #94b0c9); */
+    background-image: linear-gradient(to right, #00aa86, #73e1da);
+}
+
+.titre-black {
+    font-family: 'Permanent Marker', cursive;
+    color: black;
+    font-size: 36px;
+    text-align: center;
+}
+
+//********************************
+//STYLES MEDIA QUERIE
+//********************************
+@media screen and (max-width: 767px) {
+    #card {
+        width: 30rem;
+    }
 }
