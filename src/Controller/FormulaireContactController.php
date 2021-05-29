@@ -5,14 +5,35 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\ContactType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mime\Email;
+use Symfony\Component\Mailer\MailerInterface;
 
 class FormulaireContactController extends AbstractController
 {
     #[Route('/formulaire/contact', name: 'formulaire_contact')]
-    public function index(): Response
+    public function index(Request $request, MailerInterface $mailer)
     {
-        return $this->render('formulaire_contact/index.html.twig', [
-            'controller_name' => 'FormulaireContactController',
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $contactFormData = $form->getData();
+            
+            $message = (new Email())
+                ->from($contactFormData['email'])
+                ->to('artduntemps@gmail.com')
+                ->subject('Nouvelle demande de contact depuis le site web 💌')
+                ->text('Cette personne a envoyé une demande de contact à partir du site web:'.$contactFormData['email'].\PHP_EOL.
+                    $contactFormData['message'],
+                    'text/plain');
+            $mailer->send($message);
+            $this->addFlash('success', 'Votre message a été envoyé');
+
+            return $this->redirectToRoute('accueil');
+        }
+        
+        return $this->render('formulaire_contact/index.html.twig', ['formulaire_contact' => $form->createView()
         ]);
     }
 }
