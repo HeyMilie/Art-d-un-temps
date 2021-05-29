@@ -129,6 +129,11 @@ a {
     border-radius: 25px;
 }
 
+.pictos-concept{
+    width: 70%;
+    height: 70%;
+}
+
 .description {
     font-family: 'Roboto', sans-serif;
 }
@@ -180,7 +185,7 @@ a {
 }
 
 .carousel-indicators li.active {
-    background: #87CEFA;
+    background: #00aa86;
 }
 
 .concept img {
@@ -190,6 +195,9 @@ a {
 
 .concept h3 {
     font-family: 'noteworthybold';
+}
+.quote{
+    color:#ffbf00;
 }
 
 //********************************
@@ -322,6 +330,7 @@ footer hr {
     color: black;
     font-size: 36px;
     text-align: center;
+    text-shadow: none;;
 }
 
 //********************************
