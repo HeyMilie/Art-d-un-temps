@@ -48,6 +48,10 @@ li {
     list-style-type: none;
 }
 
+a {
+    color: #00aa86;
+}
+
 
 /* Styles Breadcrumb */
 
@@ -175,7 +179,7 @@ li {
 }
 
 .carousel-indicators li.active {
-    background:#87CEFA;
+    background: #87CEFA;
 }
 
 .concept img {
@@ -273,7 +277,8 @@ footer hr {
 .img-membre {
     width: 150px;
 }
-.img-membre-list{
+
+.img-membre-list {
     width: 60px;
     height: 60px;
 }
@@ -303,8 +308,19 @@ footer hr {
     color: #1a1a1a;
 }
 
+//********************************
+//STYLES HAUT DE PAGE CONCEPT/OEUVRE
+//********************************
 .bc-top-page {
-    background-image: linear-gradient(to right, #75aada, #94b0c9);
+    /* background-image: linear-gradient(to right, #75aada, #94b0c9); */
+    background-image: linear-gradient(to right, #00aa86, #73e1da);
+}
+
+.titre-black {
+    font-family: 'Permanent Marker', cursive;
+    color: black;
+    font-size: 36px;
+    text-align: center;
 }
 
 //********************************
