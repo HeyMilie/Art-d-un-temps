@@ -16,3 +16,8 @@ require("bootstrap");
 
 //import './bootstrap';
 console.log("chargement du fichier app.js");
+
+$(document).on('change', '.custom-file-input', function () {
+    let fileName = $(this).val().replace(/\\/g, '/').replace(/.*\//, '');
+    $(this).parent('.custom-file').find('.custom-file-label').text(fileName);
+});
