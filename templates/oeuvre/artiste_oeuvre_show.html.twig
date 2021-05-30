@@ -27,10 +27,10 @@
                         <th>Nom de l'oeuvre</th>
                         <td>{{ oeuvre.nomOeuvre }}</td>
                     </tr>
-                    <tr>
+                    {# <tr>
                         <th>Auteur</th>
                         <td>{{ oeuvre.membre.pseudo }}</td>
-                    </tr>
+                    </tr> #}
                     <tr>
                         <th>Année</th>
                         <td>{{ oeuvre.annee ? oeuvre.annee|date('Y') : '' }}</td>
