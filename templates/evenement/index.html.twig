@@ -27,17 +27,17 @@
                 <td>{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</td>
                 <td>{{ evenement.titre }}</td>
                 <td>
-                    <a href="{{ path('evenement_show', {'id': evenement.id}) }}">show</a>
-                    <a href="{{ path('evenement_edit', {'id': evenement.id}) }}">edit</a>
+                    <a href="{{ path('evenement_show', {'id': evenement.id}) }}"> Voir </a>
+                    <a href="{{ path('evenement_edit', {'id': evenement.id}) }}"> Modifier </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7"> Aucun évement trouvé </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('evenement_new') }}">Create new</a>
+    <a href="{{ path('evenement_new') }}"> Créer un nouvel événement</a>
 {% endblock %}
