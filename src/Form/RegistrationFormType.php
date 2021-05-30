@@ -69,11 +69,11 @@ class RegistrationFormType extends AbstractType
                 "required" => false
             ])
 
-            ->add('photo', FileType::class, [
-                "mapped" => false,
-                "attr" => ["label_attr" => "Parcourir", "lang" => "fr"]
+            // ->add('photo', FileType::class, [
+            //     "mapped" => false,
+            //     "attr" => ["label_attr" => "Parcourir", "lang" => "fr"]
                 
-            ])
+            // ])
 
             ->add("agreeTerms", CheckboxType::class, [
                 "mapped" => false,
