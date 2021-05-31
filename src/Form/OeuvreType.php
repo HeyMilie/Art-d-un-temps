@@ -2,8 +2,8 @@
 
 namespace App\Form;
 
+use App\Entity\Membre;
 use App\Entity\Oeuvre;
-use DateTimeInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Length;
@@ -15,6 +15,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
+
 
 class OeuvreType extends AbstractType
 {
@@ -55,9 +58,10 @@ class OeuvreType extends AbstractType
             
             ->add('stock')
             
-            ->add('membre', TextType::class, [
-                "label" => "Nom de l'artiste",
-                "mapped" => false,
+            ->add('membre', EntityType::class, [
+                "class" => Membre::class,
+                "choice_label" => "pseudo",
+                "placeholder" => "Choisissez parmi les membres..."
             ])
 
             ->add('enregistrer', SubmitType::class,[
