@@ -40,9 +40,11 @@ class MembreRepository extends ServiceEntityRepository implements PasswordUpgrad
     * @return Membre[] Returns an array of Membre objects
     */
     
-    public function home()
+    public function home($role)
     {
         return $this->createQueryBuilder('m')
+            ->where('m.roles = :roles')
+            ->setParameter('roles', $role)
             ->orderBy('m.id', 'ASC')
             ->setMaxResults(4)
             ->getQuery()
@@ -50,6 +52,17 @@ class MembreRepository extends ServiceEntityRepository implements PasswordUpgrad
         ;
     }
     
+    // public function findByRole($role)
+    // {
+    //     return $this->createQueryBuilder('m')
+    //         ->andWhere('m.roles = :roles')
+    //         ->setParameter('roles', $role)
+    //         ->orderBy('m.id', 'ASC')
+    //         ->setMaxResults(4)
+    //         ->getQuery()
+    //         ->getResult()
+    //     ;
+    // }
 
     /*
     public function findOneBySomeField($value): ?Membre

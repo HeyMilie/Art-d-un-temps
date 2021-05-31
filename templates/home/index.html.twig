@@ -133,7 +133,7 @@
             <h2 class="text-light">L'actualité du moment</h2>
                 <div class="card-columns">
                     {% for evenement in evenements %}
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <div class="card-body">
                           <h5 class="card-title">{{ evenement.titre }}</h5>
                         </div>
@@ -147,58 +147,23 @@
                 </div> 
         </div>                
     </section>
-    <section>
+    {# <section>
         <div class="mb-3 container">
 
             <h2>Les artistes en ligne</h2>
             <div class="row">
+                {% for artiste in artistes %}
                 <div class="col-md-3 col-sm-6 d-xl-flex">
                     <div>
-                        <img class="artiste" src="/images/artiste_01.jpg">
-                        </img>
+                        <img class="rounded-circle img-membre-list" src="{{ asset(dossier_images_membres) ~ artiste.photo }}" alt="-">
                     </div>
-                    <div class="align-self-xl-center">
-                        <p class="description">Jane Leroux</p>
-                        <p class="peintre-lyon">Peintre-Lyon</p>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3 col-sm-6 d-xl-flex">
-                    <div>
-                        <img class="artiste" src="/images/artiste_02.jpg">
-                        </img>
-                    </div>
-                    <div class="align-self-xl-center">
-                        <p class="description">Jane Leroux</p>
-                        <p class="peintre-lyon">Peintre-Lyon</p>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3 col-sm-6 d-xl-flex">
-                    <div>
-                        <img class="artiste" src="/images/artiste_01.jpg">
-                        </img>
-                    </div>
-                    <div class="align-self-xl-center">
-                        <p class="description">Jane Leroux</p>
-                        <p class="peintre-lyon">Peintre-Lyon</p>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3 col-sm-6 d-xl-flex">
-                    <div>
-                        <img class="artiste" src="/images/artiste_02.jpg">
-                        </img>
-                    </div>
-                    <div class="align-self-xl-center">
-                        <p class="description">Jane Leroux</p>
-                        <p class="peintre-lyon">Peintre-Lyon</p>
+                    <div class="align-self-lg-center">
+                        <p class="description">{{ artiste.pseudo }}</p>
+                        <p class="peintre-lyon">Artiste à {{ artiste.ville }}</p>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
-    </section>
+    </section> #}
 </main>{% endblock %}

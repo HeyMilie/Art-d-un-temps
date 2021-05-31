@@ -16,11 +16,11 @@ class HomeController extends AbstractController
     {
         $oeuvres = $oeuvreRepository->home();
         $evenements = $evenementRepository->home();
-        $membres = $membreRepository->home();
+        $artistes = $membreRepository->home('artiste');
         return $this->render('home/index.html.twig',  [
             'oeuvres' => $oeuvres,
             'evenements' => $evenements,
-            'membres' => $membres
+            'artistes' => $artistes
         ]);
     }
 }
