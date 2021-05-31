@@ -24,7 +24,7 @@
                 <td>{{ evenement.ville }}</td>
                 <td>{{ evenement.cp }}</td>
                 <td>{{ evenement.adresse }}</td>
-                <td>{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</td>
+                <td>{{ evenement.date ? evenement.date|date('d-m-Y') : '' }}</td>
                 <td>{{ evenement.titre }}</td>
                 <td>
                     <a href="{{ path('evenement_show', {'id': evenement.id}) }}"> Voir </a>
