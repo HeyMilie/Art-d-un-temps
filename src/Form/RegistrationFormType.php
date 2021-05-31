@@ -21,6 +21,7 @@ class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $membre = $options["data"];
         $builder
             ->add('roles', ChoiceType::class, [
             "choices" => [
