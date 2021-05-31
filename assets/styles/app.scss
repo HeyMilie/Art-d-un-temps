@@ -129,7 +129,7 @@ a {
     border-radius: 25px;
 }
 
-.pictos-concept{
+.pictos-concept {
     width: 70%;
     height: 70%;
 }
@@ -170,7 +170,6 @@ a {
     font-family: 'Roboto', sans-serif;
 }
 
-
 .width-auto {
     width: auto;
 }
@@ -196,8 +195,9 @@ a {
 .concept h3 {
     font-family: 'noteworthybold';
 }
-.quote{
-    color:#ffbf00;
+
+.quote {
+    color: #ffbf00;
 }
 
 //********************************
@@ -330,14 +330,19 @@ footer hr {
     color: black;
     font-size: 36px;
     text-align: center;
-    text-shadow: none;;
+    text-shadow: none;
+    ;
 }
 
 //********************************
 //STYLES MEDIA QUERIE
 //********************************
-@media screen and (max-width: 767px) {
-    #card {
-        width: 30rem;
-    }
+.tata {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.chiffre {
+    font-size: 3rem;
 }
