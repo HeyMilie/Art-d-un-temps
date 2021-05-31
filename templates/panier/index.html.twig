@@ -25,7 +25,7 @@
                         <td> {{ item.oeuvre.prix }} </td>
                         <td> {{ item.oeuvre.quantite }} </td>
                         <td> {{ item.oeuvre.prix * item.oeuvre.quantite }} </td>
-                        <td> <a href=" {{ path('suppression_panier', {'id': item.oeuvre.id}) }} " class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a> </td>
+                        <td> <a href=" {{ path('suppression_panier', {'id': item.oeuvre.id}) }} " class="btn"><i class="fas fa-trash"></i></a> </td>
                     </tr>
                 {% endfor %}
             </tbody>

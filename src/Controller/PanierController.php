@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Panier;
+use App\Entity\Oeuvre;
 use App\Form\PanierType;
 use App\Repository\OeuvreRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -32,11 +33,11 @@ class PanierController extends AbstractController
         $total = 0;
 
         foreach($panierAvecDonnees as $item){
-            $totalItem = $item['product']->getPrice() * $item['quantite'];
+            $totalItem = $item['oeuvre']->getPrix() * $item['quantite'];
             $total += $totalItem;
         }
 
- //       dd($panierAvecDonnees);
+        //dd($panierAvecDonnees);
 
         return $this->render('panier/index.html.twig', [
             'items' => $panierAvecDonnees,
@@ -59,7 +60,7 @@ class PanierController extends AbstractController
 
         $session->set('panier', $panier);
 
-        return $this->redirectToRoute("panier_index");
+        return $this->redirectToRoute("panier");
 
         /* php bin/console debug:autowiring session => recherche tous les services en rapport avec la session */
     }
@@ -92,7 +93,7 @@ class PanierController extends AbstractController
             $entityManager->persist($panier);
             $entityManager->flush();
 
-            return $this->redirectToRoute('panier_index');
+            return $this->redirectToRoute('panier');
         }
 
         return $this->render('panier/new.html.twig', [
@@ -110,7 +111,7 @@ class PanierController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('panier_index');
+            return $this->redirectToRoute('panier');
         }
 
         return $this->render('panier/edit.html.twig', [
