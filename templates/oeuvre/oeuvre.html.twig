@@ -9,21 +9,21 @@
 				<img class="img-fp-oeuvre rounded" src="{{ asset(dossier_images_oeuvres) ~ oeuvre.photo }}" alt=" ">
 			</div>
 
-			<div class="col-lg-4">
-				<h1 class="titre-black">{{ oeuvre.nomOeuvre }}</h1>
+			<div class="col-lg-4 text-white">
+				<h1 class="titre-white">{{ oeuvre.nomOeuvre }}</h1>
 				<hr>
-				<p class="infos-oeuvre">{{ oeuvre.categorie }} / {{ oeuvre.annee ? oeuvre.annee|date('Y-m-d') : '' }}</p>
+				<p class="infos-oeuvre">{{ oeuvre.categorie }}: {{ oeuvre.annee ? oeuvre.annee|date('d m Y') : '' }}</p>
 				<div class="">
 					<a href="#description">Voir la description detaillé</a>
-					<p class="prix">{{ oeuvre.prix }} €</p>
+					<p class="prix">Prix: {{ oeuvre.prix }} €</p>
 				<div>
-				<a href="#" type="submit" class="btn">Acheter l'oeuvre</a>
+				<a href=" {{ path('ajout_panier') }} " type="submit" class="btn">Acheter l'oeuvre</a>
 			</div>
 		</div>
 
 				<h2 class="h2-fp">A propos de l'artiste</h2>
 				<hr>
-				<div class="d-flex">
+				<div class="">
 					<div class="col-3">
 						<img class="rounded img-fp-artiste" src="/images/artiste_01.jpg" alt="Photo profil artiste">	
 					</div>
@@ -68,7 +68,7 @@
 
 				<p><strong>A propos de l'oeuvre</strong></p>
 
-				<p class="description">{{ oeuvre.description }}</p>
+				<p class="description text-justify">{{ oeuvre.description }}</p>
 
 			</div>
 			<hr>
