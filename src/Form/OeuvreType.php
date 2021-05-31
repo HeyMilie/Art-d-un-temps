@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Membre;
 use App\Entity\Oeuvre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -9,17 +10,20 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
+
 
 class OeuvreType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('reference', TextType::class)
             ->add('categorie', ChoiceType::class, [
                "choices" => [
                    "Peinture" => "Peinture",
@@ -33,31 +37,31 @@ class OeuvreType extends AbstractType
                 "expanded" => true  
             ])
             ->add('nom_oeuvre', TextType::class)
-            ->add('annee', TextType::class, [
-                "mapped" => false,
-                "label" => "Réalisée en"
+
+            ->add('annee', DateType::class, [
+                "widget" => "single_text",
+                "label" => "Réalisée en",
+                "required" => false
             ])
-            ->add('dimension', TextType::class, [
+
+            ->add('description')
+
+            ->add('dimension')
+
+            ->add('prix')
+
+            ->add('photo', FileType::class, [
                 "mapped" => false,
-                "label" => "Dimmension en cm (largeur x hauteur)"
+                "attr" => ["label_attr" => "Parcourir", "lang" => "fr"]
+                
             ])
-            ->add('prix', NumberType::class, [
-                "mapped" => false,
-                "constraints" => [
-                    new Length([
-                        "max" => 7,
-                        "maxMessage" => "Le prix ne peut pas dépasser 7 chiffres"
-                    ]),
-                    new NotBlank([
-                        "message" => "Le prix ne peut pas être vide"
-                    ])
-                ]
-            ])
-            //->add('photo')
+            
             ->add('stock')
-            ->add('membre', TextType::class, [
-                "label" => "Nom de l'artiste",
-                "mapped" => false,
+            
+            ->add('membre', EntityType::class, [
+                "class" => Membre::class,
+                "choice_label" => "pseudo",
+                "placeholder" => "Choisissez parmi les membres..."
             ])
 
             ->add('enregistrer', SubmitType::class,[

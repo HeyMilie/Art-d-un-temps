@@ -49,16 +49,11 @@ class MembreType extends AbstractType
             ->add('cp')
             ->add('adresse')
 
-            // ->add('photo', FileType::class, [
-            //     "mapped" => false,
-            //     "attr" => ["label_attr" => "Parcourir", "lang" => "fr"],
-            //     "constraints" => [
-            //         new IsTrue([
-            //             'message' => 'Vous devez choisir une photo',
-            //         ]),
-            //     ],
+            ->add("photo", FileType::class, [
+                "mapped" => false,
+                "attr" => ["label_attr" => "Parcourir", "lang" => "fr"]
                 
-            // ])
+            ])
             
             ->add('enregistrer', SubmitType::class,[
                 "attr" => 

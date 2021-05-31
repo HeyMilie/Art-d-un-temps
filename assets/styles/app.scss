@@ -48,6 +48,10 @@ li {
     list-style-type: none;
 }
 
+a {
+    color: #00aa86;
+}
+
 
 /* Styles Breadcrumb */
 
@@ -86,6 +90,10 @@ li {
     color: #ffbf00;
 }
 
+.fz-nav {
+    font-size: 1.15rem;
+}
+
 //********************
 // STYLES HOME
 //********************
@@ -94,6 +102,10 @@ li {
     background-size: cover;
     color: #FFF;
     padding-bottom: 50px;
+}
+
+.quote-focus{
+    width: 100px;
 }
 
 .text-slide-home {
@@ -116,9 +128,18 @@ li {
     color: black;
 }
 
+.img-oeuvre{
+    max-width: 300px;
+    margin: 10px;
+}
 .artiste {
     width: 150px;
     border-radius: 25px;
+}
+
+.pictos-concept {
+    width: 70%;
+    height: 70%;
 }
 
 .description {
@@ -146,7 +167,7 @@ li {
     content: "Parcourir";
 }
 
-.label-log{
+.label-log {
     color: white;
 }
 
@@ -157,20 +178,44 @@ li {
     font-family: 'Roboto', sans-serif;
 }
 
-// .concept ul{
-//     list-style-type: ;
-// }
+.width-auto {
+    width: auto;
+}
 
+.text-lg {
+    font-size: 2rem;
+}
+
+.carousel-indicators li {
+    border: none;
+    background: #ccc;
+}
+
+.carousel-indicators li.active {
+    background: #00aa86;
+}
 
 .concept img {
     width: 250px;
     text-align: center;
-    
 }
 
-.concept h3{
+.concept h3 {
     font-family: 'noteworthybold';
 }
+
+.quote {
+    color: #ffbf00;
+}
+//********************************
+// STYLES FORM CONTACT
+//********************************
+.events{
+    border:3px solid;
+}
+
+
+
 //********************************
 // STYLES FORM CONTACT
 //********************************
@@ -258,6 +303,11 @@ footer hr {
     width: 150px;
 }
 
+.img-membre-list {
+    width: 60px;
+    height: 60px;
+}
+
 .ul-profil {
     color: white;
 }
@@ -265,6 +315,7 @@ footer hr {
 .li-profil {
     list-style-type: disc;
 }
+
 .text-table {
     color: white;
 }
@@ -274,10 +325,72 @@ footer hr {
     color: #ffbf00;
 }
 
-.link-action :hover{
+.link-action :hover {
     color: #ffff00;
 }
 
-.bo-footer{
+.bo-footer {
     color: #1a1a1a;
+}
+
+//********************************
+//STYLES HAUT DE PAGE CONCEPT/OEUVRE
+//********************************
+.bc-top-page {
+    /* background-image: linear-gradient(to right, #75aada, #94b0c9); */
+    background-image: linear-gradient(to right, #00aa86, #73e1da);
+}
+
+.titre-black {
+    font-family: 'Permanent Marker', cursive;
+    color: black;
+    font-size: 36px;
+    text-align: center;
+    text-shadow: none;
+    ;
+}
+
+//********************************
+//STYLES FP OEUVRE
+//********************************
+.img-fp-oeuvre {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.chiffre {
+    font-size: 3rem;
+}
+
+.prix{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 28px;
+    color: #000;
+}
+
+.img-fp-artiste{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.infos-oeuvre{
+    font-style:italic;
+    color: #999;
+    text-align: center;
+}
+.badge{
+    font-weight: lighter;
+}
+.tag {
+    font-size: 18px;
+}
+
+.h2-fp{
+    padding: 0px;
+    margin-top: 10px;
+}
+
+.description{
+    text-align: justify;
 }

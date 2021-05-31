@@ -1,7 +1,7 @@
-<header>
+<header class="bg-white">
 	<div class="container-fluid d-flex p-1">
 		<!-- LOGO -->
-		<a class="navbar-brand" href="{{ path("accueil") }}"> <img class="logo" src="/images/logo.png" alt="Mon logo"> </a>
+		<a class="navbar-brand ml-2" href="{{ path("accueil") }}"> <img class="logo" src="/images/logo.png" alt="Mon logo"> </a>
 
 
 		<nav class="navbar navbar-expand-lg navbar-light container-fluid">
@@ -12,11 +12,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="mx-auto">
-					<ul class="navbar-nav mb-lg-0 text-center word">					
-						<li><a class="nav-link" href=" {{ path('accueil') }} ">Accueil</a></li>
-						<li><a class="nav-link" href=" {{ path('concept') }} ">Concept</a></li>
-						<li><a class="nav-link" href=" {{ path('oeuvres') }} ">Oeuvres</a></li>
-						<li><a class="nav-link" href=" {# {{ path('evenement_index') }} #} ">Evénements</a></li>
+					<ul class="navbar-nav mb-lg-0 ">					
+						<li><a class="nav-link fz-nav" href=" {{ path('accueil') }} ">Accueil</a></li>
+						<li><a class="nav-link fz-nav ml-lg-5" href=" {{ path('concept') }} ">Concept</a></li>
+						<li><a class="nav-link fz-nav ml-lg-5" href=" {{ path('oeuvres') }} ">Oeuvres</a></li>
+						<li><a class="nav-link fz-nav ml-lg-5" href=" {{ path('event') }} ">Evénements</a></li>
 					</ul>	
 				</div>
 				
@@ -54,8 +54,8 @@
 					</ul>
 					{% else %}
 						<form class="d-flex">
-							<a id="inscription" class="nav-link mx-auto" href="{{ path("app_register") }}">Inscription</a>
-							<a class="btn btn-warning  mx-auto" href="{{ path("app_login") }}">Connexion</a>
+							<a id="inscription" class="nav-link fz-nav" href="{{ path("app_register") }}">Inscription</a>
+							<a class="btn btn-warning" href="{{ path("app_login") }}">Connexion</a>
 						</form>
 					{% endif %}
 				</div>

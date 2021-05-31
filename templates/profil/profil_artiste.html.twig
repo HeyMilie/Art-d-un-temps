@@ -18,10 +18,12 @@
 	<div class="row justify-content-between align-items-start pb-3">
 		
 		<div class="col-lg-2">
-		<img class="rounded img-membre" src="/images/avatar_default.png" alt="photo de profil">
+			{% if app.user.photo is defined %}
+				<img class="rounded img-membre m-3" src="{{ asset(dossier_images_membres) ~ app.user.photo }}" alt="photo de profil">
+			{% endif %}
 		</div>
 
-		<ul class="col-lg-8 ul-profil">
+		<ul class="col-lg-8 ul-profil mt-3">
 			<li>Nom & Prénom : {{ app.user.nom }} {{ app.user.prenom }}</li>
 			<li>Pseudo : {{ app.user.pseudo }}</li>
 			<li>E-mail : {{ app.user.email }}</li>			
@@ -29,27 +31,28 @@
 			<li>Code Postal - Ville : {{ app.user.cp }} {{ app.user.ville }}</li>
 		</ul>
 		
-		<div class="col-lg-2">
+		<div class="col-lg-2 mt-3">
 			<a class="btn" href="{{ path('edit_profil_artiste', {'id': app.user.id}) }}">Modifier</a>
 		</div>
 
 	</div>
 
-	<div class="row justify-content-between align-items-center">
+
+	<div class="container row justify-content-between align-items-center border-bottom">
 		<h2 class="h2-profil">Abonnement à la newsletter</h2>
-	
 		<div class="custom-control custom-switch">
 			<input type="checkbox" class="custom-control-input" id="customSwitch1">
 			<label class="custom-control-label" for="customSwitch1"></label>
 		</div>
 	</div>
 
+
 	<div class="card-columns mt-3">
 
 		<div class="card">
             <div class="card-body">
                 <h5 class="card-title">Mes oeuvres</h5>
-                <ul>
+                <ul class="ul-profil">
                     <li class="li-profil"><a href="{{ path("artiste_oeuvres") }}">Voir mes oeuvres</a></li>
                     <li class="li-profil"><a href="{{ path("artiste_oeuvre_new") }}">Ajouter une oeuvre</a></li>
                 </ul>
@@ -59,9 +62,9 @@
 		<div class="card">
 			<div class="card-body">
 				<h5 class="card-title">Mes articles</h5>
-				<ul>
-					<li class="li-profil"><a href="{{ path("article_index") }}">Voir mes articles</a></li>
-					<li class="li-profil"><a href="{{ path("article_new") }}">Ajouter un article</a></li>
+				<ul class="ul-profil">
+					<li class="li-profil"><a href="{{ path("artiste_articles") }}">Voir mes articles</a></li>
+					<li class="li-profil"><a href="{{ path("artiste_article_new") }}">Ajouter un article</a></li>
 				</ul>
 			</div>
 		</div>

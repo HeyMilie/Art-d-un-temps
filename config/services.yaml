@@ -4,7 +4,13 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    locale: 'en'
     dossier_images: '%kernel.project_dir%/public/images/'
+    dossier_images_membres: '%kernel.project_dir%/public/images/membres'
+    dossier_images_oeuvres: '%kernel.project_dir%/public/images/oeuvres'
+    dossier_images_evenements: '%kernel.project_dir%/public/images/evenements'
+    dossier_images_articles: '%kernel.project_dir%/public/images/articles'
+
 
 services:
     # default configuration for services in *this* file
@@ -15,7 +21,7 @@ services:
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
-        resource: '../src/'
+        resource: '../src/*'
         exclude:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
