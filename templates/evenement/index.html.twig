@@ -1,24 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends 'bo_base.html.twig' %}
 
-{% block title %}Evenement index{% endblock %}
+{% block title %}Art d'un temps - Liste des événements{% endblock %}
 
-{% block body %}
-    <h1>Evenement index</h1>
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Liste des événments</li>
+        </ol>
+    </nav>
 
-    <table class="table">
-        <thead>
+    <h1>Liste des événements</h1>
+
+    <table class="table mt-3">
+        <thead class="bg-light">
             <tr>
-                <th>Id</th>
-                <th>Ville</th>
-                <th>Cp</th>
-                <th>Adresse</th>
-                <th>Date</th>
                 <th>Titre</th>
-                <th>actions</th>
+                <th>Lieu</th>
+                <th>Date</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for evenement in evenements %}
+
             <tr>
                 <td>{{ evenement.id }}</td>
                 <td>{{ evenement.ville }}</td>
@@ -29,15 +35,28 @@
                 <td>
                     <a href="{{ path('evenement_show', {'id': evenement.id}) }}"> Voir </a>
                     <a href="{{ path('evenement_edit', {'id': evenement.id}) }}"> Modifier </a>
+/*
+            <tr class="text-table">
+                <td class="align-middle">{{ evenement.titre }}</td>
+                <td class="align-middle">
+                    {{ evenement.adresse }}<br>
+                    {{ evenement.cp }} - {{ evenement.ville }}</td>
+                <td class="align-middle">{{ evenement.date ? evenement.date|date('d-m-Y') : '' }}</td>
+
+                <td class="align-middle">
+                    <a href="{{ path('evenement_show', {'id': evenement.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>
+                    <a href="{{ path('evenement_edit', {'id': evenement.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
+*/
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7"> Aucun évement trouvé </td>
+                <td colspan="7">Aucun événement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
     <a href="{{ path('evenement_new') }}"> Créer un nouvel événement</a>
+
 {% endblock %}

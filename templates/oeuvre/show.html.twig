@@ -29,9 +29,13 @@
                         <td>{{ oeuvre.categorie }}</td>
                     </tr>
                     <tr>
-                        <th>Nom_oeuvre</th>
+                        <th>Nom de l'oeuvre</th>
                         <td>{{ oeuvre.nomOeuvre }}</td>
                     </tr>
+                    {# <tr>
+                        <th>Auteur</th>
+                        <td>{{ oeuvre.membre.pseudo }}</td>
+                    </tr> #}
                     <tr>
                         <th>Année</th>
                         <td>{{ oeuvre.annee ? oeuvre.annee|date('Y') : '' }}</td>
@@ -42,7 +46,7 @@
                     </tr>
                     <tr>
                         <th>Prix</th>
-                        <td>{{ oeuvre.prix }}</td>
+                        <td>{{ oeuvre.prix }} €</td>
                     </tr>
                     <tr>
                         <th>Stock</th>

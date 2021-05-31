@@ -22,15 +22,24 @@ class OeuvreController extends AbstractController
     #[IsGranted("ROLE_MEMBRE")]
     public function homeOeuvres(OeuvreRepository $oeuvreRepository): Response
     {
+        $peintures = $oeuvreRepository->findByCategorie('peinture');
+        $sculptures = $oeuvreRepository->findByCategorie('sculpture');
+        $ceramiques = $oeuvreRepository->findByCategorie('céramique');
+        //dd($sculptures); 
         return $this->render('oeuvre/oeuvres.html.twig', [
-            'oeuvres' => $oeuvreRepository->findAll(),
+            'peintures' => $peintures,
+            'sculptures' => $sculptures,
+            'ceramiques' => $ceramiques
         ]);
     }
 
-    #[Route('/oeuvres/oeuvre{id}', name: 'oeuvre', methods: ['GET'])] 
-    public function ficheOeuvre(OeuvreRepository $oeuvreRepository): Response
+    #[Route('/oeuvres/oeuvre/{id}', name: 'oeuvre', methods: ['GET'])] 
+    public function ficheOeuvre(Oeuvre $oeuvre): Response
     {
-        return $this->render('oeuvre/oeuvre.html.twig', ['oeuvres' => $oeuvreRepository->findAll(),]);
+        
+        return $this->render('oeuvre/oeuvre.html.twig', [
+            'oeuvre' => $oeuvre
+        ,]);
     }
 
     // ACCES ADMIN
