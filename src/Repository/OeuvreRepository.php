@@ -27,15 +27,12 @@ class OeuvreRepository extends ServiceEntityRepository
     public function showPeinture(){
         /*
             SELECT o.*
-            FROM oeuvres o
+            FROM oeuvre o
             WHERE o.categorie = peinture
 
         */
-        return $this->createQueryBuilder("o")
-            //->join(Emprunt::class, "e", "WITH", "l.id = e.livre")
-            ->where("o.categorie = peinture")
-            ->orderBy('o.id', 'ASC')
-            //->addOrderBy("l.titre")
+        return $this->createQueryBuilder("oeuvre")
+            ->where("oeuvre.categorie = 'peinture'")
             ->setMaxResults(8)
             ->getQuery()
             ->getResult()
@@ -58,19 +55,19 @@ class OeuvreRepository extends ServiceEntityRepository
         ;
     }
 
-    /*
-    public function findByExampleField($value)
-    // {
-    //     return $this->createQueryBuilder('o')
-    //         ->andWhere('o.exampleField = :val')
-    //         ->setParameter('val', $value)
-    //         ->orderBy('o.id', 'ASC')
-    //         ->setMaxResults(10)
-    //         ->getQuery()
-    //         ->getResult()
-    //     ;
-    // }
-    */
+    
+    public function findByCategorie($categorie)
+    {
+        return $this->createQueryBuilder('o')
+            ->andWhere('o.categorie = :categorie')
+            ->setParameter('categorie', $categorie)
+            ->orderBy('o.id', 'ASC')
+            ->setMaxResults(8)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
 
     /*
     public function findOneBySomeField($value): ?Oeuvre

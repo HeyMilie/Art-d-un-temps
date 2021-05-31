@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for o in oeuvres %}
+        {% for o in app.user.oeuvres %}
             <tr class="text-table">
                 <td class="align-middle">{{ o.categorie }}</td>
                 <td class="align-middle">{{ o.nomOeuvre }}</td>

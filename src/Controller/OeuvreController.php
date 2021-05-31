@@ -21,8 +21,17 @@ class OeuvreController extends AbstractController
     #[Route('/oeuvres', name: 'oeuvres', methods: ['GET'])]
     public function homeOeuvres(OeuvreRepository $oeuvreRepository): Response
     {
+        // $oeuvres = $oeuvreRepository->findAll();
+        $peintures = $oeuvreRepository->findByCategorie('peinture');
+        $sculptures = $oeuvreRepository->findByCategorie('sculpture');
+        $ceramiques = $oeuvreRepository->findByCategorie('céramique');
+        //dd($sculptures); 
+        //$peintures = $oeuvreRepository->findByExampleField("Peinture");
         return $this->render('oeuvre/oeuvres.html.twig', [
-            'oeuvres' => $oeuvreRepository->findAll(),
+            // 'oeuvres' => $oeuvres,
+            'peintures' => $peintures,
+            'sculptures' => $sculptures,
+            'ceramiques' => $ceramiques
         ]);
     }
 
