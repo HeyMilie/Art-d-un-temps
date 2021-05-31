@@ -22,6 +22,11 @@ class Panier
      */
     private $quantite;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Oeuvre::class)
+     */
+    private $oeuvre;
+
     
     public function getId(): ?int
     {
@@ -36,6 +41,18 @@ class Panier
     public function setQuantite(string $quantite): self
     {
         $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    public function getOeuvre(): ?Oeuvre
+    {
+        return $this->oeuvre;
+    }
+
+    public function setOeuvre(?Oeuvre $oeuvre): self
+    {
+        $this->oeuvre = $oeuvre;
 
         return $this;
     }
