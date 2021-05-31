@@ -16,7 +16,8 @@
     <table class="table mt-3">
         <thead class="bg-light">
                 <th>Categorie</th>
-                <th>Nom_oeuvre</th>
+                <th>Nom de l'oeuvre</th>
+                {# <th>Auteur</th> #}
                 <th>Année</th>
                 <th>Prix</th>
                 <th>Photo</th>
@@ -29,8 +30,9 @@
             <tr class="text-table">
                 <td class="align-middle">{{ oeuvre.categorie }}</td>
                 <td class="align-middle">{{ oeuvre.nomOeuvre }}</td>
+                {# <td class="align-middle">{{ oeuvre.membre.pseudo }}</td> #}
                 <td class="align-middle">{{ oeuvre.annee ? oeuvre.annee|date('Y-m-d') : '' }}</td>
-                <td class="align-middle">{{ oeuvre.prix }}</td>
+                <td class="align-middle">{{ oeuvre.prix }} €</td>
                 <td class="align-middle">
                     {% if oeuvre.photo is defined %}
                     <img class="rounded img-membre-list" src="{{ asset(dossier_images_oeuvres) ~ oeuvre.photo }}" alt="-">
