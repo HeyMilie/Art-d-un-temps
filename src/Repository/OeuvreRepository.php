@@ -33,7 +33,22 @@ class OeuvreRepository extends ServiceEntityRepository
         */
         return $this->createQueryBuilder("oeuvre")
             ->where("oeuvre.categorie = 'peinture'")
-            ->setMaxResults(8)
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function home(){
+        /*
+            SELECT *
+            FROM oeuvre
+            ORDER BY id
+
+        */
+        return $this->createQueryBuilder("oeuvre")
+        ->orderBy("oeuvre.id")
+            ->setMaxResults(6)
             ->getQuery()
             ->getResult()
         ;
@@ -62,7 +77,7 @@ class OeuvreRepository extends ServiceEntityRepository
             ->andWhere('o.categorie = :categorie')
             ->setParameter('categorie', $categorie)
             ->orderBy('o.id', 'ASC')
-            ->setMaxResults(8)
+            ->setMaxResults(6)
             ->getQuery()
             ->getResult()
         ;

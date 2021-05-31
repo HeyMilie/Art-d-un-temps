@@ -6,6 +6,7 @@ use App\Entity\Evenement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EvenementType extends AbstractType
 {
@@ -18,6 +19,12 @@ class EvenementType extends AbstractType
             ->add('cp')
             ->add('ville')
             // ->add('membre')
+
+            ->add('enregistrer', SubmitType::class,[
+                "attr" => 
+                ["class" => "btn"
+                ]
+            ])
         ;
     }
 
