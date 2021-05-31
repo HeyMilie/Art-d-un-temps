@@ -351,9 +351,9 @@ footer hr {
 }
 
 //********************************
-//STYLES MEDIA QUERIE
+//STYLES FP OEUVRE
 //********************************
-.tata {
+.img-fp-oeuvre {
     max-width: 100%;
     max-height: 100%;
     display: block;
@@ -361,4 +361,36 @@ footer hr {
 
 .chiffre {
     font-size: 3rem;
+}
+
+.prix{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 28px;
+    color: #000;
+}
+
+.img-fp-artiste{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.infos-oeuvre{
+    font-style:italic;
+    color: #999;
+    text-align: center;
+}
+.badge{
+    font-weight: lighter;
+}
+.tag {
+    font-size: 18px;
+}
+
+.h2-fp{
+    padding: 0px;
+    margin-top: 10px;
+}
+
+.description{
+    text-align: justify;
 }

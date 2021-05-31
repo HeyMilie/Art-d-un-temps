@@ -24,20 +24,20 @@ class OeuvreRepository extends ServiceEntityRepository
      * @return Oeuvre[] Returns an array of Oeuvre objects
      */
 
-    public function showPeinture(){
-        /*
-            SELECT o.*
-            FROM oeuvre o
-            WHERE o.categorie = peinture
+    // public function showPeinture(){
+    //     /*
+    //         SELECT o.*
+    //         FROM oeuvre o
+    //         WHERE o.categorie = peinture
 
-        */
-        return $this->createQueryBuilder("oeuvre")
-            ->where("oeuvre.categorie = 'peinture'")
-            ->setMaxResults(6)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+    //     */
+    //     return $this->createQueryBuilder("oeuvre")
+    //         ->where("oeuvre.categorie = 'peinture'")
+    //         ->setMaxResults(6)
+    //         ->getQuery()
+    //         ->getResult()
+    //     ;
+    // }
 
     public function home(){
         /*
@@ -47,12 +47,13 @@ class OeuvreRepository extends ServiceEntityRepository
 
         */
         return $this->createQueryBuilder("oeuvre")
-        ->orderBy("oeuvre.id")
+            ->orderBy("oeuvre.id")
             ->setMaxResults(6)
             ->getQuery()
             ->getResult()
         ;
     }
+
 
     public function oeuvresByMembre(){
         /*
@@ -84,15 +85,5 @@ class OeuvreRepository extends ServiceEntityRepository
     }
     
 
-    /*
-    public function findOneBySomeField($value): ?Oeuvre
-    {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+    
 }

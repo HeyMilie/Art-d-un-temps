@@ -32,10 +32,13 @@ class OeuvreController extends AbstractController
         ]);
     }
 
-    #[Route('/oeuvres/oeuvre{id}', name: 'oeuvre', methods: ['GET'])] 
-    public function ficheOeuvre(OeuvreRepository $oeuvreRepository): Response
+    #[Route('/oeuvres/oeuvre/{id}', name: 'oeuvre', methods: ['GET'])] 
+    public function ficheOeuvre(Oeuvre $oeuvre): Response
     {
-        return $this->render('oeuvre/oeuvre.html.twig', ['oeuvres' => $oeuvreRepository->findAll(),]);
+        
+        return $this->render('oeuvre/oeuvre.html.twig', [
+            'oeuvre' => $oeuvre
+        ,]);
     }
 
     // ACCES ADMIN
