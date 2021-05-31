@@ -14,59 +14,31 @@
 		</div>
 	</div>
 
-	<div>
+	<div class="container">
 		<p class="text-justify text-center mt-4">En collaboration avec les artistes partenaires d'Art d'un temps, nous organisons chaque année plusieurs evenements. Au programme salons, vernissages, expositions, rencontres. avec Art d'un temps, l'art est toujours au plus prés de vous.</p>
 	</div>
 
 
-	<section class="pb-4">
-		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-			</ol>
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img src="/images/slide-1.jpg" class="d-block w-100" alt="...">
-					<div class="carousel-caption"></div>
+	<section class="container mb-3">
+		<h2>Nos prochains événements</h2>
+		<div class="card-columns">
+			{% for evenement in evenements %}
+			<div class="card" style="width: 18rem;">
+				<div class="card-body">
+				  <h5 class="card-title">{{ evenement.titre }}</h5>
 				</div>
-				<div class="carousel-item">
-					<img src="/images/slide-2.jpg" class="d-block w-100" alt="...">
-					<div class="carousel-caption"></div>
-				</div>
-				<div class="carousel-item">
-					<img src="/images/slide-3.jpg" class="d-block w-100" alt="...">
-					<div class="carousel-caption"></div>
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Précédent</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Suivant</span>
-			</a>
-
+				<ul class="list-group list-group-flush">
+				  <li class="list-group-item">{{ evenement.adresse }}</li>
+				  <li class="list-group-item">{{ evenement.cp }} - {{ evenement.ville }}</li>
+				  <li class="list-group-item">{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</li>
+				</ul>
+			  </div>
+			  {% endfor %}
 		</div>
 	</section>
 
 
 </div>
 
-<div class="container-fluid bc-top-page bg-info text-justify">
-		<div class="container pt-4 pb-4">
-			<h1 class="pt-3 titre-black text-justify text-center">Nos prochains evenements</h1>
-
-		</div>
-	</div>
-
-
-<div>
-	<p class="text-justify text-center mt-4">Pour ètre sur de ne manquer aucun évènement, abonnez vous à notre
-		<a href="#">Newsletter</a>
-	</p>
-</div>
 
 {% endblock %}
