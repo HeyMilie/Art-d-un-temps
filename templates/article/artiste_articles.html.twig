@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for article in articles %}
+            {% for article in app.user.articles %}
             <tr class="text-table">
                 <td class="align-middle">{{ article.id }}</td>
                 <td class="align-middle"><img class="rounded img-membre m-3" src="{{ asset(dossier_images_articles) ~ article.photo }}" alt="article"></td>
