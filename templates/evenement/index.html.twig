@@ -29,7 +29,7 @@
                 <td class="align-middle">
                     {{ evenement.adresse }}<br>
                     {{ evenement.cp }} - {{ evenement.ville }}</td>
-                <td class="align-middle">{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</td>
+                <td class="align-middle">{{ evenement.date ? evenement.date|date('d-m-Y') : '' }}</td>
 
                 <td class="align-middle">
                     <a href="{{ path('evenement_show', {'id': evenement.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>

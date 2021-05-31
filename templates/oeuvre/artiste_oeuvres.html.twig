@@ -30,7 +30,7 @@
             <tr class="text-table">
                 <td class="align-middle">{{ o.categorie }}</td>
                 <td class="align-middle">{{ o.nomOeuvre }}</td>
-                <td class="align-middle">{{ o.annee ? o.annee|date('Y-m-d') : '' }}</td>
+                <td class="align-middle">{{ o.annee ? o.annee|date('d-m-Y') : '' }}</td>
                 <td class="align-middle">{{ o.prix }}</td>
                 <td class="align-middle">
                     {% if o.photo is defined %}

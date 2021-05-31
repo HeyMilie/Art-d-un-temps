@@ -31,7 +31,7 @@
                 <td class="align-middle">{{ oeuvre.categorie }}</td>
                 <td class="align-middle">{{ oeuvre.nomOeuvre }}</td>
                 {# <td class="align-middle">{{ oeuvre.membre.pseudo }}</td> #}
-                <td class="align-middle">{{ oeuvre.annee ? oeuvre.annee|date('Y-m-d') : '' }}</td>
+                <td class="align-middle">{{ oeuvre.annee ? oeuvre.annee|date('d-m-Y') : '' }}</td>
                 <td class="align-middle">{{ oeuvre.prix }} €</td>
                 <td class="align-middle">
                     {% if oeuvre.photo is defined %}
