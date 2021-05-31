@@ -62,11 +62,6 @@ class Oeuvre
      */
     private $description;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Panier::class, mappedBy="panier", cascade={"persist", "remove"})
-     */
-    private $oeuvre;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -180,25 +175,4 @@ class Oeuvre
         return $this;
     }
 
-    public function getOeuvre(): ?Panier
-    {
-        return $this->oeuvre;
-    }
-
-    public function setOeuvre(?Panier $oeuvre): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($oeuvre === null && $this->oeuvre !== null) {
-            $this->oeuvre->setPanier(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($oeuvre !== null && $oeuvre->getPanier() !== $this) {
-            $oeuvre->setPanier($this);
-        }
-
-        $this->oeuvre = $oeuvre;
-
-        return $this;
-    }
 }
