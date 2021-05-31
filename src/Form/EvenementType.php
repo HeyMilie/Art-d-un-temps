@@ -12,11 +12,11 @@ class EvenementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('ville')
-            ->add('cp')
-            ->add('adresse')
-            ->add('date')
             ->add('titre')
+            ->add('date')
+            ->add('adresse')
+            ->add('cp')
+            ->add('ville')
             // ->add('membre')
         ;
     }

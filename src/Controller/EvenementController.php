@@ -11,8 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-#[Route('/evenement')]
-
+#[Route('admin/evenement')]
 #[IsGranted("IS_AUTHENTICATED_FULLY")]
 
 class EvenementController extends AbstractController

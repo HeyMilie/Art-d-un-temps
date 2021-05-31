@@ -26,11 +26,12 @@ class ArticleType extends AbstractType
                 
             ])
 
-            ->add('Auteur', EntityType::class, [
-                "class" => Membre::class,
-                "choice_label" => "pseudo",
-                "placeholder" => "Choisissez parmi les membres..."
-            ])
+            ->add('auteur')
+            // ->add('Auteur', EntityType::class, [
+            //     "class" => Membre::class,
+            //     "choice_label" => "pseudo",
+            //     "placeholder" => "Choisissez parmi les membres..."
+            // ])
             
             ->add('enregistrer', SubmitType::class,[
                 "attr" => 
