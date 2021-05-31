@@ -36,22 +36,20 @@ class MembreRepository extends ServiceEntityRepository implements PasswordUpgrad
         $this->_em->flush();
     }
 
-    // /**
-    //  * @return Membre[] Returns an array of Membre objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+    * @return Membre[] Returns an array of Membre objects
+    */
+    
+    public function home()
     {
         return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
             ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
+            ->setMaxResults(4)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Membre
