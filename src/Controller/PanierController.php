@@ -4,8 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Panier;
 use App\Form\PanierType;
-use App\Repository\PanierRepository;
 use App\Repository\OeuvreRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,12 +14,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 
-#[Route('/', name: 'panier')]
-#[IsGranted("ROLE_USER")]
 class PanierController extends AbstractController
 {
-    #[Route('/', name: 'panier_index', methods: ['GET'])]
-    public function index(PanierRepository $panierRepository, SessionInterface $session, OeuvreRepository $oeuvreRepository): Response
+    #[Route('/panier', name: 'panier')]
+    #[IsGranted("ROLE_USER")]
+    public function index(SessionInterface $session, OeuvreRepository $oeuvreRepository): Response
     {
         $panier = $session->get('panier', []);
         $panierAvecDonnees = [];
@@ -45,7 +44,43 @@ class PanierController extends AbstractController
         ]);
     }
 
+    
+    #[Route('/panier/add/{id}', name: 'ajout_panier')]
+    #[IsGranted("ROLE_USER")]
+    public function add($id, SessionInterface $session)
+    {
+        $panier = $session->get('panier', []);
+
+        if(!empty( $panier[$id] )){
+            $panier[$id]++;
+        }else{
+            $panier[$id] = 1;
+        }
+
+        $session->set('panier', $panier);
+
+        return $this->redirectToRoute("panier_index");
+
+        /* php bin/console debug:autowiring session => recherche tous les services en rapport avec la session */
+    }
+    
+    #[Route('/panier/remove/{id}', name: 'suppression_panier')]
+    #[IsGranted("ROLE_USER")]
+    public function remove($id, SessionInterface $session)
+    {
+        $panier = $session->get('panier',[]);
+
+        if(!empty($panier[$id])){
+            unset($panier[$id]);
+        }
+
+        $session->set('panier', $panier);
+
+        return $this->redirectToRoute("panier_index");
+    }
+
     #[Route('/new', name: 'panier_new', methods: ['GET', 'POST'])]
+    #[IsGranted("ROLE_USER")]
     public function new(Request $request): Response
     {
         $panier = new Panier();
@@ -63,50 +98,6 @@ class PanierController extends AbstractController
         return $this->render('panier/new.html.twig', [
             'panier' => $panier,
             'form' => $form->createView(),
-        ]);
-    }
-
-    #[Route('/panier/add/{id}', name: 'ajout_panier')]
-    public function add($id, SessionInterface $session)
-    {
-        $session = $request->getSession();
-
-        $panier = $session->get('panier', []);
-
-        if(!empty( $panier[$id] )){
-            $panier[$id]++;
-        }else{
-            $panier[$id] = 1;
-        }
-
-        $session->set('panier', $panier);
-
-        return $this->redirectToRoute("panier_index");
-
-        /* php bin/console debug:autowiring session => recherche tous les services en rapport avec la session */
-    }
-
-    
-    #[Route('/panier/remove/{id}', name: 'suppression_panier')]
-    public function remove($id, SessionInterface $session)
-    {
-        $panier = $session->get('panier',[]);
-
-        if(!empty($panier[$id])){
-            unset($panier[$id]);
-        }
-
-        $session->set('panier', $panier);
-
-        return $this->redirectToRoute("panier_index");
-
-    }
-    /* 
-    #[Route('/{id}', name: 'panier_show', methods: ['GET'])]
-    public function show(Panier $panier): Response
-    {
-        return $this->render('panier/show.html.twig', [
-            'panier' => $panier,
         ]);
     }
 
@@ -128,15 +119,4 @@ class PanierController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'panier_delete', methods: ['POST'])]
-    public function delete(Request $request, Panier $panier): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$panier->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($panier);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('panier_index');
-    } */
 }

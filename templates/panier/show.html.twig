@@ -12,15 +12,15 @@
                 <td>{{ panier.id }}</td>
             </tr>
             <tr>
-                <th>Quantite</th>
+                <th>Quantité</th>
                 <td>{{ panier.quantite }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('panier_index') }}">back to list</a>
+    <a href="{{ path('panier_index') }}">Retour</a>
 
-    <a href="{{ path('panier_edit', {'id': panier.id}) }}">edit</a>
+    <a href="{{ path('panier_edit', {'id': panier.id}) }}"> Modifier</a>
 
     {{ include('panier/_delete_form.html.twig') }}
 {% endblock %}
