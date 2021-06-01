@@ -147,23 +147,23 @@
                 </div> 
         </div>                
     </section>
-    {# <section>
+    <section>
         <div class="mb-3 container">
 
             <h2>Les artistes en ligne</h2>
             <div class="row">
-                {% for artiste in artistes %}
+                {% for membre in membres %}
                 <div class="col-md-3 col-sm-6 d-xl-flex">
                     <div>
-                        <img class="rounded-circle img-membre-list" src="{{ asset(dossier_images_membres) ~ artiste.photo }}" alt="-">
+                        <img class="rounded-circle img-membre-list" src="{{ asset(dossier_images_membres) ~ membre.photo }}" alt="-">
                     </div>
                     <div class="align-self-lg-center">
-                        <p class="description">{{ artiste.pseudo }}</p>
-                        <p class="peintre-lyon">Artiste à {{ artiste.ville }}</p>
+                        <p class="description">{{ membre.pseudo }}</p>
+                        <p class="peintre-lyon">Artiste à {{ membre.ville }}</p>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-    </section> #}
+    </section>
 </main>{% endblock %}
