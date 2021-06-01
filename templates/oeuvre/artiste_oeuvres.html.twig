@@ -28,10 +28,12 @@
         <tbody>
         {% for o in app.user.oeuvres %}
             <tr class="text-table">
+
                 <td class="align-middle">{{ o.categorie }}</td>
                 <td class="align-middle">{{ o.nomOeuvre }}</td>
                 <td class="align-middle">{{ o.annee ? o.annee|date('d-m-Y') : '' }}</td>
                 <td class="align-middle">{{ o.prix }}</td>
+
                 <td class="align-middle">
                     {% if o.photo is defined %}
                     <img class="rounded img-membre-list" src="{{ asset(dossier_images_oeuvres) ~ o.photo }}" alt="-">

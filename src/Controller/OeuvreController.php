@@ -17,8 +17,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class OeuvreController extends AbstractController
 {
     //ACCES MEMBRES
-
+    
     #[Route('/oeuvres', name: 'oeuvres', methods: ['GET'])]
+    #[IsGranted("ROLE_MEMBRE")]
     public function homeOeuvres(OeuvreRepository $oeuvreRepository): Response
     {
         $peintures = $oeuvreRepository->findByCategorie('peinture');
@@ -44,6 +45,7 @@ class OeuvreController extends AbstractController
     // ACCES ADMIN
 
     #[Route('admin/oeuvres/', name: 'bo_oeuvres', methods: ['GET'])]
+    #[IsGranted("ROLE_ADMIN")]
     public function index(OeuvreRepository $oeuvreRepository): Response
     {
         return $this->render('oeuvre/index.html.twig', [

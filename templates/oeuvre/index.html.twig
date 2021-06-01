@@ -30,9 +30,11 @@
             <tr class="text-table">
                 <td class="align-middle">{{ oeuvre.categorie }}</td>
                 <td class="align-middle">{{ oeuvre.nomOeuvre }}</td>
+
                 {# <td class="align-middle">{{ oeuvre.membre.pseudo }}</td> #}
                 <td class="align-middle">{{ oeuvre.annee ? oeuvre.annee|date('d-m-Y') : '' }}</td>
                 <td class="align-middle">{{ oeuvre.prix }} €</td>
+
                 <td class="align-middle">
                     {% if oeuvre.photo is defined %}
                     <img class="rounded img-membre-list" src="{{ asset(dossier_images_oeuvres) ~ oeuvre.photo }}" alt="-">
@@ -42,6 +44,7 @@
                 <td class="align-middle">
                     <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>
                     <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
+                    <a href="{# {{ path("ajout_panier")}} #}" class="link-action"><i class="fas fa-shopping-cart"></i></a>
                 </td>
             </tr>
         {% else %}

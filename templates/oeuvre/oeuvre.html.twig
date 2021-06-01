@@ -2,28 +2,28 @@
 
 
 {% block body %}
-
+<main class="bg-light pt-4">
 	<div class="container">
-		<div class="row mb-3">
+		<div class="row">
 			<div class="col-lg-8">
 				<img class="img-fp-oeuvre rounded" src="{{ asset(dossier_images_oeuvres) ~ oeuvre.photo }}" alt=" ">
 			</div>
 
-			<div class="col-lg-4 text-white">
-				<h1 class="titre-white">{{ oeuvre.nomOeuvre }}</h1>
+			<div class="col-lg-4">
+				<h1 class="titre-black">{{ oeuvre.nomOeuvre }}</h1>
 				<hr>
-				<p class="infos-oeuvre">{{ oeuvre.categorie }}: {{ oeuvre.annee ? oeuvre.annee|date('d m Y') : '' }}</p>
-				<div class="">
-					<a href="#description">Voir la description detaillé</a>
-					<p class="prix">Prix: {{ oeuvre.prix }} €</p>
+				<p class="infos-oeuvre">{{ oeuvre.categorie }}: {{ oeuvre.annee ? oeuvre.annee|date('d-m-Y') : '' }}</p>
 				<div>
-				<a href=" {{ path('ajout_panier') }} " type="submit" class="btn">Acheter l'oeuvre</a>
+					<a href="#description">Voir la description detaillé</a>
+					<p class="prix">{{ oeuvre.prix }} €</p>
+				<div>
+				<a href="{{ path('ajout_panier', {'id': oeuvre.id} ) }}" type="submit" class="btn">Acheter l'oeuvre</a>
 			</div>
 		</div>
 
 				<h2 class="h2-fp">A propos de l'artiste</h2>
 				<hr>
-				<div class="">
+				<div class="d-flex">
 					<div class="col-3">
 						<img class="rounded img-fp-artiste" src="/images/artiste_01.jpg" alt="Photo profil artiste">	
 					</div>
@@ -135,4 +135,6 @@
 			</div>
 		</section>
 
-</div>{% endblock %}
+	</div>
+</main>
+{% endblock %}

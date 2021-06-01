@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier 💳{% endblock %}
+
+{% block body %}
+
+<main class="bg-dark mt-3">
+        <div class="container pt-3">
+            <h1>Votre panier 💳</h1>
+            {% if items | length > 0 %}
+                
+                <div class="d-flex justify-content-center">
+                    <table class="table mt-3">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Oeuvre</th>
+                                <th>Prix</th>
+                                <th>Quantité</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in items %}
+                                <tr class="text-table">
+                                    <td> {{ item.oeuvre.nomOeuvre }} </td>
+                                    <td> {{ item.oeuvre.prix }} € </td>
+                                    <td> {{ item.quantite }} </td>
+                                    <td> {{ item.oeuvre.prix * item.quantite }} €</td>
+                                    <td> <a href=" {{ path('suppression_panier', {'id': item.oeuvre.id}) }} " class="btn"><i class="fas fa-trash"></i> Supprimer</a> </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-table">
+                                <td colspan="4" class="text-right"> <strong>TOTAL = </strong> </td>
+                                <td> <strong>{{ total }} €</strong> </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            {% else %}
+            <div class="d-flex justify-content-center">
+                <h2 class="h2-profil"> Votre panier est vide!</h2>
+            </div>
+            {% endif %}
+        </div>
+
+</main>
+
+
+{% endblock %}

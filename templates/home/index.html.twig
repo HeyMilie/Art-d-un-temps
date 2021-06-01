@@ -1,4 +1,9 @@
-{% extends 'base.html.twig' %} {% block title %}Accueil {% endblock %} {% block body %}
+{% extends 'base.html.twig' %} 
+
+{% block title %}Accueil {% endblock %} 
+
+{% block body %}
+
 <main>
     <section>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -50,7 +55,7 @@
         <div class="container">
 
             <h2 class="text-center">Dernières oeuvres en ligne</h2>
-                    
+  
             <div class="card-columns">
 
                 {% for oeuvre in oeuvres %}
@@ -60,6 +65,7 @@
                         <h3><a href="{{ path('oeuvre', {'id': oeuvre.id}) }}">{{ oeuvre.nomOeuvre }}</a></h3>
                             <span class="details-oeuvre">{{ oeuvre.membre.pseudo }} / {{ oeuvre.annee ? oeuvre.annee|date('d-m-Y') : '' }}</span>
                         </article>
+
                 </div>
                 {% endfor %}
 
@@ -69,8 +75,6 @@
         </div>
        
     </section>
-
-    
     
     <section>
         <div class="container">
@@ -80,7 +84,7 @@
                 <!-- 1ER POINT -->
                 <div class="col-sm-5 col-lg-3">
                     <div>
-                        <img src="/images/decouvrez.png" class="pictos-concept">
+                        <img src="/images/decouvrez.png" class="pictos-concept" alt="Decouvrez">
                     </div>
                     <span><strong>Découvrez</strong></span>
                     <p>Visualisez toutes les oeuvres en quelques clics sans bouger de chez vous.</p>
@@ -88,7 +92,7 @@
                 <!-- 2E POINT -->
                 <div class="col-sm-5 col-lg-3">
                     <div>
-                        <img src="/images/gerez.png" class="pictos-concept">
+                        <img src="/images/gerez.png" class="pictos-concept" alt="Gerez">
                     </div>
                     <span><strong>Gérez</strong></span>
                     <p>Grâce à votre espace personnel, gérez vos contenus et rencontrez d'autres artistes.</p>
@@ -96,7 +100,7 @@
                 <!-- 3E POINT -->
                 <div class="col-sm-5 col-lg-3">
                     <div>
-                        <img src="/images/achetez.png" class="pictos-concept">
+                        <img src="/images/achetez.png" class="pictos-concept" alt="Achetez">
                     </div>
                     <span><strong>Achetez</strong></span>
                     <p>Acquérisez les oeuvres d'art en quelques clics sans bouger de votre canapé.</p>
@@ -104,7 +108,7 @@
                 <!-- 4E POINT -->
                 <div class="col-sm-5 col-lg-3">
                     <div>
-                        <img src="/images/venez.jpg" class="pictos-concept">
+                        <img src="/images/venez.jpg" class="pictos-concept" alt="Venez">
                     </div>
                     <span><strong>Venez</strong></span>
                     <p>Ne ratez aucun événement artistique pour partager des moments avec les artistes.</p>
@@ -115,7 +119,7 @@
     <section id="focus" class="container-fluid">
         <div class="container">
             <!-- BLOC TITRE -->
-            <img src="/images/quote.png" class="quote-focus mt-4"> 
+            <img src="/images/quote.png" class="quote-focus mt-4" alt="Quote"> 
             <h2>L'aérographie</h2>
             <!-- BLOC DETAILS-->
             <div class="col-12 col-lg-4 pb-3">
@@ -127,102 +131,39 @@
     <section id="cards" class="container-fluid pb-4">
         <div class="container">
             <h2 class="text-light">L'actualité du moment</h2>
-          
-                        <div class="row justify-content-around">
-                            <div class="col-md-5 col-xl-3">
-                                <div class="card border-none" style="width: 18rem;">
-                                    <img src="images/slide_mea_03.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h3 class="card-title">Titre article</h3>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </div>
-                                    <div class="card-body">
-                                        <a href="#" class="card-link">Date publication<i class="fas fa-chevron-right"></i></a>
-                                         
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5 col-xl-3 mt-sm-4 mt-md-0">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="images/slide_mea_01.jpeg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h3 class="card-title">Titre article</h3>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </div>
-                                    <div class="card-body">
-                                        <a href="#" class="card-link">Date publication<i class="fas fa-chevron-right"></i></a>
-	
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5 col-xl-3 mt-sm-4 mt-xl-0">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="images/slide_mea_02.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h3 class="card-title">Titre article</h3>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </div>
-                                    <div class="card-body">
-                                        <a href="#" class="card-link">Date publication<i class="fas fa-chevron-right"></i></a>
-	
-
-                                    </div>
-                                </div>
-                            </div>
+                <div class="card-columns">
+                    {% for evenement in evenements %}
+                    <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ evenement.titre }}</h5>
                         </div>
-                   
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
+                            <i class="fas fa-map-marker-alt"></i> {{ evenement.adresse }}
+                              {{ evenement.cp }} - {{ evenement.ville }}</li>
+                          <li class="list-group-item"><i class="far fa-calendar-alt"></i> {{ evenement.date ? evenement.date|date('d-m-Y') : '' }}</li>
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div> 
+        </div>                
     </section>
     <section>
         <div class="mb-3 container">
 
             <h2>Les artistes en ligne</h2>
             <div class="row">
+                {% for membre in membres %}
                 <div class="col-md-3 col-sm-6 d-xl-flex">
                     <div>
-                        <img class="artiste" src="/images/artiste_01.jpg">
-                        </img>
+                        <img class="rounded img-membre-list" src="{{ asset(dossier_images_membres) ~ membre.photo }}" alt="-">
                     </div>
-                    <div class="align-self-xl-center">
-                        <p class="description">Jane Leroux</p>
-                        <p class="peintre-lyon">Peintre-Lyon</p>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3 col-sm-6 d-xl-flex">
-                    <div>
-                        <img class="artiste" src="/images/artiste_02.jpg">
-                        </img>
-                    </div>
-                    <div class="align-self-xl-center">
-                        <p class="description">Jane Leroux</p>
-                        <p class="peintre-lyon">Peintre-Lyon</p>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3 col-sm-6 d-xl-flex">
-                    <div>
-                        <img class="artiste" src="/images/artiste_01.jpg">
-                        </img>
-                    </div>
-                    <div class="align-self-xl-center">
-                        <p class="description">Jane Leroux</p>
-                        <p class="peintre-lyon">Peintre-Lyon</p>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3 col-sm-6 d-xl-flex">
-                    <div>
-                        <img class="artiste" src="/images/artiste_02.jpg">
-                        </img>
-                    </div>
-                    <div class="align-self-xl-center">
-                        <p class="description">Jane Leroux</p>
-                        <p class="peintre-lyon">Peintre-Lyon</p>
+                    <div class="align-self-lg-center p-3">
+                        <p class="description">{{ membre.pseudo }} <br>
+                        <span class="peintre-lyon">Artiste à {{ membre.ville }}</span></p>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>

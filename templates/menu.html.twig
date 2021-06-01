@@ -1,8 +1,10 @@
 <header class="bg-white">
-	<div class="container-fluid d-flex p-1">
+	<div
+		class="container-fluid d-flex p-2">
 		<!-- LOGO -->
-		<a class="navbar-brand ml-2" href="{{ path("accueil") }}"> <img class="logo" src="/images/logo.png" alt="Mon logo"> </a>
-
+		<a class="navbar-brand ml-2" href="{{ path("accueil") }}">
+			<img class="logo" src="/images/logo.png" alt="Mon logo">
+		</a>
 
 		<nav class="navbar navbar-expand-lg navbar-light container-fluid">
 			<a class="navbar-brand" href="#"></a>
@@ -19,9 +21,9 @@
 						<li><a class="nav-link fz-nav ml-lg-5" href=" {{ path('event') }} ">Evénements</a></li>
 					</ul>	
 				</div>
-				
-					<!-- Inscription / Connexion -->
-				<div class="">
+
+				<!-- Inscription / Connexion -->
+				<div>
 					{% if is_granted("IS_AUTHENTICATED_FULLY") %}
 						<ul class="navbar-nav mb-2 mb-lg-0"> {% if is_granted("ROLE_ADMIN") %}
 							<li class="nav-item">
@@ -45,21 +47,14 @@
 								</a>
 							</li>
 						{% endif %}
-
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path("app_logout") }}">
-								<i class="fa fa-sign-out-alt"></i>
-							</a>
-						</li>
-					</ul>
-					{% else %}
+						
 						<form class="d-flex">
 							<a id="inscription" class="nav-link fz-nav" href="{{ path("app_register") }}">Inscription</a>
 							<a class="btn btn-warning" href="{{ path("app_login") }}">Connexion</a>
 						</form>
 					{% endif %}
 				</div>
-			</div>	
+			</div>
 		</nav>
 	</div>
 </header>
