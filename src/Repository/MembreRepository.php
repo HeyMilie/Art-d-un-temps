@@ -43,8 +43,8 @@ class MembreRepository extends ServiceEntityRepository implements PasswordUpgrad
     public function home($roles)
     {
         return $this->createQueryBuilder('m')
-            ->where('m.roles = :roles')
-            ->setParameter('roles', $roles)
+            ->where('m.roles LIKE :roles')
+            ->setParameter('roles', '%' . $roles . '%')
             ->orderBy('m.id', 'ASC')
             ->setMaxResults(4)
             ->getQuery()
