@@ -21,18 +21,18 @@
             <tbody>
                 {% for item in items %}
                     <tr>
-                        <td> {{ item.oeuvre.nom_oeuvre }} </td>
+                        <td> {{ item.oeuvre.nomOeuvre }} </td>
                         <td> {{ item.oeuvre.prix }} </td>
-                        <td> {{ item.oeuvre.quantite }} </td>
-                        <td> {{ item.oeuvre.prix * item.oeuvre.quantite }} </td>
+                        <td> {{ item.quantite }} </td>
+                        <td> {{ item.oeuvre.prix * item.quantite }} </td>
                         <td> <a href=" {{ path('suppression_panier', {'id': item.oeuvre.id}) }} " class="btn"><i class="fas fa-trash"></i></a> </td>
                     </tr>
                 {% endfor %}
             </tbody>
-            <tfoot>
+            <tfoot class="text-right">
                 <tr>
-                <td colspan"3" class="text-right"> TOTAL =  </td>
-                <td> {{ 'total' }} </td>
+                <td colspan"3"> TOTAL =  </td>
+                <td> {{ total }} </td>
                 <td>  </td>
                 </tr>
             </tfoot>

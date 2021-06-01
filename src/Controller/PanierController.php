@@ -77,7 +77,7 @@ class PanierController extends AbstractController
 
         $session->set('panier', $panier);
 
-        return $this->redirectToRoute("panier_index");
+        return $this->redirectToRoute("panier");
     }
 
     #[Route('/new', name: 'panier_new', methods: ['GET', 'POST'])]
