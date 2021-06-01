@@ -138,32 +138,33 @@
                           <h5 class="card-title">{{ evenement.titre }}</h5>
                         </div>
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item">{{ evenement.adresse }}</li>
-                          <li class="list-group-item">{{ evenement.cp }} - {{ evenement.ville }}</li>
-                          <li class="list-group-item">{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</li>
+                          <li class="list-group-item">
+                            <i class="fas fa-map-marker-alt"></i> {{ evenement.adresse }}
+                              {{ evenement.cp }} - {{ evenement.ville }}</li>
+                          <li class="list-group-item"><i class="far fa-calendar-alt"></i> {{ evenement.date ? evenement.date|date('d-m-Y') : '' }}</li>
                         </ul>
                     </div>
                     {% endfor %}
                 </div> 
         </div>                
     </section>
-    {# <section>
+    <section>
         <div class="mb-3 container">
 
             <h2>Les artistes en ligne</h2>
             <div class="row">
-                {% for artiste in artistes %}
+                {% for membre in membres %}
                 <div class="col-md-3 col-sm-6 d-xl-flex">
                     <div>
-                        <img class="rounded-circle img-membre-list" src="{{ asset(dossier_images_membres) ~ artiste.photo }}" alt="-">
+                        <img class="rounded img-membre-list" src="{{ asset(dossier_images_membres) ~ membre.photo }}" alt="-">
                     </div>
-                    <div class="align-self-lg-center">
-                        <p class="description">{{ artiste.pseudo }}</p>
-                        <p class="peintre-lyon">Artiste à {{ artiste.ville }}</p>
+                    <div class="align-self-lg-center p-3">
+                        <p class="description">{{ membre.pseudo }} <br>
+                        <span class="peintre-lyon">Artiste à {{ membre.ville }}</span></p>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-    </section> #}
+    </section>
 </main>{% endblock %}

@@ -63,9 +63,7 @@ class OeuvreRepository extends ServiceEntityRepository
         */
         return $this->createQueryBuilder("o")
             ->join(Membre::class, "m", "WITH", "o.membre = m.pseudo")
-            //->where("e.date_retour IS null")
             ->orderBy("o.id")
-            //->addOrderBy("l.titre")
             ->getQuery()
             ->getResult()
         ;
