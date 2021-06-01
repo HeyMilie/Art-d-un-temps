@@ -2,9 +2,9 @@
 
 
 {% block body %}
-
+<main class="bg-light pt-4">
 	<div class="container">
-		<div class="row mb-3">
+		<div class="row">
 			<div class="col-lg-8">
 				<img class="img-fp-oeuvre rounded" src="{{ asset(dossier_images_oeuvres) ~ oeuvre.photo }}" alt=" ">
 			</div>
@@ -135,4 +135,6 @@
 			</div>
 		</section>
 
-</div>{% endblock %}
+	</div>
+</main>
+{% endblock %}
