@@ -24,29 +24,29 @@
 
 				<!-- Inscription / Connexion -->
 				<div>
-					{% if is_granted("ROLE_USER") %}
-						<ul class="navbar-nav mb-2 mb-lg-0">
+					{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+						<ul class="navbar-nav mb-2 mb-lg-0"> {% if is_granted("ROLE_ADMIN") %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path("profil_admin")}}">
+									<i class="fa fa-user"></i>
+									{{ app.user.pseudo }}
+								</a>
+							</li>
+						{% elseif is_granted("ROLE_ARTISTE") %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path("profil_artiste")}}">
+									<i class="fa fa-user"></i>
+									{{ app.user.pseudo }}
+								</a>
+							</li>
+						{% elseif is_granted("ROLE_MEMBRE") %}
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path("profil_membre")}}">
-									{{ app.user.pseudo }} 
 									<i class="fa fa-user"></i>
-									
+									{{ app.user.pseudo }}
 								</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href=" {{ path('panier') }} ">
-									Panier
-									<i class="fas fa-shopping-cart"></i>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path("app_logout") }}">
-									Déconnexion
-									<i class="fa fa-sign-out-alt"></i>
-								</a>
-							</li>
-						</ul>
-					{% else %}
+						{% endif %}
 						<form class="d-flex">
 							<a id="inscription" class="nav-link fz-nav" href="{{ path("app_register") }}">Inscription</a>
 							<a class="btn btn-warning" href="{{ path("app_login") }}">Connexion</a>
