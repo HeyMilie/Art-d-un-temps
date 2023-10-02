@@ -26,9 +26,9 @@
                                 <td>{{ element.product.titre }}<br>
                                 de {{ element.product.user.pseudo }}</td>
                                 <td>{{ element.product.prix }} €</td>
-                                <td><a href="#" class="link-action"><i class="fas fa-minus"></i></a>
+                                <td><a href="{{ path('cart_remove', {id: element.product.id})}}" class="link-action"><i class="fas fa-minus"></i></a>
                                 {{ element.quantity }}
-                                <a href="#" class="link-action"><i class="fas fa-plus"></i></a>
+                                <a href="{{ path('cart_add', {id: element.product.id})}}" class="link-action"><i class="fas fa-plus"></i></a>
                                 </td>
                                 <td>{{ element.quantity * element.product.prix }} €</td>
                                 <td>

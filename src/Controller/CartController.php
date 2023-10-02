@@ -35,6 +35,7 @@ class CartController extends AbstractController
         return $this->render('cart/index.html.twig', compact('data', 'total'));
     }
 
+    //Ajouter un produit dans le panier
     #[Route('/add/{id}', name: 'add')]
     public function add(Oeuvres $oeuvre, SessionInterface $session): Response
     {
@@ -59,5 +60,29 @@ class CartController extends AbstractController
         return $this->redirectToRoute('cart_index');
     }
 
-    
+    //Supprimer un produit dans le panier
+    #[Route('/remove/{id}', name: 'remove')]
+    public function remove(Oeuvres $product, SessionInterface $session): Response
+    {
+        //On récupère l'id du produit
+        $id = $product->getId();
+
+        // On récupère le panier existant
+        $panier = $session->get('panier', []);
+
+        // On retire le produit du panier s'il n'y a qu'1 exemplaire
+        // Sinon on décrémente sa quantité
+        if(!empty($panier[$id])){
+            if($panier[$id] > 1){
+                $panier[$id]--;
+            }else{
+                unset($panier[$id]);
+            }
+        }
+
+        $session->set('panier', $panier);
+        
+        //On redirige vers la page du panier
+        return $this->redirectToRoute('cart_index');
+    }
 }
