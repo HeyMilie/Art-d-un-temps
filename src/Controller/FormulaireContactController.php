@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +11,7 @@ use Symfony\Component\Mailer\MailerInterface;
 
 class FormulaireContactController extends AbstractController
 {
-    #[Route('/formulaire/contact', name: 'formulaire_contact')]
+    #[Route('/contact', name: 'formulaire_contact')]
     public function index(Request $request, MailerInterface $mailer)
     {
         $form = $this->createForm(ContactType::class);
@@ -22,7 +21,7 @@ class FormulaireContactController extends AbstractController
             
             $message = (new Email())
                 ->from($contactFormData['email'])
-                ->to('artduntemps@gmail.com')
+                ->to('emilie.delaurent@gmail.com')
                 ->subject('Nouvelle demande de contact depuis le site web 💌')
                 ->text('Cette personne a envoyé une demande de contact à partir du site web:
                 '.$contactFormData['email'].\PHP_EOL.'
@@ -34,7 +33,7 @@ class FormulaireContactController extends AbstractController
             return $this->redirectToRoute('accueil');
         }
         
-        return $this->render('formulaire_contact/index.html.twig', ['formulaire_contact' => $form->createView()
+        return $this->render('contact/formcontact.html.twig', ['formulaire_contact' => $form->createView()
         ]);
     }
 }

@@ -1,0 +1,66 @@
+{% extends 'bo_base.html.twig' %}
+
+{% block title %}Profil {{app.user.username}} {% endblock %}
+
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Administration</a></li>
+        </ol>
+    </nav>
+
+    <h1>Bienvenue sur la gestion de votre site</h1>
+
+    <div class="card-columns mt-3">
+        <div class="card">
+            <div class="card-body">
+            <h5 class="card-title">Les utilisateurs</h5>
+            <ul class="ul-profil">
+                <li class="li-profil"><a href="{{ path("admin_utilisateurs") }}">Voir les utilisateurs</a></li>
+                <li class="li-profil"><a href="{{ path("admin_ajouter_utilisateur") }}">Ajouter un utilisateur</a></li>
+                <li class="li-profil"><a href="#">Mon profil Administrateur</a></li>
+            </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Les oeuvres</h5>
+                <ul class="ul-profil">
+                    <li class="li-profil"><a href="{{ path("admin_oeuvres") }}">Voir les oeuvres</a></li>
+                    <li class="li-profil"><a href="{{ path("admin_ajouter_oeuvre") }}">Ajouter une oeuvre</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Les événements</h5>
+                <ul class="ul-profil">
+                    <li class="li-profil"><a href="{{ path("admin_evenements") }}">Voir les événements</a></li>
+                    <li class="li-profil"><a href="{{ path("admin_ajouter_evenement") }}">Ajouter un événement</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Les articles</h5>
+                <ul class="ul-profil">
+                    <li class="li-profil"><a href="#">Voir les articles</a></li>
+                    <li class="li-profil"><a href="#">Ajouter un article</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Les commandes</h5>
+                <ul class="ul-profil">
+                    <li class="li-profil"><a href="">Voir les commandes</a></li>
+                </ul>
+            </div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %} 
+
+{% block title %}Panier {% endblock %} 
+
+{% block body %}
+    <main class="bg-dark mt-3">
+        <div class="container pt-3">
+            <h1>Votre panier</h1>
+        
+            <div class="d-flex justify-content-center">
+                <table class="table mt-3">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>Oeuvre</th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                            <th>Total</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+{% endblock %}

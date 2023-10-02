@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use App\Repository\MembreRepository;
-use App\Repository\OeuvreRepository;
-use App\Repository\EvenementRepository;
+
+use App\Repository\UsersRepository;
+use App\Repository\EventsRepository;
+use App\Repository\OeuvresRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,15 +13,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'accueil')]
-    public function index(OeuvreRepository $oeuvreRepository, EvenementRepository $evenementRepository, MembreRepository $membreRepository): Response
+    public function index(OeuvresRepository $oeuvresRepository, EventsRepository $eventsRepository, UsersRepository $usersRepository): Response
     {
-        $oeuvres = $oeuvreRepository->home();
-        $evenements = $evenementRepository->home();
-        $membres = $membreRepository->home('ROLE_ARTISTE');
+        $oeuvres = $oeuvresRepository->home();
+        $events = $eventsRepository->home();
+        $users = $usersRepository->home('ROLE_ARTISTE');
         return $this->render('home/index.html.twig',  [
             'oeuvres' => $oeuvres,
-            'evenements' => $evenements,
-            'membres' => $membres
+            'events' => $events,
+            'users' => $users
         ]);
     }
 }

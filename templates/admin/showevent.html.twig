@@ -1,0 +1,62 @@
+{% extends 'bo_base.html.twig' %}
+
+{% block title %}Art d'un temps - Evénement {{ event.titre }}{% endblock %}
+
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("admin_accueil")}}">Administration</a></li>
+            <li class="breadcrumb-item active"><a href="{{ path("admin_evenements")}}">Liste des evenements</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Fiche {{ event.titre }}</li>
+        </ol>
+    </nav>
+
+    <h1>Fiche evenement</h1>
+
+    <h2 class="text-center center h2-profil">
+    {{ event.titre }}
+    </h2>
+    <div class="card mt-3 mb-3">
+        <div class="card-body">
+            <h3>Informations</h3>
+            <a href="{{ path('admin_modifier_evenement', {'id': event.id}) }}" class="btn mb-3"><i class="fas fa-edit"></i> Modifier</a>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Référence</th>
+                        <td>{{ event.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Titre</th>
+                        <td>{{ event.titre }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de début</th>
+                        <td>{{ event.dateDebut ? event.dateDebut|date('d-m-Y') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de fin</th>
+                        <td>{{ event.dateFin ? event.dateFin|date('d-m-Y') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Lieu</th>
+                        <td>{{ event.cp }} - {{ event.ville }}</td>
+                    </tr>
+                    <tr>
+                        <th>Artiste(s)</th>
+                        <td>
+                            {% for user in event.getUsers %}
+                                <span class="badge bg-light"><strong>{{ user.pseudo }}</strong></span>
+                            {% endfor %}
+                        </td>
+                    </tr>
+            </table>
+
+        </div>
+    </div>
+    <div class="d-flex justify-content-between">
+        <a href="{{ path("admin_evenements")}}" class="btn"><i class="fas fa-arrow-left"></i> Retour</a>  
+        {{ include('admin/deleteevent.html.twig') }} 
+    </div>
+{% endblock %}

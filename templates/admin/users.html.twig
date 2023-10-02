@@ -1,0 +1,83 @@
+{% extends 'bo_base.html.twig' %}
+
+{% block title %}Art d'un temps - Liste des utilisateurs{% endblock %}
+
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("admin_accueil")}}">Administration</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Liste des utilisateurs</li>
+        </ol>
+    </nav>
+    
+
+    <h1>Liste des utilisateurs</h1>
+
+    <table class="table mt-3">
+        <thead class="bg-light">
+            <tr>
+                <th>N° d'utilisateur</th>
+                <th>Photo</th>
+                <th>Pseudo</th>
+                <th>Email</th>
+                <th>Rôles</th>
+                <th>Oeuvres</th>
+                <th>Evénements</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr class="text-table">
+                <td class="align-middle">{{ user.id }}</td>
+                <td class="align-middle">
+                    {% if user.photo is defined %}
+                    <img class="rounded-circle img-membre-list" src="{{ asset(dossier_images_membres) ~ user.photo }}" alt="-">
+                    {% endif %}
+                </td>
+                <td class="align-middle">
+                    {% if user.pseudo is defined %}
+                        {{ user.pseudo }}
+                    {% endif %}
+                </td>
+                <td class="align-middle">{{ user.email }}</td>
+                <td class="align-middle">
+                    
+                    {% for role in user.roles %} 
+                        {% if role == "ROLE_ADMIN" %}
+                            {% set name = "Administrateur" %}
+                            {% set color = "danger" %}
+                        {% elseif role == "ROLE_ARTISTE" %}
+                            {% set name = "Artiste" %}
+                            {% set color = "warning" %}
+                        {% elseif role == "ROLE_USER" %}
+                            {% set name = "Utilisateur" %}
+                            {% set color = "info" %}  
+                        {% endif %}   
+                        <span class="badge bg-{{color}}">{{ name }}</span>
+                    {% endfor %}
+
+                </td>
+                <td class="align-middle">
+                {{ user.oeuvres|length }}
+                </td>
+                <td class="align-middle">
+                        {{user.getEvents|length }}
+                </td>
+                
+                <td class="align-middle">
+                    <a href="{{ path('admin_voir_utilisateur', {'id': user.id}) }}" class="link-action"><i class="fas fa-eye"></i></a>
+                    <a href="{{ path('admin_modifier_utilisateur', {'id': user.id}) }}" class="link-action"><i class="fas fa-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td class="text-table" colspan="11">Aucun utilisateur trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path("admin_ajouter_utilisateur")}}" class="btn">Nouvel utilisateur</a> 
+{% endblock %}
