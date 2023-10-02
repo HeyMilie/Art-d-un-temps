@@ -1,0 +1,18 @@
+{% extends 'bo_base.html.twig' %}
+
+{% block title %}Art d'un temps - Modifier l'utilisateur{% endblock %}
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("profil_admin")}}">Profil de {{app.user.username}}</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("admin_utilisateurs")}}">Liste des utilisateurs</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Modifier l'utilisateur {{ user.email }}</li>
+        </ol>
+    </nav>
+    <h1>modifier l'utilisateur</h1>
+    <h2 class="text-center center h2-profil">{{ user.email }}</h2>
+        <div class="col-lg-6 mx-auto pt-3 border rounded bg-white">
+            {{ form(userForm)}}
+            </div>
+{% endblock %}

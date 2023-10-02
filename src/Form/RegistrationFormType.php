@@ -2,80 +2,42 @@
 
 namespace App\Form;
 
-use App\Entity\Membre;
+use App\Entity\Users;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class RegistrationFormType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $membre = $options["data"];
         $builder
-            ->add('roles', ChoiceType::class, [
-            "choices" => [
-                "Artiste" => "ROLE_ARTISTE",
-                "Visiteur" => "ROLE_MEMBRE",
-            ],
-            "label" => "Je m'inscris en tant que :",
-            "mapped" => false,
-            "multiple" => false,
-            "expanded" => true
-            ])
-            
-            ->add('pseudo', TextType::class, [
-                "label" => "Pseudo",
-                "required" => true
-            ])
-
+            ->add('email')
+           
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
-                "mapped" => false,
-                "attr" => ["autocomplete" => "new-password"],
-                "constraints" => [
+                'mapped' => false,
+                'label' => 'Mot de passe',
+                'attr' => ['autocomplete' => 'new-password'],
+                'constraints' => [
                     new NotBlank([
-                        "message" => "Veuillez renseigner un mot de passe",
+                        'message' => 'Veuiller entre un mot de passe',
                     ]),
                     new Length([
-                        "min" => 6,
-                        "minMessage" => "Votre  mot de passe doit contenir au moins 6 caractères",
+                        'min' => 6,
+                        'minMessage' => 'Votre mot de passe doit contenir au moins 6 caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
                 ],
-                
             ])
-            ->add("prenom", TextType::class, [
-                "label" => "Prénom",
-                "required" => false
-            ])
-
-            ->add("nom", TextType::class, [
-                "required" => false
-            ])
-
-            ->add("email", TextType::class, [
-                "required" => false
-            ])
-
-            // ->add('photo', FileType::class, [
-            //     "mapped" => false,
-            //     "attr" => ["label_attr" => "Parcourir", "lang" => "fr"]
-                
-            // ])
-
             ->add("agreeTerms", CheckboxType::class, [
                 "mapped" => false,
                 "constraints" => [
@@ -94,10 +56,10 @@ class RegistrationFormType extends AbstractType
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            "data_class" => Membre::class,
+            'data_class' => Users::class,
         ]);
     }
 }

@@ -22,7 +22,9 @@ $breadcrumb-divider: quote(">");
 //********************
 body {
     background-color: white;
+
 }
+
 
 h1 {
     font-family: 'Permanent Marker', cursive;
@@ -52,6 +54,11 @@ a {
     color: #00aa86;
 }
 
+
+.no-result {
+    color:#999;
+    font-style: italic;
+}
 
 /* Styles Breadcrumb */
 
@@ -161,7 +168,7 @@ a {
 }
 
 //********************************
-// STYLES FORM INSCRIPTION/CONNEXION
+// STYLES FORM
 //********************************
 .custom-file-input:lang(fr)~.custom-file-label::after {
     content: "Parcourir";
@@ -170,6 +177,7 @@ a {
 .label-log {
     color: white;
 }
+
 
 //********************************
 // STYLES CONCEPT
@@ -245,6 +253,7 @@ a {
 footer {
     background-color: #2F2F2F;
     color: #F5F5F5;
+
 }
 
 footer li {

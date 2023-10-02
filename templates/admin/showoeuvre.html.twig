@@ -1,0 +1,72 @@
+{% extends 'bo_base.html.twig' %}
+
+{% block title %}Art d'un temps - Oeuvre {{ oeuvre.titre }}{% endblock %}
+
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-dark">
+            <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path("admin_accueil")}}">Administration</a></li>
+            <li class="breadcrumb-item active"><a href="{{ path("admin_oeuvres")}}">Liste des oeuvres</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Fiche {{ oeuvre.titre }}</li>
+        </ol>
+    </nav>
+
+    <h1>Fiche oeuvre</h1>
+    {% if oeuvre.photo is defined %}
+            <img class="rounded img-membre-list mx-auto d-block" src="{{ asset(dossier_images_oeuvres) ~ oeuvre.photo }}" alt="photo de l'oeuvre">
+    {% endif %}
+    <h2 class="text-center center h2-profil">
+    {{ oeuvre.titre }}
+    </h2>
+    <div class="card mt-3 mb-3">
+        <div class="card-body">
+            <h3>Informations</h3>
+            <a href="{{ path('admin_modifier_oeuvre', {'id': oeuvre.id}) }}" class="btn mb-3"><i class="fas fa-edit"></i> Modifier</a>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Référence</th>
+                        <td>{{ oeuvre.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Titre</th>
+                        <td>{{ oeuvre.titre }}</td>
+                    </tr>
+                    <tr>
+                        <th>Catégorie</th>
+                        <td>{{ oeuvre.categorie }}</td>
+                    </tr>
+                    <tr>
+                        <th>Artiste</th>
+                        <td>{{ oeuvre.user.pseudo }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de création</th>
+                        <td>{{ oeuvre.annee ? oeuvre.annee|date('d-m-Y') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Dimensions</th>
+                        <td>{{ oeuvre.dimensions }}cm</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ oeuvre.description }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prix</th>
+                        <td>{{ oeuvre.prix }}€</td>
+                    </tr>
+                    <tr>
+                        <th>Stock</th>
+                        <td>{{ oeuvre.stock }}</td>
+                    </tr>
+            </table>
+
+        </div>
+    </div>
+    <div class="d-flex justify-content-between">
+        <a href="{{ path("admin_oeuvres")}}" class="btn"><i class="fas fa-arrow-left"></i> Retour</a>  
+        {{ include('admin/deleteoeuvre.html.twig') }} 
+    </div>
+{% endblock %}
