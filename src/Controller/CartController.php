@@ -85,4 +85,24 @@ class CartController extends AbstractController
         //On redirige vers la page du panier
         return $this->redirectToRoute('cart_index');
     }
+
+    //Supprimer un produit quelque soit sa quantité
+    #[Route('/delete/{id}', name: 'delete')]
+    public function delectProduct(Oeuvres $product, SessionInterface $session): Response
+    {
+        //On récupère l'id du produit
+        $id = $product->getId();
+
+        // On récupère le panier existant
+        $panier = $session->get('panier', []);
+
+        if(!empty($panier[$id])){ 
+            unset($panier[$id]);
+        }
+
+        $session->set('panier', $panier);
+        
+        //On redirige vers la page du panier
+        return $this->redirectToRoute('cart_index');
+    }
 }

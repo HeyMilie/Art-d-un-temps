@@ -11,41 +11,40 @@
                 <table class="table mt-3">
                     <thead class="bg-light">
                         <tr>
-                            <th>Photo</th>
                             <th>Oeuvre</th>
                             <th>Prix</th>
                             <th>Quantité</th>
                             <th>Total</th>
-                            <th>Actions</th>
+                            <th>Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
                     {% for element in data %}
                             <tr class="text-table">
-                                <td><img class="rounded img-membre-list" src="{{ asset(dossier_images_oeuvres) ~ element.product.photo }}" alt="-"></td>
-                                <td>{{ element.product.titre }}<br>
+                                <td><img class="rounded img-membre-list m-2" src="{{ asset(dossier_images_oeuvres) ~ element.product.photo }}" alt="-">
+                                "{{ element.product.titre }}"
                                 de {{ element.product.user.pseudo }}</td>
-                                <td>{{ element.product.prix }} €</td>
-                                <td><a href="{{ path('cart_remove', {id: element.product.id})}}" class="link-action"><i class="fas fa-minus"></i></a>
+                                <td class="align-middle">{{ element.product.prix }} €</td>
+                                <td class="align-middle"><a href="{{ path('cart_remove', {id: element.product.id})}}" class="link-action"><i class="fas fa-minus"></i></a>
                                 {{ element.quantity }}
                                 <a href="{{ path('cart_add', {id: element.product.id})}}" class="link-action"><i class="fas fa-plus"></i></a>
                                 </td>
-                                <td>{{ element.quantity * element.product.prix }} €</td>
-                                <td>
-                                    <a href="#" class="link-action"><i class="fas fa-trash"></i></a>
+                                <td class="align-middle">{{ element.quantity * element.product.prix }} €</td>
+                                <td class="align-middle">
+                                    <a href="{{ path('cart_delete', {id: element.product.id})}}" class="link-action"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                             {% else %}
                             <tr class="text-table">
-                                <td colspan="5">Votre panier est vide </td>
+                                <td colspan="5" class="align-middle">Votre panier est vide </td>
                             </tr>
                     {% endfor %}
                     </tbody>
                     <tfoot>
                         <tr class="text-table">
-                            <td colspan="4">Total</td>
-                            <td>{{ total }} €</td>
-                            <td>
+                            <td colspan="3" class="align-middle">Total</td>
+                            <td class="align-middle">{{ total }} €</td>
+                            <td class="align-middle">
                                 <a href="#" class="btn"><i class="fas fa-trash"></i> Vider le panier</a>
                             </td>
                         </tr>
