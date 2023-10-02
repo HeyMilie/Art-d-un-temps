@@ -14,24 +14,25 @@ class CartController extends AbstractController
 {
 
     #[Route('/', name: 'index')]
-    public function index(SessionInterface $session, OeuvresRepository $oeuvresRepository): Response
+    public function index(SessionInterface $session, OeuvresRepository $productsRepository)
     {
         $panier = $session->get('panier', []);
-        
-        //On initialise des variables
+
+        // On initialise des variables
         $data = [];
         $total = 0;
 
-        foreach($panier as $id => $quantite){
-            $oeuvre = $oeuvresRepository->find($id);
-            $data[] =  [
-                'oeuvre' => $oeuvresRepository,
-                'quantite' => $quantite
+        foreach($panier as $id => $quantity){
+            $product = $productsRepository->find($id);
+
+            $data[] = [
+                'product' => $product,
+                'quantity' => $quantity
             ];
-            $total += $oeuvre->getPrix() * $quantite;
+            $total += $product->getPrix() * $quantity;
         }
         
-        return $this->render('cart/index.html.twig', compact('data'));
+        return $this->render('cart/index.html.twig', compact('data', 'total'));
     }
 
     #[Route('/add/{id}', name: 'add')]
@@ -57,4 +58,6 @@ class CartController extends AbstractController
         //On redirige vers la page du panier
         return $this->redirectToRoute('cart_index');
     }
+
+    
 }
