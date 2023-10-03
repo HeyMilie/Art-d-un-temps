@@ -32,6 +32,16 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            $destination = $this->getParameter("dossier_images_membres");
+            if($photoTelechargee = $form->get("photo")->getData()){
+                $photo = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME);
+                $nouveauNom = str_replace(" ", "_", $photo);
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtension();
+                $photoTelechargee->move($destination, $nouveauNom);
+                $user->setPhoto($nouveauNom);
+
+            }
+
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email

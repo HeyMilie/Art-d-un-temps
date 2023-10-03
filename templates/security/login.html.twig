@@ -11,7 +11,7 @@
         <div class="col-lg-6 mx-auto py-3">
             {% if app.user %}
                 <div class="mb-3">
-                    Vous êtes connecté(e) en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                    Vous êtes connecté(e) en tant que {{ app.user.pseudo }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
                 </div>
             {% endif %}
 
@@ -34,7 +34,10 @@
                 </div>
             #}
 
-            <button class="btn m-2" type="submit">Se connecter</button>
+            <div class="p-4 d-flex justify-content-between">
+                <button class="btn" type="submit">Se connecter</button>
+                <a class="nav-link fz-nav" href="{{ path("app_register") }}">S'inscrire</a>
+            </div>
         </div>
     </div>
 </form>

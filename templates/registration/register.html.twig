@@ -32,8 +32,9 @@
                
                     {{ form_row(registrationForm.agreeTerms) }}
                 </div>
-                <div class="p-4 right">
-                    {{ form_row(registrationForm.enregistrer) }}
+                <div class="p-4 d-flex justify-content-between">
+                    <button type="submit" class="btn">S'inscrire</button>
+                    <a class="nav-link fz-nav" href="{{ path("app_login") }}">Se connecter</a>
                 </div>
 
             {{ form_end(registrationForm) }}

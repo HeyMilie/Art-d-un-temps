@@ -62,7 +62,7 @@
                 <div class="card">
                     <img class="card-img-top" src="{{ asset(dossier_images_oeuvres) ~ oeuvre.photo }}" alt="-">
                         <article class="card-body">
-                        <h3><a href="#">{{ oeuvre.titre }}</a></h3>
+                        <h3><a href="{{ path('oeuvre', {'id': oeuvre.id}) }}">{{ oeuvre.titre }}</a></h3>
                             <span class="details-oeuvre">{{ oeuvre.user.pseudo }} / {{ oeuvre.annee ? oeuvre.annee|date('d-m-Y') : '' }}</span>
                         </article>
 

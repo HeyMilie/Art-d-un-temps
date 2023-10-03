@@ -12,7 +12,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
@@ -102,12 +101,6 @@ class RegistrationFormType extends AbstractType
                     'class' => 'form-control',
                     'placeholder' => 'Aucun fichier sélectionné'
                 ]    
-            ])
-
-            ->add("enregistrer", SubmitType::class,[
-                "attr" => 
-                ["class" => "btn"
-                ]
             ])
         ;
     }
