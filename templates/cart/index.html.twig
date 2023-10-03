@@ -34,21 +34,19 @@
                                     <a href="{{ path('cart_delete', {id: element.product.id})}}" class="link-action"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
+                            <tr class="text-table">
+                                <td colspan="3" class="align-middle">Total</td>
+                                <td class="align-middle">{{ total }} €</td>
+                                <td class="align-middle">
+                                    <a href="{{ path('cart_empty') }}" class="btn"><i class="fas fa-trash"></i> Vider le panier</a>
+                                </td>
+                            </tr>
                             {% else %}
                             <tr class="text-table">
                                 <td colspan="5" class="align-middle">Votre panier est vide </td>
                             </tr>
-                    {% endfor %}
+                        {% endfor %}
                     </tbody>
-                    <tfoot>
-                        <tr class="text-table">
-                            <td colspan="3" class="align-middle">Total</td>
-                            <td class="align-middle">{{ total }} €</td>
-                            <td class="align-middle">
-                                <a href="#" class="btn"><i class="fas fa-trash"></i> Vider le panier</a>
-                            </td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
 
