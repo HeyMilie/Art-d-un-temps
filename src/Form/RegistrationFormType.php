@@ -19,6 +19,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email')
+
            
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
@@ -47,6 +48,14 @@ class RegistrationFormType extends AbstractType
                 ],
                 "attr" => ["class" => "form-check-input"]
             ])
+
+            ->add('nom')
+            ->add('prenom')
+            ->add('pseudo')
+            ->add('adresse')
+            ->add('cp')
+            ->add('ville')
+            ->add('photo')
 
             ->add("enregistrer", SubmitType::class,[
                 "attr" => 
