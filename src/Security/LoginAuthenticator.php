@@ -91,10 +91,10 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator
         // Redirection après authentification réussie !!!!
         if($this->security->isGranted("ROLE_ADMIN")){
             return new RedirectResponse($this->urlGenerator->generate('admin_accueil')); 
-        } elseif ($this->security->isGranted("ROLE_ARTISTE")){
-            return new RedirectResponse($this->urlGenerator->generate('profil_artiste'));
+        //} elseif ($this->security->isGranted("ROLE_ARTISTE")){
+        //    return new RedirectResponse($this->urlGenerator->generate('profil_artiste'));
         } else {
-            return new RedirectResponse($this->urlGenerator->generate('profil_membre'));
+            return new RedirectResponse($this->urlGenerator->generate('accueil'));
         }
     }
 
