@@ -6,6 +6,7 @@ security:
             entity:
                 class: App\Entity\Users
                 property: email
+
     encoders:
     # use your user class name here
         App\Entity\Users:

@@ -22,6 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 #[Route('/admin', name: 'admin_')]
@@ -76,7 +77,7 @@ class AdminController extends AbstractController
     }
     //Ajouter un nouveau membre
     #[Route('/utilisateur/ajouter', name: 'ajouter_utilisateur')]
-    public function newUser(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager): Response
+    public function newUser(Request $request, UserPasswordEncoderInterface $passwordencoder, EntityManagerInterface $entityManager): Response
     {
         $user = new Users();
         $form = $this->createForm(NewUserType::class, $user);
@@ -85,7 +86,7 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
              // encode the plain password
              $user->setPassword(
-                $passwordEncoder->encodePassword(
+                $passwordencoder->encodePassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
