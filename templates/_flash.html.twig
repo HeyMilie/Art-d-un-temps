@@ -1,4 +1,4 @@
-{% for label,messages in app.flash %}
+{% for label, messages in app.flashes %}
     {% for message in messages %}
         <div class="alert alert-{{ label }} alert-dismissible fade show" role="alert">
 			{{ message|raw }}
