@@ -7,5 +7,7 @@ export const app = startStimulusApp(require.context(
     /\.(j|t)sx?$/
 ));
 
+const alertList = document.querySelectorAll('.alert')
+const alerts = [...alertList].map(element => new bootstrap.Alert(element))
 // register any custom, 3rd party controllers here
 // app.register('some_controller_name', SomeImportedController);

@@ -10,7 +10,7 @@ parameters:
     dossier_images_oeuvres: '%kernel.project_dir%/public/images/oeuvres'
     dossier_images_evenements: '%kernel.project_dir%/public/images/evenements'
     dossier_images_articles: '%kernel.project_dir%/public/images/articles'
-
+    app.jwtsecret: '%env(JWT_SECRET)%'
 
 services:
     # default configuration for services in *this* file

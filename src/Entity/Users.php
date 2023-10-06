@@ -77,6 +77,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private $photo;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_verified = false;
+
+    /**
      * @ORM\OneToMany(targetEntity=Oeuvres::class, mappedBy="user")
      */
     private $oeuvres;
@@ -262,6 +267,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getIsVerified(): ?bool
+    {
+        return $this->is_verified;
+    }
+
+    public function setIsVerified(bool $is_verified): self
+    {
+        $this->is_verified = $is_verified;
 
         return $this;
     }
