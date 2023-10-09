@@ -7,6 +7,9 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
+//import { Tooltip, Toast, Popover } from 'bootstrap';
+import 'bootstrap/js/dist/util';
+import 'bootstrap/js/dist/alert';
 
 
 const $ = require("jquery");
@@ -16,6 +19,8 @@ require("bootstrap");
 
 //import './bootstrap';
 console.log("chargement du fichier app.js");
+
+$('.alert').alert('close');
 
 $(document).on('change', '.custom-file-input', function () {
     let fileName = $(this).val().replace(/\\/g, '/').replace(/.*\//, '');
