@@ -6,44 +6,68 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb bg-dark">
 			  <li class="breadcrumb-item"><a href="{{ path("accueil")}}">Accueil</a></li>
-			  <li class="breadcrumb-item active" aria-current="page">Compte de {{app.user.username}}</li>
+			  <li class="breadcrumb-item active" aria-current="page">Compte de {{ app.user.pseudo }}</li>
 			</ol>
 		</nav>
 
-		<h1>Bienvenue sur votre compte {{ app.user.pseudo }}</h1>
+    <section class="container">
+        <h1>Bienvenue sur votre compte {{ app.user.pseudo }}</h1>
+        <div class="row mt-3">
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Informations personnelles</h5>
+                        
+                            {% if app.user.photo is defined %}
+                            
+                                <img class="rounded-circle img-membre m-3" src="{{ asset(dossier_images_membres) ~ app.user.photo }}" alt="photo de profil">
+                            
+                            {% endif %}
+                            <div>
+                                <strong>{{ app.user.prenom }} {{ app.user.nom }}</strong>
+                                <p><cite>{{ app.user.pseudo }}</cite></p>
+                                <hr>
+                                <p><i class="fa fa-envelope"></i> {{ app.user.email }}</p>			
+                                {{ app.user.adresse }}<br />
+                                {{ app.user.cp }} {{ app.user.ville }}
 
-		<h2 class="border-bottom h2-profil">Mes informations personnelles</h2>
+                                <div class="mt-3">
+                                    <a class="btn" href="#">Modifier</a>
+                                </div>
+                            </div>   
+                    </div>
+                </div>
+            </div>
 
-		<div class="row justify-content-between align-items-start pb-3">
-			
-			<div class="col-lg-2">
-				{% if app.user.photo is defined %}
-               		<img class="rounded img-membre m-3" src="{{ asset(dossier_images_membres) ~ app.user.photo }}" alt="photo de profil">
-           		{% endif %}
-			</div>
+            <div class="col-sm-9">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Abonnements et alertes</h5>
+                    <div class="d-flex justify-content-between">
+                        <p>Inscription à la Newsletter artduntemps.com</p>
+                        <div class="custom-control custom-switch ml-2">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                            <label class="custom-control-label" for="customSwitch1">Oui</label>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p>Alertes nouveaux événements artduntemps.com</p>
+                        <div class="custom-control custom-switch ml-2">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch2">
+                            <label class="custom-control-label" for="customSwitch2">Oui</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Commandes d'oeuvres</h5>
+                </div>
+            </div>
+        </div>
 
-			<ul class="col-lg-8 ul-profil mt-3">
-				<li>Nom & Prénom : {{ app.user.nom }} {{ app.user.prenom }}</li>
-				<li>Pseudo : {{ app.user.pseudo }}</li>
-				<li>E-mail : {{ app.user.email }}</li>			
-				<li>Adresse : {{ app.user.adresse }}</li>
-				<li>Code Postal - Ville : {{ app.user.cp }} {{ app.user.ville }}</li>
-			</ul>
-			
-			<div class="col-lg-2 mt-3">
-				<a class="btn" href="#">Modifier</a>
-			</div>
-	
-		</div>
-
-		<div class="row justify-content-between align-items-center">
-			<h2 class="h2-profil">Abonnement à la newsletter</h2>
+    </section>
 		
-			<div class="custom-control custom-switch">
-				<input type="checkbox" class="custom-control-input" id="customSwitch1">
-				<label class="custom-control-label" for="customSwitch1"></label>
-			</div>
-		</div>
 
 		<h2 class="border-bottom h2-profil">Mes commandes</h2>
 

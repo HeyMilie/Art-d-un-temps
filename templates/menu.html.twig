@@ -41,7 +41,7 @@
                             </li>
                         {% elseif is_granted("ROLE_USER") %}
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{ path("profil_user") }}">
                                     <i class="fa fa-user"></i>
                                     Mon compte
                                 </a>
