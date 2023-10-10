@@ -82,6 +82,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private $is_verified = false;
 
     /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $resetToken;
+
+    /**
      * @ORM\OneToMany(targetEntity=Oeuvres::class, mappedBy="user")
      */
     private $oeuvres;
@@ -279,6 +284,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $is_verified): self
     {
         $this->is_verified = $is_verified;
+
+        return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(?string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
 
         return $this;
     }
