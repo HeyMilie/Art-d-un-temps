@@ -64,6 +64,16 @@ class Oeuvres
      */
     private $description;
 
+    /**
+     * @ORM\OneToMany(targetEntity=OrdersDetails::class, mappedBy="oeuvres")
+     */
+    private $ordersDetails;
+
+    public function __construct()
+    {
+        $this->ordersDetails = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -174,6 +184,36 @@ class Oeuvres
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, OrdersDetails>
+     */
+    public function getOrdersDetails(): Collection
+    {
+        return $this->ordersDetails;
+    }
+
+    public function addOrdersDetail(OrdersDetails $ordersDetail): self
+    {
+        if (!$this->ordersDetails->contains($ordersDetail)) {
+            $this->ordersDetails[] = $ordersDetail;
+            $ordersDetail->setOeuvres($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrdersDetail(OrdersDetails $ordersDetail): self
+    {
+        if ($this->ordersDetails->removeElement($ordersDetail)) {
+            // set the owning side to null (unless already changed)
+            if ($ordersDetail->getOeuvres() === $this) {
+                $ordersDetail->setOeuvres(null);
+            }
+        }
 
         return $this;
     }

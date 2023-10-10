@@ -96,11 +96,17 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $events;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Orders::class, mappedBy="users")
+     */
+    private $orders;
+
 
     public function __construct()
     {
         $this->oeuvres = new ArrayCollection();
         $this->events = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -360,6 +366,36 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString(): string
     {
         return $this->pseudo ?: '';
+    }
+
+    /**
+     * @return Collection<int, Orders>
+     */
+    public function getOrdres(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrders(Orders $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrders(Orders $order): self
+    {
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getUsers() === $this) {
+                $order->setUsers(null);
+            }
+        }
+
+        return $this;
     }
 
 }
