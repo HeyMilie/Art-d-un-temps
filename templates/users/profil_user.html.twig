@@ -67,18 +67,24 @@
                             <thead class="bg-light">
                                 <th>N° Commande</th>
                                 <th>Date</th>
-                                <th>Etat</th>
                                 <th>Total</th>
                                 <th>Actions</th>
                             </thead>
                             <tbody>
+                            
+                            {% for order in app.user.getOrders %}
                                 <tr>
+                                    <td>{{ order.reference }}</td> 
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                        
+                                  <td>{% for details in app.user %}
+                                  {{ details.getPrice }} 
+                                  {% endfor %}
+                                  €</td>
+                                  
                                     <td></td>
                                 </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>

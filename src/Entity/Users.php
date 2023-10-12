@@ -371,7 +371,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, Orders>
      */
-    public function getOrdres(): Collection
+    public function getOrders(): Collection
     {
         return $this->orders;
     }
